@@ -61,7 +61,6 @@ Create a full-stack web application for Mauro Ferrante Consulting (marketing, bu
 - None currently
 
 ### P1 (Important)
-- Email integration (Resend/SMTP) for contact form - currently logs only
 - Mobile responsiveness verification for header submenus
 - Add Canada marker label to i18n translations
 
