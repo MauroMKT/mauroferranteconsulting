@@ -1,59 +1,43 @@
 # Mauro Ferrante Consulting Studio - PRD
 
 ## Original Problem Statement
-Create a professional web app for Mauro Ferrante Consulting Studio (marketing, business management, real estate investments) based on the GitHub repo https://github.com/MauroMKT/mauroferranteconsulting.git with full graphics, pages, logos, images.
+Create a professional web app for Mauro Ferrante Consulting Studio based on GitHub repo with full graphics, pages, logos, images.
 
 ## Architecture
-- **Frontend**: React.js with TailwindCSS + react-router-dom, deployed on port 3000
-- **Backend**: FastAPI (Python), deployed on port 8001
-- **Database**: MongoDB (for contact form submissions)
+- **Frontend**: React.js + TailwindCSS + react-router-dom + react-simple-maps
+- **Backend**: FastAPI (Python) on port 8001
+- **Database**: MongoDB (contact form)
 - **Fonts**: Cormorant Garamond (serif) + Outfit (sans)
-- **Theme**: Dark (#080808) with gold accents (#c9a84c)
+- **Theme**: Dark (#080808) with gold (#c9a84c)
 
-## Routing Structure
-- `/` - Homepage (all sections)
-- `/about` - Full biography page
-- `/services/project-management` - PM service detail
-- `/services/digital-marketing` - Digital service detail
-- `/services/real-estate` - Real Estate service detail
-- `/partners/kw-gchouse` - KW GCHOUSE partner page
-- `/partners/trem-group` - TREM Group partner page
-- `/partners/azequo-engineering` - Azequo Engineering partner page
+## Routing
+- `/` - Homepage (12+ sections)
+- `/about` - Full biography (all 20 reviews)
+- `/services/project-management` | `/services/digital-marketing` | `/services/real-estate`
+- `/partners/kw-gchouse` | `/partners/trem-group` | `/partners/azequo-engineering`
 
-## What's Been Implemented (Jan 2026)
+## What's Been Implemented
+
 ### Session 1 - Core MVP
-- [x] Full single-page application with 12+ sections
-- [x] 5-language support (EN, IT, ES, FR, DE) with browser auto-detection
-- [x] Contact form with validation + MongoDB + mailto fallback
-- [x] 2 WhatsApp buttons (EU/Asia + LATAM/USA)
-- [x] Floating WhatsApp widget
-- [x] All component sections working
+- Full single-page app with all sections, 5-language support, contact form, WhatsApp widget
 
-### Session 2 - Internal Pages & Map
-- [x] Service detail pages (3 pages with sub-services, hero images, CTA)
-- [x] Biography page with photo, career path, competencies, languages, all reviews
-- [x] Partner pages (KW, TREM, Azequo) with stats, descriptions, services
-- [x] World Map with 12 animated country dots (IT, ES, PE, US, TH, MT, BE, DE, FR, UK, CH, SA)
-- [x] Connection lines from intercontinental countries to Europe hub
-- [x] Review platform links (Google Reviews, Trustpilot, LinkedIn)
-- [x] Service "Learn More" links to detail pages
-- [x] Client cards link to partner pages
-- [x] About section link to full biography
-- [x] Back-to-home navigation from all internal pages
-- [x] React Router with scroll-to-top on navigation
+### Session 2 - Internal Pages
+- Service detail pages, biography page, partner pages, WorldMap (SVG), review links, React Router
 
-## Testing Results (Session 2)
-- Backend: 100%
-- Frontend: 95%
+### Session 3 - Map & Reviews Improvements
+- [x] Real world map with react-simple-maps and TopoJSON country borders
+- [x] 20+ countries highlighted in gold (IT, ES, PE, US, TH, MT, BE, DE, FR, UK, CH, SA, AR, CL, RU, CN, CA, DK, SE, NO)
+- [x] 12 animated markers with pulse effects
+- [x] Connection lines from Europe to intercontinental locations
+- [x] Hover tooltips with country names
+- [x] All 20 reviews with correct platform links (Google Maps, Trustpilot, LinkedIn)
+- [x] Homepage: 6 reviews + "Leggi Tutte le Recensioni (20)" button
+- [x] /about page: all 20 reviews displayed
+- [x] Button translated in all 5 languages
+- [x] 5 previously missing reviews added (Troops Racing Gear, Annalisa Piccolomini, Carmine Rossi, Pietro Carlino, Isabel Turrillo)
 
-## Prioritized Backlog
-### P1 (Next)
-- Resend API integration for actual email delivery
-- Cookie banner / GDPR compliance
-- Insights/blog detail pages with full article content
+## Testing: Backend 100% | Frontend 90%+
 
-### P2 (Future)
-- Privacy policy page
-- SEO meta tags per section/page
-- Google Analytics / Tag Manager
-- Animated number counters on partner pages
+## Backlog
+### P1: Resend API for email, Cookie banner/GDPR, Insights detail pages
+### P2: Privacy page, SEO meta tags, Analytics

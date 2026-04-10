@@ -54,10 +54,20 @@ const readMoreLabels = {
   de: "Alle Bewertungen Lesen",
 };
 
+const verifiedLabels = {
+  en: "verified reviews",
+  it: "recensioni verificate",
+  es: "reseñas verificadas",
+  fr: "avis vérifiés",
+  de: "verifizierte Bewertungen",
+};
+
 export default function Reviews({ locale, limit, showAll = false }) {
   const displayed = showAll ? reviews : reviews.slice(0, limit || 6);
   const hasMore = !showAll && reviews.length > (limit || 6);
   const { ref: headerRef, visible: headerVisible } = useReveal();
+  const btnText = readMoreLabels[locale] || readMoreLabels.en;
+  const verifiedText = verifiedLabels[locale] || verifiedLabels.en;
 
   return (
     <section className="relative py-28 bg-[#080808] overflow-hidden" data-testid="reviews-section">
@@ -65,7 +75,7 @@ export default function Reviews({ locale, limit, showAll = false }) {
         <div ref={headerRef} className={`text-center mb-16 transition-all duration-700 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <span className="text-[#c9a84c]/60 text-xs font-medium tracking-[0.3em] uppercase">{t(locale, "about_page_reviews_sub")}</span>
           <h2 className="text-3xl sm:text-4xl font-serif text-white font-bold mt-4">{t(locale, "about_page_reviews_title")}</h2>
-          <p className="text-white/30 text-xs mt-3">{reviews.length} {locale === "it" ? "recensioni verificate" : locale === "es" ? "reseñas verificadas" : locale === "fr" ? "avis vérifiés" : locale === "de" ? "verifizierte Bewertungen" : "verified reviews"}</p>
+          <p className="text-white/30 text-xs mt-3">{reviews.length} {verifiedText}</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -77,7 +87,7 @@ export default function Reviews({ locale, limit, showAll = false }) {
         {hasMore && (
           <div className="text-center mt-12">
             <Link to="/about" className="inline-flex items-center gap-3 bg-[#c9a84c]/10 text-[#c9a84c] hover:bg-[#c9a84c]/20 border border-[#c9a84c]/20 hover:border-[#c9a84c]/40 text-sm font-medium px-8 py-4 rounded-xl transition-all duration-300" data-testid="reviews-read-more">
-              {readMoreLabels[locale] || readMoreLabels.en}
+              {btnText}
               <span className="bg-[#c9a84c]/20 text-[#c9a84c] text-xs font-bold px-2.5 py-1 rounded-full">{reviews.length}</span>
               <ArrowRight className="w-4 h-4" />
             </Link>

@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from "react";
-import { ComposableMap, Geographies, Geography, Marker, Line } from "react-simple-maps";
+import { useState, useEffect, useRef, useMemo } from "react";
+import { ComposableMap, Geographies, Geography, Marker, Line, Graticule } from "react-simple-maps";
 import { t } from "@/lib/i18n";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
@@ -99,7 +99,7 @@ export default function WorldMap({ locale }) {
               }
             </Geographies>
 
-            {/* Connection lines */}
+            {/* Connection lines from Europe to intercontinental markers */}
             {MARKERS.map((marker, i) => {
               if (!INTERCONTINENTAL.includes(marker.name)) return null;
               const isLit = litCount > i;
@@ -108,10 +108,12 @@ export default function WorldMap({ locale }) {
                   key={`line-${marker.name}`}
                   from={EUROPE_CENTER}
                   to={marker.coordinates}
-                  stroke={isLit ? "rgba(201,168,76,0.25)" : "rgba(255,255,255,0.03)"}
-                  strokeWidth={1}
+                  stroke={isLit ? "rgba(201,168,76,0.35)" : "rgba(255,255,255,0.06)"}
+                  strokeWidth={1.5}
                   strokeLinecap="round"
-                  strokeDasharray="4 4"
+                  strokeDasharray="6 4"
+                  style={{ pointerEvents: "none" }}
+                  coordinates={[EUROPE_CENTER, marker.coordinates]}
                 />
               );
             })}
