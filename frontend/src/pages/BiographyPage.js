@@ -15,10 +15,10 @@ const stats = [
 ];
 
 const languages = [
-  { name: "Italiano", level: "Native" },
-  { name: "Español", level: "Fluent (C2)" },
-  { name: "English", level: "Fluent (C1)" },
-  { name: "Français", level: "Intermediate (B2)" },
+  { name: "Italiano" },
+  { name: "Español" },
+  { name: "English" },
+  { name: "Français" },
 ];
 
 const careerMilestones = {
@@ -134,7 +134,6 @@ export default function BiographyPage({ locale, setLocale }) {
             {languages.map((l) => (
               <div key={l.name} className="bg-[#0f0f0f] border border-white/5 rounded-xl p-4 text-center">
                 <div className="text-white font-medium text-sm">{l.name}</div>
-                <div className="text-[#c9a84c]/50 text-xs mt-1">{l.level}</div>
               </div>
             ))}
           </div>

@@ -7,8 +7,8 @@ const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"
 const HIGHLIGHTED_COUNTRIES = [
   "Italy", "Spain", "Peru", "United States of America", "Thailand",
   "Malta", "Belgium", "Germany", "France", "United Kingdom",
-  "Switzerland", "Saudi Arabia", "Argentina", "Chile", "Russia",
-  "China", "Canada", "Denmark", "Sweden", "Norway",
+  "Switzerland", "Saudi Arabia", "Argentina", "Chile",
+  "Canada", "Denmark", "Sweden", "Norway",
 ];
 
 const MARKERS = [

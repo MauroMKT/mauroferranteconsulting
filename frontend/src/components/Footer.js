@@ -55,9 +55,8 @@ export default function Footer({ locale }) {
           <div className="grid md:grid-cols-4 gap-12">
             {/* Brand */}
             <div className="md:col-span-1">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="text-[#c9a84c] font-serif text-xl font-bold">MF</span>
-                <span className="text-white/50 text-xs tracking-[0.15em] uppercase">Consulting</span>
+              <div className="flex items-center gap-3 mb-4">
+                <img src="/images/logo-mf.png" alt="Mauro Ferrante" className="h-12 w-auto" />
               </div>
               <p className="text-white/30 text-xs leading-relaxed">{t(locale, "footer_brand_desc")}</p>
               <div className="flex items-center gap-3 mt-6">
@@ -95,8 +94,8 @@ export default function Footer({ locale }) {
               <h4 className="text-white/60 text-xs font-medium tracking-[0.2em] uppercase mb-4">{t(locale, "footer_contact_title")}</h4>
               <ul className="space-y-3">
                 <li><a href="mailto:mauro@mauroferrante.com" className="text-white/30 hover:text-[#c9a84c] text-sm transition-colors flex items-center gap-2"><Mail className="w-3.5 h-3.5" />mauro@mauroferrante.com</a></li>
-                <li><a href="https://wa.me/393491177007" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#25D366] text-sm transition-colors flex items-center gap-2"><WhatsAppIconSvg className="w-3.5 h-3.5" />+39 349 117 7007</a></li>
-                <li><a href="https://wa.me/51964243686" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#25D366] text-sm transition-colors flex items-center gap-2"><WhatsAppIconSvg className="w-3.5 h-3.5" />+51 964 243 686</a></li>
+                <li><a href="https://wa.me/393491177007" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#25D366] text-sm transition-colors flex items-center gap-2"><WhatsAppIconSvg className="w-3.5 h-3.5" />EUROPA & ASIA</a></li>
+                <li><a href="https://wa.me/51964243686" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#25D366] text-sm transition-colors flex items-center gap-2"><WhatsAppIconSvg className="w-3.5 h-3.5" />USA & LATAM</a></li>
               </ul>
             </div>
           </div>
