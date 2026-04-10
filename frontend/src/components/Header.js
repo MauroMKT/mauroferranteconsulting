@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { locales, localeNames, t } from "@/lib/i18n";
 
@@ -6,6 +7,9 @@ export default function Header({ locale, setLocale }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -15,8 +19,12 @@ export default function Header({ locale, setLocale }) {
 
   const navigateTo = (anchor) => {
     setMobileOpen(false);
-    const el = document.querySelector(anchor);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    if (isHome) {
+      const el = document.querySelector(anchor);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/" + anchor);
+    }
   };
 
   const navItems = [
@@ -31,14 +39,14 @@ export default function Header({ locale, setLocale }) {
     <header
       data-testid="main-header"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-[#080808]/95 backdrop-blur-xl border-b border-[#c9a84c]/10 py-3" : "bg-transparent py-5"
+        scrolled || !isHome ? "bg-[#080808]/95 backdrop-blur-xl border-b border-[#c9a84c]/10 py-3" : "bg-transparent py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <button onClick={() => navigateTo("#home")} className="flex items-center gap-2 group" data-testid="header-logo">
+        <Link to="/" className="flex items-center gap-2 group" data-testid="header-logo">
           <span className="text-[#c9a84c] font-serif text-xl font-bold tracking-tight">MF</span>
           <span className="hidden sm:block text-white/60 text-xs font-light tracking-[0.2em] uppercase group-hover:text-white/80 transition-colors">Consulting Studio</span>
-        </button>
+        </Link>
 
         <nav className="hidden lg:flex items-center gap-8" data-testid="desktop-nav">
           {navItems.map((item) => (

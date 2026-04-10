@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { t } from "@/lib/i18n";
 import { Globe2, Award, TrendingUp, Users, ArrowRight } from "lucide-react";
 import { useReveal } from "@/hooks/use-reveal";
@@ -74,15 +75,9 @@ export default function About({ locale }) {
                 <p key={key} className="text-white/50 text-sm leading-relaxed">{t(locale, key)}</p>
               ))}
 
-              <div className="flex items-center gap-4 pt-4">
-                <div className="flex items-center gap-3">
-                  <span className="text-[#c9a84c] font-serif text-lg font-bold">MF</span>
-                  <div>
-                    <div className="text-white text-sm font-medium">Mauro Ferrante</div>
-                    <div className="text-white/30 text-xs">Consulting Studio</div>
-                  </div>
-                </div>
-              </div>
+              <Link to="/about" className="inline-flex items-center gap-2 bg-[#c9a84c]/10 text-[#c9a84c] hover:bg-[#c9a84c]/20 text-sm font-medium px-6 py-3 rounded-lg transition-all duration-200 mt-2" data-testid="about-bio-link">
+                {locale === "it" ? "Scopri la Biografia Completa" : locale === "es" ? "Descubre la Biografía Completa" : "Discover Full Biography"} <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
         </div>

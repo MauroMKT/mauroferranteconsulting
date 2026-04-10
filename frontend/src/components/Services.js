@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { t } from "@/lib/i18n";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import { useReveal } from "@/hooks/use-reveal";
@@ -84,9 +85,13 @@ export default function Services({ locale }) {
                 </ul>
 
                 <div className="flex flex-wrap gap-4">
-                  <button onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-                    className="inline-flex items-center gap-2 bg-[#c9a84c]/10 text-[#c9a84c] hover:bg-[#c9a84c]/20 text-sm font-medium px-6 py-3 rounded-lg transition-all duration-200">
+                  <Link to={`/services/${service.id}`}
+                    className="inline-flex items-center gap-2 bg-[#c9a84c]/10 text-[#c9a84c] hover:bg-[#c9a84c]/20 text-sm font-medium px-6 py-3 rounded-lg transition-all duration-200" data-testid={`service-detail-link-${idx}`}>
                     {t(locale, "learn_more")} <ArrowRight className="w-4 h-4" />
+                  </Link>
+                  <button onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
+                    className="inline-flex items-center gap-2 text-white/40 hover:text-white/70 text-sm font-medium px-6 py-3 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20">
+                    {t(locale, "nav_contact")} <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
               </div>

@@ -95,6 +95,7 @@ const translations = {
     about_market_denmark: "Denmark", about_market_sweden: "Sweden", about_market_norway: "Norway",
     about_market_uk: "United Kingdom", about_market_eu: "European Union",
     about_market_germany: "Germany", about_market_belgium: "Belgium", about_market_switzerland: "Switzerland",
+    about_market_malta: "Malta",
   },
   it: {
     nav_home: "Home", nav_services: "Servizi", nav_about: "Chi Sono", nav_contact: "Contatti", nav_clients: "Si Fidano di Me",
@@ -181,6 +182,7 @@ const translations = {
     about_market_denmark: "Danimarca", about_market_sweden: "Svezia", about_market_norway: "Norvegia",
     about_market_uk: "Regno Unito", about_market_eu: "Unione Europea",
     about_market_germany: "Germania", about_market_belgium: "Belgio", about_market_switzerland: "Svizzera",
+    about_market_malta: "Malta",
   },
   es: {
     nav_home: "Inicio", nav_services: "Servicios", nav_about: "Sobre Mí", nav_contact: "Contacto", nav_clients: "Confían en Mí",
@@ -234,6 +236,7 @@ const translations = {
     about_market_russia: "Rusia", about_market_china: "China", about_market_arabia: "Arabia Saudita", about_market_argentina: "Argentina", about_market_chile: "Chile", about_market_thailand: "Tailandia",
     about_market_denmark: "Dinamarca", about_market_sweden: "Suecia", about_market_norway: "Noruega", about_market_uk: "Reino Unido", about_market_eu: "Unión Europea",
     about_market_germany: "Alemania", about_market_belgium: "Bélgica", about_market_switzerland: "Suiza",
+    about_market_malta: "Malta",
   },
   fr: {
     nav_home: "Accueil", nav_services: "Services", nav_about: "À Propos", nav_contact: "Contact", nav_clients: "Ils Me Font Confiance",
@@ -283,6 +286,7 @@ const translations = {
     about_market_russia: "Russie", about_market_china: "Chine", about_market_arabia: "Arabie Saoudite", about_market_argentina: "Argentine", about_market_chile: "Chili", about_market_thailand: "Thaïlande",
     about_market_denmark: "Danemark", about_market_sweden: "Suède", about_market_norway: "Norvège", about_market_uk: "Royaume-Uni", about_market_eu: "Union Européenne",
     about_market_germany: "Allemagne", about_market_belgium: "Belgique", about_market_switzerland: "Suisse",
+    about_market_malta: "Malte",
   },
   de: {
     nav_home: "Startseite", nav_services: "Leistungen", nav_about: "Über Mich", nav_contact: "Kontakt", nav_clients: "Sie Vertrauen Mir",
@@ -332,6 +336,7 @@ const translations = {
     about_market_russia: "Russland", about_market_china: "China", about_market_arabia: "Saudi-Arabien", about_market_argentina: "Argentinien", about_market_chile: "Chile", about_market_thailand: "Thailand",
     about_market_denmark: "Dänemark", about_market_sweden: "Schweden", about_market_norway: "Norwegen", about_market_uk: "Vereinigtes Königreich", about_market_eu: "Europäische Union",
     about_market_germany: "Deutschland", about_market_belgium: "Belgien", about_market_switzerland: "Schweiz",
+    about_market_malta: "Malta",
   },
 };
 

@@ -52,7 +52,9 @@ export default function Reviews({ locale, limit }) {
                   <div className="text-white text-sm font-medium">{r.name}</div>
                   <div className="text-white/30 text-xs">{r.company}</div>
                 </div>
-                <PlatformBadge platform={r.platform} platformUrl={r.platformUrl} />
+                <a href={r.platformUrl} target="_blank" rel="noopener noreferrer">
+                  <PlatformBadge platform={r.platform} platformUrl={r.platformUrl} />
+                </a>
               </div>
               <div className="flex items-center gap-3 mt-3">
                 <span className="text-white/20 text-[10px]">{r.sector}</span>
