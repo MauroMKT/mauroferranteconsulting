@@ -62,7 +62,7 @@ const partnersData = {
     fullName: "Azequo Engineering S.A.C.",
     logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/api-attachments/r0i7tzQ89uG8DdfcS7cS1-1YO73Xiuya3XvjgQl0SL4iLlM9RQnQ.webp",
     heroImage: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1400&q=85&fit=crop",
-    website: "https://www.azequo.com",
+    website: "https://azequoengineering.com",
     description: {
       en: "Azequo Engineering S.A.C. is a Peruvian industrial engineering firm specialised in quality management, precision engineering, logistics and professional training for mining and industrial sectors.",
       it: "Azequo Engineering S.A.C. è un'azienda peruviana di ingegneria industriale specializzata in gestione qualità, ingegneria di precisione, logistica e formazione professionale per il settore minerario e industriale.",

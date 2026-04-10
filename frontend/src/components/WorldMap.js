@@ -173,7 +173,7 @@ export default function WorldMap({ locale }) {
               <div className="w-6 h-0 border-t border-dashed border-[#c9a84c]/40" />
               <span className="text-white/30 text-[10px] tracking-wider">{locale === "it" ? "Rotte internazionali" : "International routes"}</span>
             </div>
-            <span className="text-[#c9a84c]/40 text-xs font-serif font-bold">12+ {t(locale, "stats_countries_label")}</span>
+            <span className="text-[#c9a84c]/40 text-xs font-serif font-bold">13 {t(locale, "stats_countries_label")}</span>
           </div>
         </div>
       </div>

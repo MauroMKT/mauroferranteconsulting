@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { locales, localeNames, t } from "@/lib/i18n";
+import { locales, t } from "@/lib/i18n";
+
+const localeFlags = { en: "\u{1F1EC}\u{1F1E7}", it: "\u{1F1EE}\u{1F1F9}", es: "\u{1F1EA}\u{1F1F8}", fr: "\u{1F1EB}\u{1F1F7}", de: "\u{1F1E9}\u{1F1EA}" };
 
 const LinkedInIcon = ({ className }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -104,7 +106,7 @@ export default function Header({ locale, setLocale }) {
       }`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group" data-testid="header-logo">
-          <img src="/images/logo-mf.png" alt="Mauro Ferrante" className="h-10 w-auto" />
+          <img src="/images/logo-mf.png" alt="Mauro Ferrante" className="h-14 w-auto" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-7" data-testid="desktop-nav">
@@ -130,14 +132,14 @@ export default function Header({ locale, setLocale }) {
           </div>
 
           <div className="relative">
-            <button onClick={() => setLangOpen(!langOpen)} className="flex items-center gap-1.5 text-white/50 hover:text-white text-xs font-medium transition-colors" data-testid="lang-switcher">
-              {locale.toUpperCase()} <ChevronDown className="w-3 h-3" />
+            <button onClick={() => setLangOpen(!langOpen)} className="flex items-center gap-1.5 text-white/70 hover:text-white text-sm font-medium transition-colors" data-testid="lang-switcher">
+              <span className="text-base leading-none">{localeFlags[locale]}</span> <ChevronDown className="w-3 h-3" />
             </button>
             {langOpen && (
-              <div className="absolute right-0 top-full mt-2 bg-[#111] border border-white/10 rounded-lg py-1 min-w-[140px] shadow-2xl z-50">
+              <div className="absolute right-0 top-full mt-2 bg-[#111] border border-white/10 rounded-lg py-1 min-w-[60px] shadow-2xl z-50">
                 {locales.map((l) => (
-                  <button key={l} onClick={() => { setLocale(l); setLangOpen(false); localStorage.setItem("mfc-locale", l); }} className={`w-full text-left px-4 py-2 text-sm transition-colors ${locale === l ? "text-[#c9a84c] bg-[#c9a84c]/10" : "text-white/60 hover:text-white hover:bg-white/5"}`} data-testid={`lang-${l}`}>
-                    {localeNames[l]}
+                  <button key={l} onClick={() => { setLocale(l); setLangOpen(false); localStorage.setItem("mfc-locale", l); }} className={`w-full text-center px-3 py-2 text-base transition-colors ${locale === l ? "bg-[#c9a84c]/10" : "hover:bg-white/5"}`} data-testid={`lang-${l}`}>
+                    {localeFlags[l]}
                   </button>
                 ))}
               </div>
