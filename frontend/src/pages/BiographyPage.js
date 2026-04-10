@@ -145,7 +145,7 @@ export default function BiographyPage({ locale, setLocale }) {
       <WorldMap locale={locale} />
 
       {/* All Reviews */}
-      <Reviews locale={locale} />
+      <Reviews locale={locale} showAll={true} />
 
       <Contact locale={locale} />
       <Footer locale={locale} />
