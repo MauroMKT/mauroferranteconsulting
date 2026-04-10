@@ -15,9 +15,14 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import BackToTop from "@/components/BackToTop";
+import CaseStudiesPreview from "@/components/CaseStudiesPreview";
+import CookieBanner from "@/components/CookieBanner";
 import ServiceDetailPage from "@/pages/ServiceDetailPage";
 import BiographyPage from "@/pages/BiographyPage";
 import PartnerPage from "@/pages/PartnerPage";
+import CaseStudiesPage from "@/pages/CaseStudiesPage";
+import CaseStudyDetailPage from "@/pages/CaseStudyDetailPage";
+import PrivacyPage from "@/pages/PrivacyPage";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -37,6 +42,7 @@ function HomePage({ locale, setLocale }) {
         <About locale={locale} />
         <MethodTimeline locale={locale} />
         <WorldMap locale={locale} />
+        <CaseStudiesPreview locale={locale} />
         <Reviews locale={locale} limit={6} />
         <Clients locale={locale} />
         <Insights locale={locale} />
@@ -68,9 +74,13 @@ function App() {
         <Route path="/about" element={<BiographyPage locale={locale} setLocale={setLocale} />} />
         <Route path="/services/:slug" element={<ServiceDetailPage locale={locale} setLocale={setLocale} />} />
         <Route path="/partners/:slug" element={<PartnerPage locale={locale} setLocale={setLocale} />} />
+        <Route path="/case-studies" element={<CaseStudiesPage locale={locale} setLocale={setLocale} />} />
+        <Route path="/case-studies/:id" element={<CaseStudyDetailPage locale={locale} setLocale={setLocale} />} />
+        <Route path="/privacy" element={<PrivacyPage locale={locale} setLocale={setLocale} />} />
       </Routes>
       <WhatsAppWidget />
       <BackToTop />
+      <CookieBanner locale={locale} />
     </BrowserRouter>
   );
 }

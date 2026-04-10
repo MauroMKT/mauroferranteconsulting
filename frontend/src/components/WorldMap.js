@@ -16,6 +16,7 @@ const MARKERS = [
   { name: "Spagna", coordinates: [-3.7, 40.4], labelKey: "about_market_spain" },
   { name: "Peru", coordinates: [-77.04, -12.04], labelKey: "about_market_peru" },
   { name: "USA", coordinates: [-95.7, 37.1], labelKey: "about_market_usa" },
+  { name: "Canada", coordinates: [-106.35, 56.13], labelKey: "about_market_canada" },
   { name: "Thailandia", coordinates: [100.5, 13.75], labelKey: "about_market_thailand" },
   { name: "Malta", coordinates: [14.51, 35.9], labelKey: "about_market_malta" },
   { name: "Belgio", coordinates: [4.35, 50.85], labelKey: "about_market_belgium" },
@@ -27,7 +28,7 @@ const MARKERS = [
 ];
 
 const EUROPE_CENTER = [10, 48];
-const INTERCONTINENTAL = ["Peru", "USA", "Thailandia", "Arabia Saudita"];
+const INTERCONTINENTAL = ["Peru", "USA", "Canada", "Thailandia", "Arabia Saudita"];
 
 export default function WorldMap({ locale }) {
   const sectionRef = useRef(null);

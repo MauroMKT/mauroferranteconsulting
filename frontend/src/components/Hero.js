@@ -57,7 +57,7 @@ export default function Hero({ locale }) {
   }, []);
 
   const yearsCount = useCountUp(20, 1400, statsVisible);
-  const countriesCount = useCountUp(12, 1200, statsVisible);
+  const countriesCount = useCountUp(13, 1200, statsVisible);
   const projectsCount = useCountUp(150, 1600, statsVisible);
 
   const typewriterText = useTypewriter([t(locale, "hero_typewriter_1"), t(locale, "hero_typewriter_2"), t(locale, "hero_typewriter_3")]);
@@ -72,7 +72,7 @@ export default function Hero({ locale }) {
     <section id="home" data-testid="hero-section" className="relative min-h-screen flex items-center overflow-hidden bg-[#080808]">
       {/* Background */}
       <div className="absolute inset-0">
-        <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?w=1920&q=80&fit=crop" alt="Dubai skyline" className="w-full h-full object-cover opacity-30" />
+        <img src="https://images.unsplash.com/photo-1677508266628-1eb612e55cb4?w=1920&q=80&fit=crop" alt="Dubai skyline at night" className="w-full h-full object-cover opacity-30" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#080808] via-[#080808]/80 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-[#080808]/60" />
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#c9a84c]/5 to-transparent" />

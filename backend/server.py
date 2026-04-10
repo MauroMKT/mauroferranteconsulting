@@ -77,7 +77,7 @@ async def submit_contact(form: ContactForm):
             f"Messaggio:\n{form.message}"
         )
         mailto = (
-            f"mailto:mauro@mauroferrante.com"
+            f"mailto:mauro@mauroferranteconsulting.com"
             f"?subject={urllib.parse.quote(subject)}"
             f"&body={urllib.parse.quote(body)}"
         )

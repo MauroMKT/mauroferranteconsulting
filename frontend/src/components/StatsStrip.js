@@ -21,7 +21,7 @@ function useCountUp(target, suffix, duration = 1400, start = false) {
 const stats = [
   { value: 20, suffix: "+", labelKey: "stats_years_label", note: "1997" },
   { value: 150, suffix: "+", labelKey: "stats_projects_label", note: "Projects" },
-  { value: 12, suffix: "", labelKey: "stats_countries_label", note: "Countries" },
+  { value: 13, suffix: "", labelKey: "stats_countries_label", note: "Countries" },
   { value: 92, suffix: "%", labelKey: "stats_strip_repeat", note: "Rate" },
 ];
 

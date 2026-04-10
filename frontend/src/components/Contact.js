@@ -76,9 +76,9 @@ export default function Contact({ locale }) {
             <WhatsAppIconSvg className="w-5 h-5 text-[#25D366]" />
             <div><div className="text-white text-sm font-medium">LATAM & USA</div><div className="text-white/30 text-[10px]">+51 964 243 686</div></div>
           </a>
-          <a href="mailto:mauro@mauroferrante.com" className="inline-flex items-center gap-3 bg-[#c9a84c]/10 border border-[#c9a84c]/20 hover:border-[#c9a84c]/40 rounded-xl px-6 py-4 transition-all duration-300 group" data-testid="contact-email">
+          <a href="mailto:mauro@mauroferranteconsulting.com" className="inline-flex items-center gap-3 bg-[#c9a84c]/10 border border-[#c9a84c]/20 hover:border-[#c9a84c]/40 rounded-xl px-6 py-4 transition-all duration-300 group" data-testid="contact-email">
             <Mail className="w-5 h-5 text-[#c9a84c]" />
-            <div><div className="text-white text-sm font-medium">mauro@mauroferrante.com</div><div className="text-white/30 text-[10px]">Email</div></div>
+            <div><div className="text-white text-sm font-medium">mauro@mauroferranteconsulting.com</div><div className="text-white/30 text-[10px]">Email</div></div>
           </a>
         </div>
 

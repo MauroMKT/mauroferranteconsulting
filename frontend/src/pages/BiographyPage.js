@@ -10,7 +10,7 @@ import { ArrowLeft, Globe2, Award, TrendingUp, Users, CheckCircle2 } from "lucid
 const stats = [
   { value: "20+", labelKey: "stats_years_label", icon: Award },
   { value: "150+", labelKey: "stats_projects_label", icon: TrendingUp },
-  { value: "12", labelKey: "stats_countries_label", icon: Globe2 },
+  { value: "13", labelKey: "stats_countries_label", icon: Globe2 },
   { value: "200+", labelKey: "stats_clients_label", icon: Users },
 ];
 
