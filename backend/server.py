@@ -23,11 +23,11 @@ api_router = APIRouter(prefix="/api")
 
 
 class ContactForm(BaseModel):
-    name: str
-    phone: str
-    email: str
-    service: str
-    message: str
+    name: str = Field(..., min_length=1)
+    phone: str = Field(..., min_length=1)
+    email: str = Field(..., min_length=1)
+    service: str = Field(..., min_length=1)
+    message: str = Field(..., min_length=1)
 
 
 class ContactResponse(BaseModel):
@@ -44,6 +44,9 @@ async def root():
 
 @api_router.post("/contact", response_model=ContactResponse)
 async def submit_contact(form: ContactForm):
+    import re
+    if not re.match(r'\S+@\S+\.\S+', form.email):
+        return ContactResponse(ok=False, message="Invalid email format")
     try:
         service_map = {
             "pm": "Project Management",
