@@ -1,72 +1,59 @@
 # Mauro Ferrante Consulting Studio - PRD
 
 ## Original Problem Statement
-Create a professional web app for Mauro Ferrante Consulting Studio (marketing, business management, real estate investments) based on the GitHub repo https://github.com/MauroMKT/mauroferranteconsulting.git with full graphics, pages, logos, images, etc.
+Create a professional web app for Mauro Ferrante Consulting Studio (marketing, business management, real estate investments) based on the GitHub repo https://github.com/MauroMKT/mauroferranteconsulting.git with full graphics, pages, logos, images.
 
 ## Architecture
-- **Frontend**: React.js with TailwindCSS, deployed on port 3000
+- **Frontend**: React.js with TailwindCSS + react-router-dom, deployed on port 3000
 - **Backend**: FastAPI (Python), deployed on port 8001
 - **Database**: MongoDB (for contact form submissions)
 - **Fonts**: Cormorant Garamond (serif) + Outfit (sans)
 - **Theme**: Dark (#080808) with gold accents (#c9a84c)
 
-## Core Requirements (Static)
-- Multi-language support: EN, IT, ES, FR, DE
-- Contact form → mauro@mauroferrante.com (mailto fallback + MongoDB storage)
-- WhatsApp (Europe&Asia): +393491177007
-- WhatsApp (USA&LATAM): +51964243686
-- Sections: Hero, WhyMauro, Services, StatsStrip, About, MethodTimeline, Reviews, Clients, Insights, Contact, Footer
-- WhatsApp floating widget
-- Back to top button
-
-## User Personas
-- **Potential clients**: Businesses looking for PM, digital, or real estate consulting
-- **International investors**: Seeking real estate advisory in Dubai, LATAM, Europe
-- **SMEs**: Italian SMEs looking for digital transformation & project management
+## Routing Structure
+- `/` - Homepage (all sections)
+- `/about` - Full biography page
+- `/services/project-management` - PM service detail
+- `/services/digital-marketing` - Digital service detail
+- `/services/real-estate` - Real Estate service detail
+- `/partners/kw-gchouse` - KW GCHOUSE partner page
+- `/partners/trem-group` - TREM Group partner page
+- `/partners/azequo-engineering` - Azequo Engineering partner page
 
 ## What's Been Implemented (Jan 2026)
-- [x] Full single-page application with all 12 sections
-- [x] 5-language support with browser auto-detection + language switcher
-- [x] Contact form with validation + MongoDB storage + mailto fallback
-- [x] 2 WhatsApp buttons (EU/Asia + LATAM/USA) in hero, contact, footer
-- [x] Floating WhatsApp widget with expandable menu
-- [x] Typewriter effect in Hero
-- [x] Animated stat counters (IntersectionObserver)
-- [x] Service tabs (PM, Digital, Real Estate) with details
-- [x] Client reviews (15 testimonials) with platform badges
-- [x] Partner cards (KW, TREM, Azequo) with logos
-- [x] Method timeline (5-step animated process)
-- [x] Insights blog preview (3 articles)
-- [x] About section with markets and photo
-- [x] Responsive navigation with mobile menu
-- [x] Back to top button
-- [x] Smooth scroll navigation
-- [x] Backend API with contact form endpoint + validation
+### Session 1 - Core MVP
+- [x] Full single-page application with 12+ sections
+- [x] 5-language support (EN, IT, ES, FR, DE) with browser auto-detection
+- [x] Contact form with validation + MongoDB + mailto fallback
+- [x] 2 WhatsApp buttons (EU/Asia + LATAM/USA)
+- [x] Floating WhatsApp widget
+- [x] All component sections working
 
-## Testing Results
-- Backend: 89% (fixed validation issue → now 100%)
-- Frontend: 95% (WhatsApp widget overlay is platform-level, not our code)
+### Session 2 - Internal Pages & Map
+- [x] Service detail pages (3 pages with sub-services, hero images, CTA)
+- [x] Biography page with photo, career path, competencies, languages, all reviews
+- [x] Partner pages (KW, TREM, Azequo) with stats, descriptions, services
+- [x] World Map with 12 animated country dots (IT, ES, PE, US, TH, MT, BE, DE, FR, UK, CH, SA)
+- [x] Connection lines from intercontinental countries to Europe hub
+- [x] Review platform links (Google Reviews, Trustpilot, LinkedIn)
+- [x] Service "Learn More" links to detail pages
+- [x] Client cards link to partner pages
+- [x] About section link to full biography
+- [x] Back-to-home navigation from all internal pages
+- [x] React Router with scroll-to-top on navigation
+
+## Testing Results (Session 2)
+- Backend: 100%
+- Frontend: 95%
 
 ## Prioritized Backlog
-### P0 (Done)
-- All core sections and functionality implemented
-
 ### P1 (Next)
-- Add Resend API integration for actual email delivery
-- Service detail pages (expanded content per service)
-- Insights/blog detail pages with full article content
+- Resend API integration for actual email delivery
 - Cookie banner / GDPR compliance
+- Insights/blog detail pages with full article content
 
 ### P2 (Future)
-- About page as separate route with full bio + all 20 reviews
-- Partners detail pages
 - Privacy policy page
-- SEO meta tags per section
-- Google Analytics / Tag Manager integration
-- World map visualization showing active countries
-
-## Next Tasks
-1. User to upload specific logos/images for customization
-2. Configure Resend API for actual email delivery
-3. Add cookie consent banner
-4. Expand service detail pages
+- SEO meta tags per section/page
+- Google Analytics / Tag Manager
+- Animated number counters on partner pages
