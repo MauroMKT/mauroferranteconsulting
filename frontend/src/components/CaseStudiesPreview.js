@@ -2,17 +2,19 @@ import { Link } from "react-router-dom";
 import { t } from "@/lib/i18n";
 import { caseStudies } from "@/lib/caseStudies";
 import { ArrowRight, MapPin } from "lucide-react";
+import { useReveal } from "@/hooks/use-reveal";
 
 const FEATURED_IDS = ["cs-pm-01", "cs-dm-02", "cs-re-01", "cs-pm-04", "cs-dm-05", "cs-re-03"];
 
 export default function CaseStudiesPreview({ locale }) {
   const featured = FEATURED_IDS.map((id) => caseStudies.find((cs) => cs.id === id)).filter(Boolean);
+  const { ref, visible } = useReveal();
 
   return (
     <section id="case-studies" className="relative py-24 bg-[#0a0a0a] overflow-hidden" data-testid="case-studies-preview">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c9a84c]/20 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div ref={ref} className={`max-w-7xl mx-auto px-6 transition-all duration-700 ease-out ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
         <div className="text-center mb-14">
           <span className="text-[#c9a84c]/60 text-xs font-medium tracking-[0.3em] uppercase">{t(locale, "cs_label")}</span>
           <h2 className="text-2xl sm:text-3xl font-serif text-white font-bold mt-4">{t(locale, "cs_title")}</h2>
@@ -25,7 +27,7 @@ export default function CaseStudiesPreview({ locale }) {
             const result = cs.results[locale] || cs.results.en;
             return (
               <Link key={cs.id} to={`/case-studies/${cs.id}`}
-                className="group bg-[#0f0f0f] border border-white/5 rounded-xl p-6 hover:border-[#c9a84c]/30 transition-all duration-500 block"
+                className="group cs-card-glow bg-[#0f0f0f] border border-white/5 rounded-xl p-6 hover:border-[#c9a84c]/30 transition-all duration-500 block"
                 data-testid={`cs-preview-${cs.id}`}>
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-[#c9a84c] text-xs font-medium">{cs.year}</span>

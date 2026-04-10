@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { t } from "@/lib/i18n";
 import { ArrowDown } from "lucide-react";
+import { useParallax } from "@/lib/hooks";
 
 function useCountUp(target, duration = 1500, start = false) {
   const [count, setCount] = useState(0);
@@ -63,6 +64,7 @@ export default function Hero({ locale }) {
   const typewriterText = useTypewriter([t(locale, "hero_typewriter_1"), t(locale, "hero_typewriter_2"), t(locale, "hero_typewriter_3")]);
 
   const scrollToContact = () => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+  const parallaxRef = useParallax();
 
   const base = "transition-all duration-700 ease-out";
   const hidden = "opacity-0 translate-y-6";
@@ -71,8 +73,8 @@ export default function Hero({ locale }) {
   return (
     <section id="home" data-testid="hero-section" className="relative min-h-screen flex items-center overflow-hidden bg-[#080808]">
       {/* Background */}
-      <div className="absolute inset-0">
-        <img src="https://images.unsplash.com/photo-1677508266628-1eb612e55cb4?w=1920&q=80&fit=crop" alt="Dubai skyline at night" className="w-full h-full object-cover opacity-30" />
+      <div className="absolute inset-0 overflow-hidden">
+        <img ref={parallaxRef} src="https://images.unsplash.com/photo-1677508266628-1eb612e55cb4?w=1920&q=80&fit=crop" alt="Dubai skyline at night" className="w-full h-full object-cover opacity-30 scale-110 parallax-bg" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#080808] via-[#080808]/80 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-[#080808]/60" />
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#c9a84c]/5 to-transparent" />
@@ -94,7 +96,7 @@ export default function Hero({ locale }) {
 
             <h1 className={`${base} ${visible ? shown : hidden}`} style={{ transitionDelay: "300ms" }}>
               <span className="block font-serif text-5xl sm:text-6xl lg:text-7xl text-white font-bold leading-[1.05] tracking-tight">
-                Mauro<span className="text-[#c9a84c] ml-4">Ferrante</span>
+                Mauro<span className="text-shimmer ml-4">Ferrante</span>
               </span>
             </h1>
 
