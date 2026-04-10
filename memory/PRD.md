@@ -1,43 +1,72 @@
 # Mauro Ferrante Consulting Studio - PRD
 
 ## Original Problem Statement
-Create a professional web app for Mauro Ferrante Consulting Studio based on GitHub repo with full graphics, pages, logos, images.
+Create a full-stack web application for Mauro Ferrante Consulting (marketing, business management, real estate) based on a provided Next.js GitHub repository. Requirements: multi-language support (5 languages), contact form, WhatsApp buttons (Europe/Asia & USA/LATAM), interactive world map, internal pages, 20+ case studies, social links, privacy policy, cookie banner, SEO optimization.
 
 ## Architecture
-- **Frontend**: React.js + TailwindCSS + react-router-dom + react-simple-maps
-- **Backend**: FastAPI (Python) on port 8001
-- **Database**: MongoDB (contact form)
-- **Fonts**: Cormorant Garamond (serif) + Outfit (sans)
-- **Theme**: Dark (#080808) with gold (#c9a84c)
+- **Frontend**: React SPA (CRA) with Tailwind CSS, react-router-dom
+- **Backend**: FastAPI (Python)
+- **Styling**: Tailwind CSS + custom CSS animations
+- **i18n**: Custom JSON-based translations (EN, IT, ES, FR, DE)
+- **Map**: react-simple-maps + topojson-client
 
-## Routing
-- `/` - Homepage (12+ sections)
-- `/about` - Full biography (all 20 reviews)
-- `/services/project-management` | `/services/digital-marketing` | `/services/real-estate`
-- `/partners/kw-gchouse` | `/partners/trem-group` | `/partners/azequo-engineering`
+## What's Been Implemented (as of Feb 2026)
 
-## What's Been Implemented
+### Core Features
+- Multi-language support (EN, IT, ES, FR, DE) with flag emoji selector
+- Interactive world map showing 13 countries (Russia/China excluded)
+- Contact form with backend validation (POST /api/contact)
+- WhatsApp buttons (Europe/Asia + USA/LATAM)
+- 20 verified reviews with platform badges
 
-### Session 1 - Core MVP
-- Full single-page app with all sections, 5-language support, contact form, WhatsApp widget
+### Pages & Routing
+- Homepage with all sections (Hero, WhyMauro, Services, Stats, About, Method, WorldMap, CaseStudies, Reviews, Clients, Insights, Contact)
+- Biography page (/about)
+- Service detail pages (/services/project-management, /services/digital-marketing, /services/real-estate)
+- Partner pages (/partners/kw-gchouse, /partners/trem-group, /partners/azequo-engineering)
+- Case Studies listing (/case-studies) with service filters
+- Case Study detail pages (/case-studies/:id) - 20 detailed studies
+- Privacy Policy page (/privacy) - GDPR compliant, 10 sections
+- Cookie consent banner (all 5 languages)
 
-### Session 2 - Internal Pages
-- Service detail pages, biography page, partner pages, WorldMap (SVG), review links, React Router
+### Visual Enhancements
+- Parallax effect on hero background
+- Animated shimmer gradient on "Ferrante" text
+- Glow hover effect on case study cards
+- Active section indicator in header navigation
+- Section reveal fade-in animations
+- Header submenus (Services, Who Trusts Me)
+- Social icons (LinkedIn, Facebook, Instagram) in header and footer
+- Logo sized at h-14 (header) and h-16 (footer)
 
-### Session 3 - Map & Reviews Improvements
-- [x] Real world map with react-simple-maps and TopoJSON country borders
-- [x] 20+ countries highlighted in gold (IT, ES, PE, US, TH, MT, BE, DE, FR, UK, CH, SA, AR, CL, RU, CN, CA, DK, SE, NO)
-- [x] 12 animated markers with pulse effects
-- [x] Connection lines from Europe to intercontinental locations
-- [x] Hover tooltips with country names
-- [x] All 20 reviews with correct platform links (Google Maps, Trustpilot, LinkedIn)
-- [x] Homepage: 6 reviews + "Leggi Tutte le Recensioni (20)" button
-- [x] /about page: all 20 reviews displayed
-- [x] Button translated in all 5 languages
-- [x] 5 previously missing reviews added (Troops Racing Gear, Annalisa Piccolomini, Carmine Rossi, Pietro Carlino, Isabel Turrillo)
+### SEO
+- Comprehensive meta tags (OG, Twitter Card, geo tags)
+- JSON-LD structured data (ProfessionalService schema)
+- sitemap.xml with all pages
+- robots.txt
+- Language alternate hreflang tags
+- Keyword-optimized descriptions
 
-## Testing: Backend 100% | Frontend 90%+
+### Contact Info
+- Email: mauro@mauroferranteconsulting.com
+- WhatsApp EU/Asia: +39 349 117 7007
+- WhatsApp USA/LATAM: +51 964 243 686
+- LinkedIn: https://www.linkedin.com/in/mauro-ferrante/
+- Facebook: https://www.facebook.com/mfmarketingconsultant
+- Instagram: https://www.instagram.com/mauro_business_consulting/
 
 ## Backlog
-### P1: Resend API for email, Cookie banner/GDPR, Insights detail pages
-### P2: Privacy page, SEO meta tags, Analytics
+
+### P0 (Critical)
+- None currently
+
+### P1 (Important)
+- Email integration (Resend/SMTP) for contact form - currently logs only
+- Mobile responsiveness verification for header submenus
+- Add Canada marker label to i18n translations
+
+### P2 (Nice to have)
+- Analytics integration (Google Analytics/Plausible)
+- Performance optimization (image lazy loading, code splitting)
+- Blog/Insights section with full articles
+- Testimonial video embeds
