@@ -17,6 +17,7 @@ import WhatsAppWidget from "@/components/WhatsAppWidget";
 import BackToTop from "@/components/BackToTop";
 import CaseStudiesPreview from "@/components/CaseStudiesPreview";
 import CookieBanner from "@/components/CookieBanner";
+import SEO from "@/components/SEO";
 import ServiceDetailPage from "@/pages/ServiceDetailPage";
 import BiographyPage from "@/pages/BiographyPage";
 import PartnerPage from "@/pages/PartnerPage";
@@ -41,6 +42,7 @@ function PageTracker() {
 function HomePage({ locale, setLocale }) {
   return (
     <div className="min-h-screen bg-[#080808] text-white" data-testid="app-root">
+      <SEO />
       <Header locale={locale} setLocale={setLocale} />
       <main>
         <Hero locale={locale} />

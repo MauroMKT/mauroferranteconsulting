@@ -3,6 +3,7 @@ import { t } from "@/lib/i18n";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Contact from "@/components/Contact";
+import SEO from "@/components/SEO";
 import { caseStudies } from "@/lib/caseStudies";
 import { ArrowLeft, CheckCircle2, ArrowRight, TrendingUp, Clock, MapPin, Tag } from "lucide-react";
 
@@ -117,6 +118,7 @@ export default function ServiceDetailPage({ locale, setLocale }) {
 
   return (
     <div className="min-h-screen bg-[#080808]" data-testid={`service-page-${slug}`}>
+      <SEO title={t(locale, config.titleKey)} description={t(locale, config.descKey)} path={`/services/${slug}`} />
       <Header locale={locale} setLocale={setLocale} />
 
       {/* Hero */}

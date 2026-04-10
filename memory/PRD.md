@@ -61,6 +61,17 @@ Create a full-stack web application for Mauro Ferrante Consulting (marketing, bu
 - Event tracking: CTA clicks, WhatsApp clicks, email clicks, form submissions
 - Admin dashboard at /admin/analytics (password protected)
 - Dashboard: daily/weekly/monthly stats, conversion rates, top pages, event breakdown, recent contacts
+- **Milestone notifications**: email automatica a 5, 10, 25, 50, 100, 200, 500 form ricevuti
+- **Report settimanale**: invio manuale dalla dashboard con riepilogo visite, conversioni, top pagine, nuovi contatti
+
+### SEO Completo
+- Meta tags statici + dinamici per pagina (react-helmet-async)
+- Open Graph / Twitter Cards
+- JSON-LD Structured Data (ProfessionalService schema)
+- Sitemap.xml (30+ URL inclusi 20 case study)
+- Robots.txt
+- Hreflang (5 lingue + x-default)
+- Canonical URLs per ogni pagina
 
 ## Backlog
 

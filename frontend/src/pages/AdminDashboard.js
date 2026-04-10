@@ -79,6 +79,8 @@ export default function AdminDashboard() {
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  const [sendingReport, setSendingReport] = useState(false);
+
   const handleLogin = (t) => {
     setToken(t);
     sessionStorage.setItem("mfc-admin-token", t);
@@ -97,6 +99,17 @@ export default function AdminDashboard() {
   }, [token]);
 
   useEffect(() => { fetchStats(); }, [fetchStats]);
+
+  const sendReport = async () => {
+    setSendingReport(true);
+    try {
+      await axios.post(`${API}/admin/send-report?token=${token}`);
+      alert("Report inviato a mauro@mauroferrante.com!");
+    } catch {
+      alert("Errore nell'invio del report");
+    }
+    setSendingReport(false);
+  };
 
   if (!token) return <LoginScreen onLogin={handleLogin} />;
   if (!stats) return (
@@ -119,11 +132,18 @@ export default function AdminDashboard() {
             </h1>
             <p className="text-white/25 text-xs mt-0.5">Mauro Ferrante Consulting Studio</p>
           </div>
-          <button onClick={fetchStats} disabled={loading}
-            className="flex items-center gap-2 text-white/40 hover:text-[#c9a84c] text-xs transition-colors disabled:opacity-30"
-            data-testid="refresh-btn">
-            <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} /> Aggiorna
-          </button>
+          <div className="flex items-center gap-3">
+            <button onClick={sendReport} disabled={sendingReport}
+              className="flex items-center gap-2 bg-[#c9a84c]/10 border border-[#c9a84c]/30 hover:bg-[#c9a84c]/20 text-[#c9a84c] text-xs px-4 py-2 rounded-lg transition-all disabled:opacity-30"
+              data-testid="send-report-btn">
+              <Mail className={`w-3.5 h-3.5 ${sendingReport ? "animate-pulse" : ""}`} /> {sendingReport ? "Invio..." : "Invia Report"}
+            </button>
+            <button onClick={fetchStats} disabled={loading}
+              className="flex items-center gap-2 text-white/40 hover:text-[#c9a84c] text-xs transition-colors disabled:opacity-30"
+              data-testid="refresh-btn">
+              <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} /> Aggiorna
+            </button>
+          </div>
         </div>
       </div>
 

@@ -3,6 +3,7 @@ import { t } from "@/lib/i18n";
 import { caseStudies } from "@/lib/caseStudies";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { ArrowLeft, ArrowRight, MapPin, Filter } from "lucide-react";
 import { useState } from "react";
 
@@ -21,6 +22,7 @@ export default function CaseStudiesPage({ locale, setLocale }) {
 
   return (
     <div className="min-h-screen bg-[#080808]" data-testid="case-studies-page">
+      <SEO title={t(locale, "cs_title")} description={t(locale, "cs_subtitle")} path="/case-studies" />
       <Header locale={locale} setLocale={setLocale} />
 
       <section className="relative pt-32 pb-16 bg-[#080808]">

@@ -109,24 +109,9 @@ async def submit_contact(form: ContactForm):
 
         email_sent = False
         if SMTP_HOST and SMTP_USER and SMTP_PASS and SMTP_TO:
-            try:
-                msg = MIMEMultipart("alternative")
-                msg["Subject"] = subject
-                msg["From"] = SMTP_USER
-                msg["To"] = SMTP_TO
-                msg["Reply-To"] = form.email
-                msg.attach(MIMEText(html_body, "html"))
-
-                def _send():
-                    with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT) as server:
-                        server.login(SMTP_USER, SMTP_PASS)
-                        server.sendmail(SMTP_USER, SMTP_TO, msg.as_string())
-
-                await asyncio.to_thread(_send)
-                email_sent = True
+            email_sent = await send_email(subject, html_body, reply_to=form.email)
+            if email_sent:
                 logger.info(f"Email sent for contact from {form.name} ({form.email})")
-            except Exception as smtp_err:
-                logger.error(f"SMTP error: {smtp_err}")
 
         text_body = (
             f"NUOVO CONTATTO — Mauro Ferrante Consulting Studio\n\n"
@@ -156,6 +141,32 @@ async def get_contacts():
     return contacts
 
 
+# ─── SMTP Helper ──────────────────────────────────────────────
+
+async def send_email(subject, html_body, reply_to=None):
+    if not (SMTP_HOST and SMTP_USER and SMTP_PASS and SMTP_TO):
+        return False
+    try:
+        msg = MIMEMultipart("alternative")
+        msg["Subject"] = subject
+        msg["From"] = SMTP_USER
+        msg["To"] = SMTP_TO
+        if reply_to:
+            msg["Reply-To"] = reply_to
+        msg.attach(MIMEText(html_body, "html"))
+
+        def _send():
+            with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT) as server:
+                server.login(SMTP_USER, SMTP_PASS)
+                server.sendmail(SMTP_USER, SMTP_TO, msg.as_string())
+
+        await asyncio.to_thread(_send)
+        return True
+    except Exception as e:
+        logger.error(f"SMTP error: {e}")
+        return False
+
+
 # ─── Analytics Tracking ───────────────────────────────────────
 
 class TrackEvent(BaseModel):
@@ -180,7 +191,116 @@ async def track_event(evt: TrackEvent):
         "timestamp": datetime.now(timezone.utc).isoformat(),
     }
     await db.analytics.insert_one(doc)
+
+    # Milestone notifications
+    if evt.event == "form_submit":
+        total_forms = await db.analytics.count_documents({"event": "form_submit"})
+        milestones = [5, 10, 25, 50, 100, 200, 500]
+        if total_forms in milestones:
+            asyncio.create_task(_send_milestone_notification(total_forms))
+
     return {"ok": True}
+
+
+async def _send_milestone_notification(count):
+    now = datetime.now(timezone.utc)
+    week_start = (now - timedelta(days=7)).isoformat()
+    month_start = (now - timedelta(days=30)).isoformat()
+
+    week_views = await db.analytics.count_documents({"event": "page_view", "timestamp": {"$gte": week_start}})
+    month_views = await db.analytics.count_documents({"event": "page_view", "timestamp": {"$gte": month_start}})
+    wa_clicks = await db.analytics.count_documents({"event": "whatsapp_click", "timestamp": {"$gte": month_start}})
+
+    html = f"""
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 12px; overflow: hidden;">
+        <div style="background: linear-gradient(135deg, #c9a84c, #a88a3a); padding: 24px 30px;">
+            <h1 style="color: #0a0a0a; font-size: 20px; margin: 0;">Milestone Raggiunto!</h1>
+            <p style="color: #0a0a0a; font-size: 13px; margin: 4px 0 0 0; opacity: 0.8;">{count} contatti ricevuti dal sito</p>
+        </div>
+        <div style="padding: 30px;">
+            <p style="color: #ddd; font-size: 16px; margin: 0 0 20px 0;">Hai raggiunto <strong style="color: #c9a84c;">{count}</strong> richieste di contatto dal tuo sito web!</p>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr><td style="padding: 12px 16px; background: #111; border-radius: 8px 8px 0 0; color: #888; font-size: 12px;">Visite Settimana</td><td style="padding: 12px 16px; background: #111; border-radius: 8px 8px 0 0; color: #fff; font-size: 18px; font-weight: bold; text-align: right;">{week_views}</td></tr>
+                <tr><td style="padding: 12px 16px; background: #0f0f0f; color: #888; font-size: 12px;">Visite Mese</td><td style="padding: 12px 16px; background: #0f0f0f; color: #fff; font-size: 18px; font-weight: bold; text-align: right;">{month_views}</td></tr>
+                <tr><td style="padding: 12px 16px; background: #111; color: #888; font-size: 12px;">WhatsApp Click Mese</td><td style="padding: 12px 16px; background: #111; color: #25D366; font-size: 18px; font-weight: bold; text-align: right;">{wa_clicks}</td></tr>
+                <tr><td style="padding: 12px 16px; background: #0f0f0f; border-radius: 0 0 8px 8px; color: #888; font-size: 12px;">Form Totali</td><td style="padding: 12px 16px; background: #0f0f0f; border-radius: 0 0 8px 8px; color: #c9a84c; font-size: 18px; font-weight: bold; text-align: right;">{count}</td></tr>
+            </table>
+        </div>
+        <div style="padding: 16px 30px; background: #050505; text-align: center;">
+            <p style="color: #444; font-size: 10px; margin: 0;">Notifica automatica — mauroferranteconsulting.com</p>
+        </div>
+    </div>
+    """
+    await send_email(f"Milestone: {count} contatti ricevuti!", html)
+    logger.info(f"Milestone notification sent: {count} contacts")
+
+
+@api_router.post("/admin/send-report")
+async def send_weekly_report(token: str = ""):
+    verify_admin(token)
+    now = datetime.now(timezone.utc)
+    week_start = (now - timedelta(days=7)).isoformat()
+    month_start = (now - timedelta(days=30)).isoformat()
+
+    week_views = await db.analytics.count_documents({"event": "page_view", "timestamp": {"$gte": week_start}})
+    week_forms = await db.analytics.count_documents({"event": "form_submit", "timestamp": {"$gte": week_start}})
+    week_wa = await db.analytics.count_documents({"event": "whatsapp_click", "timestamp": {"$gte": week_start}})
+    week_cta = await db.analytics.count_documents({"event": "cta_click", "timestamp": {"$gte": week_start}})
+    week_email = await db.analytics.count_documents({"event": "email_click", "timestamp": {"$gte": week_start}})
+    month_views = await db.analytics.count_documents({"event": "page_view", "timestamp": {"$gte": month_start}})
+    month_forms = await db.analytics.count_documents({"event": "form_submit", "timestamp": {"$gte": month_start}})
+    total_contacts = await db.contacts.count_documents({})
+    conv_rate = round((week_forms / week_views * 100), 1) if week_views > 0 else 0
+
+    # Top 5 pages this week
+    pipeline = [
+        {"$match": {"event": "page_view", "timestamp": {"$gte": week_start}}},
+        {"$group": {"_id": "$page", "count": {"$sum": 1}}},
+        {"$sort": {"count": -1}},
+        {"$limit": 5},
+    ]
+    top_pages = await db.analytics.aggregate(pipeline).to_list(5)
+    pages_html = "".join([f'<tr><td style="padding: 8px 12px; color: #aaa; font-size: 13px;">{p["_id"]}</td><td style="padding: 8px 12px; color: #fff; font-size: 13px; text-align: right; font-weight: bold;">{p["count"]}</td></tr>' for p in top_pages])
+
+    # Recent contacts this week
+    recent = await db.contacts.find({"created_at": {"$gte": week_start}}, {"_id": 0}).sort("created_at", -1).to_list(10)
+    contacts_html = "".join([f'<tr><td style="padding: 8px 12px; color: #ddd; font-size: 13px;">{c["name"]}</td><td style="padding: 8px 12px; color: #c9a84c; font-size: 13px;">{c["email"]}</td><td style="padding: 8px 12px; color: #888; font-size: 12px;">{c["service"]}</td></tr>' for c in recent])
+
+    html = f"""
+    <div style="font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 12px; overflow: hidden;">
+        <div style="background: linear-gradient(135deg, #c9a84c, #a88a3a); padding: 24px 30px;">
+            <h1 style="color: #0a0a0a; font-size: 18px; margin: 0;">Report Settimanale</h1>
+            <p style="color: #0a0a0a; font-size: 13px; margin: 4px 0 0 0; opacity: 0.8;">Mauro Ferrante Consulting Studio — {now.strftime('%d/%m/%Y')}</p>
+        </div>
+        <div style="padding: 30px;">
+            <h2 style="color: #c9a84c; font-size: 14px; margin: 0 0 16px 0; text-transform: uppercase; letter-spacing: 2px;">Panoramica Settimana</h2>
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
+                <tr><td style="padding: 12px 16px; background: #111; border-radius: 8px 8px 0 0; color: #888; font-size: 13px;">Visite</td><td style="padding: 12px 16px; background: #111; border-radius: 8px 8px 0 0; color: #fff; font-size: 20px; font-weight: bold; text-align: right;">{week_views}</td></tr>
+                <tr><td style="padding: 12px 16px; background: #0f0f0f; color: #888; font-size: 13px;">Form Contatto</td><td style="padding: 12px 16px; background: #0f0f0f; color: #25D366; font-size: 20px; font-weight: bold; text-align: right;">{week_forms}</td></tr>
+                <tr><td style="padding: 12px 16px; background: #111; color: #888; font-size: 13px;">Tasso Conversione</td><td style="padding: 12px 16px; background: #111; color: #c9a84c; font-size: 20px; font-weight: bold; text-align: right;">{conv_rate}%</td></tr>
+                <tr><td style="padding: 12px 16px; background: #0f0f0f; color: #888; font-size: 13px;">WhatsApp Click</td><td style="padding: 12px 16px; background: #0f0f0f; color: #25D366; font-size: 20px; font-weight: bold; text-align: right;">{week_wa}</td></tr>
+                <tr><td style="padding: 12px 16px; background: #111; color: #888; font-size: 13px;">CTA Click</td><td style="padding: 12px 16px; background: #111; color: #3b82f6; font-size: 20px; font-weight: bold; text-align: right;">{week_cta}</td></tr>
+                <tr><td style="padding: 12px 16px; background: #0f0f0f; border-radius: 0 0 8px 8px; color: #888; font-size: 13px;">Email Click</td><td style="padding: 12px 16px; background: #0f0f0f; border-radius: 0 0 8px 8px; color: #f59e0b; font-size: 20px; font-weight: bold; text-align: right;">{week_email}</td></tr>
+            </table>
+
+            <h2 style="color: #c9a84c; font-size: 14px; margin: 0 0 12px 0; text-transform: uppercase; letter-spacing: 2px;">Pagine Top 5</h2>
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px; background: #111; border-radius: 8px; overflow: hidden;">
+                {pages_html if pages_html else '<tr><td style="padding: 12px; color: #555; font-size: 13px;">Nessun dato</td></tr>'}
+            </table>
+
+            {"<h2 style='color: #c9a84c; font-size: 14px; margin: 0 0 12px 0; text-transform: uppercase; letter-spacing: 2px;'>Nuovi Contatti</h2><table style='width: 100%; border-collapse: collapse; background: #111; border-radius: 8px; overflow: hidden;'>" + contacts_html + "</table>" if contacts_html else ""}
+
+            <div style="margin-top: 24px; padding: 16px; background: #111; border-radius: 8px; text-align: center;">
+                <p style="color: #888; font-size: 12px; margin: 0;">Totale contatti: <strong style="color: #c9a84c;">{total_contacts}</strong> | Visite mese: <strong style="color: #fff;">{month_views}</strong> | Form mese: <strong style="color: #25D366;">{month_forms}</strong></p>
+            </div>
+        </div>
+        <div style="padding: 16px 30px; background: #050505; text-align: center;">
+            <p style="color: #444; font-size: 10px; margin: 0;">Report automatico — mauroferranteconsulting.com</p>
+        </div>
+    </div>
+    """
+    sent = await send_email(f"Report Settimanale — {now.strftime('%d/%m/%Y')}", html)
+    return {"ok": sent, "message": "Report sent" if sent else "Failed to send report"}
 
 @api_router.post("/admin/login")
 async def admin_login(body: AdminLogin):

@@ -4,6 +4,7 @@ import { caseStudies } from "@/lib/caseStudies";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Contact from "@/components/Contact";
+import SEO from "@/components/SEO";
 import { ArrowLeft, ArrowRight, MapPin, Calendar, Tag } from "lucide-react";
 
 export default function CaseStudyDetailPage({ locale, setLocale }) {
@@ -31,6 +32,7 @@ export default function CaseStudyDetailPage({ locale, setLocale }) {
 
   return (
     <div className="min-h-screen bg-[#080808]" data-testid={`cs-detail-${cs.id}`}>
+      <SEO title={title} description={challenge} path={`/case-studies/${cs.id}`} type="article" />
       <Header locale={locale} setLocale={setLocale} />
 
       <section className="relative pt-32 pb-16">

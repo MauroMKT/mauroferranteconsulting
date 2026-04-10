@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Contact from "@/components/Contact";
 import Reviews from "@/components/Reviews";
 import WorldMap from "@/components/WorldMap";
+import SEO from "@/components/SEO";
 import { ArrowLeft, Globe2, Award, TrendingUp, Users, CheckCircle2 } from "lucide-react";
 
 const stats = [
@@ -47,6 +48,7 @@ export default function BiographyPage({ locale, setLocale }) {
 
   return (
     <div className="min-h-screen bg-[#080808]" data-testid="biography-page">
+      <SEO title="Mauro Ferrante - Biografia" description="Senior Consultant con oltre 20 anni di esperienza in 13 paesi. Project Management, Digital Marketing e Real Estate Investments." path="/about" />
       <Header locale={locale} setLocale={setLocale} />
 
       {/* Hero */}

@@ -2,11 +2,13 @@ import { Link } from "react-router-dom";
 import { t } from "@/lib/i18n";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { ArrowLeft } from "lucide-react";
 
 export default function PrivacyPage({ locale, setLocale }) {
   return (
     <div className="min-h-screen bg-[#080808]" data-testid="privacy-page">
+      <SEO title={t(locale, "privacy_title")} description="Privacy Policy di Mauro Ferrante Consulting Studio. Informativa sul trattamento dei dati personali ai sensi del GDPR." path="/privacy" />
       <Header locale={locale} setLocale={setLocale} />
 
       <section className="relative pt-32 pb-12">
