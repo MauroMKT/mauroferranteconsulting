@@ -1,88 +1,76 @@
 # Mauro Ferrante Consulting Studio - PRD
 
 ## Original Problem Statement
-Create a full-stack web application for Mauro Ferrante Consulting (marketing, business management, real estate) based on a provided Next.js GitHub repository. Requirements: multi-language support (5 languages), contact form, WhatsApp buttons (Europe/Asia & USA/LATAM), interactive world map, internal pages, 20+ case studies, social links, privacy policy, cookie banner, SEO optimization.
+Full-stack web app for Mauro Ferrante Consulting (marketing, business management, real estate). Multi-language (5), contact form with SMTP, WhatsApp, interactive world map, internal pages, 20+ case studies, blog, analytics, SEO, privacy, cookie banner, Calendly booking.
 
 ## Architecture
-- **Frontend**: React SPA (CRA) with Tailwind CSS, react-router-dom
-- **Backend**: FastAPI (Python)
+- **Frontend**: React SPA (CRA) with Tailwind CSS, react-router-dom, react-helmet-async
+- **Backend**: FastAPI (Python) with MongoDB
+- **Email**: SMTP via Gmail (smtp.gmail.com:465 SSL)
 - **Styling**: Tailwind CSS + custom CSS animations
 - **i18n**: Custom JSON-based translations (EN, IT, ES, FR, DE)
 - **Map**: react-simple-maps + topojson-client
+- **Booking**: Calendly embed (iframe modal)
+- **Performance**: React.lazy code splitting, image lazy loading
 
-## What's Been Implemented (as of Feb 2026)
+## Implemented Features
 
-### Core Features
-- Multi-language support (EN, IT, ES, FR, DE) with flag emoji selector
-- Interactive world map showing 13 countries (Russia/China excluded)
-- Contact form with backend validation (POST /api/contact)
-- WhatsApp buttons (Europe/Asia + USA/LATAM)
-- 20 verified reviews with platform badges
+### Core
+- Multi-language (EN, IT, ES, FR, DE) with flag emoji selector (US flag for EN)
+- Interactive world map: 13 countries (Russia/China excluded, Canada added)
+- Contact form: SMTP email delivery + MongoDB storage + fallback mailto
+- WhatsApp: Europe/Asia (+39 349 117 7007) & USA/LATAM (+51 964 243 686)
+- 20 verified reviews
 
 ### Pages & Routing
-- Homepage with all sections (Hero, WhyMauro, Services, Stats, About, Method, WorldMap, CaseStudies, Reviews, Clients, Insights, Contact)
-- Biography page (/about)
-- Service detail pages (/services/project-management, /services/digital-marketing, /services/real-estate)
-- Partner pages (/partners/kw-gchouse, /partners/trem-group, /partners/azequo-engineering)
-- Case Studies listing (/case-studies) with service filters
-- Case Study detail pages (/case-studies/:id) - 20 detailed studies
-- Privacy Policy page (/privacy) - GDPR compliant, 10 sections
-- Cookie consent banner (all 5 languages)
+- Homepage (Hero, WhyMauro, Services, Stats, About, Method, WorldMap, CaseStudies, Reviews, Clients, Insights, Contact)
+- Biography (/about)
+- 3 Service detail pages (/services/project-management, /services/digital-marketing, /services/real-estate)
+- 3 Partner pages (/partners/kw-gchouse, /partners/trem-group, /partners/azequo-engineering)
+- Case Studies listing (/case-studies) with filters + 20 detail pages
+- Blog (/blog) with 5 articles + individual post pages (/blog/:slug)
+- Privacy Policy (/privacy) - GDPR compliant
+- Admin Analytics Dashboard (/admin/analytics)
 
 ### Visual Enhancements
-- Parallax effect on hero background
-- Animated shimmer gradient on "Ferrante" text
-- Glow hover effect on case study cards
-- Active section indicator in header navigation
-- Section reveal fade-in animations
-- Header submenus (Services, Who Trusts Me)
-- Social icons (LinkedIn, Facebook, Instagram) in header and footer
-- Logo sized at h-14 (header) and h-16 (footer)
+- Parallax hero, shimmer gradient on "Ferrante", glow hover on cards
+- Active section indicator in nav, fade-in reveals
+- Full-screen mobile menu with accordion submenus
+- Social icons (LinkedIn, Facebook, Instagram) in header/footer
+
+### Calendly Integration
+- "Book a Free Consultation" CTA opens Calendly modal (dark theme)
+- URL: https://calendly.com/mauro-29/business-meeting
+
+### Analytics & Tracking
+- Custom tracking: page views, CTA/WhatsApp/email clicks, form submissions
+- Admin dashboard (/admin/analytics): stats, charts, top pages, event breakdown, contacts table
+- Milestone email notifications (5, 10, 25, 50, 100, 200, 500 forms)
+- Weekly report (send from dashboard)
 
 ### SEO
-- Comprehensive meta tags (OG, Twitter Card, geo tags)
-- JSON-LD structured data (ProfessionalService schema)
-- sitemap.xml with all pages
-- robots.txt
-- Language alternate hreflang tags
-- Keyword-optimized descriptions
+- Dynamic meta tags per page (react-helmet-async)
+- Open Graph, Twitter Cards, JSON-LD structured data
+- Sitemap.xml (35+ URLs), robots.txt, hreflang, canonical URLs
+- Google Analytics GA4 placeholder (needs real tracking ID)
+
+### Performance
+- React.lazy code splitting for all sub-pages
+- Image lazy loading (loading="lazy")
+- sendBeacon for non-blocking analytics
 
 ### Contact Info
-- Email: mauro@mauroferrante.com (sito) / mauro@mauroferranteconsulting.com (solo Privacy Policy)
-- WhatsApp EU/Asia: +39 349 117 7007
-- WhatsApp USA/LATAM: +51 964 243 686
-
-### Email Integration
-- SMTP via Gmail (smtp.gmail.com:465 SSL) with App Password
-- HTML branded email template for contact form submissions
-
-### Analytics & Conversion Tracking
-- Page view tracking on every route change
-- Event tracking: CTA clicks, WhatsApp clicks, email clicks, form submissions
-- Admin dashboard at /admin/analytics (password protected)
-- Dashboard: daily/weekly/monthly stats, conversion rates, top pages, event breakdown, recent contacts
-- **Milestone notifications**: email automatica a 5, 10, 25, 50, 100, 200, 500 form ricevuti
-- **Report settimanale**: invio manuale dalla dashboard con riepilogo visite, conversioni, top pagine, nuovi contatti
-
-### SEO Completo
-- Meta tags statici + dinamici per pagina (react-helmet-async)
-- Open Graph / Twitter Cards
-- JSON-LD Structured Data (ProfessionalService schema)
-- Sitemap.xml (30+ URL inclusi 20 case study)
-- Robots.txt
-- Hreflang (5 lingue + x-default)
-- Canonical URLs per ogni pagina
+- Email: mauro@mauroferrante.com (site) / mauro@mauroferranteconsulting.com (Privacy only)
+- Social: LinkedIn, Facebook, Instagram
 
 ## Backlog
 
-### P0 (Critical)
-- None
-
 ### P1 (Important)
-- Mobile responsiveness verification for header submenus
-- Add Canada marker label to i18n translations
+- Replace GA4 placeholder ID (G-XXXXXXXXXX) with real tracking ID
+- Complete blog article translations (ES, FR, DE missing content)
 
 ### P2 (Nice to have)
-- Google Analytics integration (additional)
-- Performance optimization (image lazy loading, code splitting)
-- Blog/Insights section with full articles
+- Newsletter subscription
+- More blog articles
+- Performance audit (Lighthouse)
+- Image optimization (WebP conversion)
