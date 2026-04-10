@@ -17,6 +17,7 @@ import WhatsAppWidget from "@/components/WhatsAppWidget";
 import BackToTop from "@/components/BackToTop";
 import CaseStudiesPreview from "@/components/CaseStudiesPreview";
 import CookieBanner from "@/components/CookieBanner";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
 import SEO from "@/components/SEO";
 import { trackPageView } from "@/lib/tracker";
 
@@ -108,6 +109,7 @@ function App() {
       <WhatsAppWidget />
       <BackToTop />
       <CookieBanner locale={locale} />
+      <ExitIntentPopup locale={locale} />
     </BrowserRouter>
   );
 }
