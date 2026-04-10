@@ -3,6 +3,7 @@ import { t } from "@/lib/i18n";
 import { ArrowDown } from "lucide-react";
 import { useParallax } from "@/lib/hooks";
 import { trackCTA, trackWhatsApp } from "@/lib/tracker";
+import CalendlyModal from "@/components/CalendlyModal";
 
 function useCountUp(target, duration = 1500, start = false) {
   const [count, setCount] = useState(0);
@@ -64,7 +65,8 @@ export default function Hero({ locale }) {
 
   const typewriterText = useTypewriter([t(locale, "hero_typewriter_1"), t(locale, "hero_typewriter_2"), t(locale, "hero_typewriter_3")]);
 
-  const scrollToContact = () => { trackCTA("hero_book_consultation"); document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" }); };
+  const scrollToContact = () => { trackCTA("hero_book_consultation"); setCalendlyOpen(true); };
+  const [calendlyOpen, setCalendlyOpen] = useState(false);
   const parallaxRef = useParallax();
 
   const base = "transition-all duration-700 ease-out";
@@ -166,6 +168,8 @@ export default function Hero({ locale }) {
         <span className="text-white/20 text-[10px] tracking-[0.3em] uppercase">Scroll</span>
         <ArrowDown className="w-4 h-4 text-white/20" />
       </div>
+
+      <CalendlyModal open={calendlyOpen} onClose={() => setCalendlyOpen(false)} />
     </section>
   );
 }

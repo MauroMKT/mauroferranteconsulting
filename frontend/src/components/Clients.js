@@ -56,7 +56,7 @@ export default function Clients({ locale }) {
 
               <div className="relative p-8 flex flex-col items-center text-center">
                 <div className="w-full h-24 flex items-center justify-center mb-6 rounded-lg" style={{ background: client.bg }}>
-                  <img src={client.logo} alt={client.name} className="max-h-16 max-w-[160px] object-contain opacity-80 group-hover:opacity-100 transition-opacity" onError={(e) => { e.currentTarget.style.opacity = "0.3"; }} />
+                  <img src={client.logo} alt={client.name} className="max-h-16 max-w-[160px] object-contain opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" onError={(e) => { e.currentTarget.style.opacity = "0.3"; }} />
                 </div>
                 <h3 className="text-white font-semibold text-base mb-1">{client.name}</h3>
                 <p className="text-white/40 text-xs">{getTagline(client, locale)}</p>

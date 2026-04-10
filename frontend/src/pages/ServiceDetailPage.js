@@ -123,7 +123,7 @@ export default function ServiceDetailPage({ locale, setLocale }) {
 
       {/* Hero */}
       <section className="relative min-h-[60vh] flex items-end overflow-hidden">
-        <img src={config.heroImage} alt={t(locale, config.titleKey)} className="absolute inset-0 w-full h-full object-cover" />
+        <img src={config.heroImage} alt={t(locale, config.titleKey)} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/70 to-transparent" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 pb-16 pt-40 w-full">
           <Link to="/" className="inline-flex items-center gap-2 text-[#c9a84c]/60 hover:text-[#c9a84c] text-sm mb-6 transition-colors" data-testid="back-home-link">

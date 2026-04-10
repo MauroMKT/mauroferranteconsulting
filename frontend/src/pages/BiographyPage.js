@@ -64,7 +64,7 @@ export default function BiographyPage({ locale, setLocale }) {
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-br from-[#c9a84c]/15 via-transparent to-[#c9a84c]/10 rounded-2xl blur-xl" />
               <div className="relative overflow-hidden rounded-xl border border-[#c9a84c]/20">
-                <img src="/images/mauro-ferrante.jpg" alt="Mauro Ferrante" className="w-full h-[550px] object-cover object-top" data-testid="bio-photo" />
+                <img src="/images/mauro-ferrante.jpg" alt="Mauro Ferrante" className="w-full h-[550px] object-cover object-top" loading="lazy" data-testid="bio-photo" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/60 via-transparent to-transparent" />
               </div>
             </div>

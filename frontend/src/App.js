@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -18,14 +18,17 @@ import BackToTop from "@/components/BackToTop";
 import CaseStudiesPreview from "@/components/CaseStudiesPreview";
 import CookieBanner from "@/components/CookieBanner";
 import SEO from "@/components/SEO";
-import ServiceDetailPage from "@/pages/ServiceDetailPage";
-import BiographyPage from "@/pages/BiographyPage";
-import PartnerPage from "@/pages/PartnerPage";
-import CaseStudiesPage from "@/pages/CaseStudiesPage";
-import CaseStudyDetailPage from "@/pages/CaseStudyDetailPage";
-import PrivacyPage from "@/pages/PrivacyPage";
-import AdminDashboard from "@/pages/AdminDashboard";
 import { trackPageView } from "@/lib/tracker";
+
+const ServiceDetailPage = lazy(() => import("@/pages/ServiceDetailPage"));
+const BiographyPage = lazy(() => import("@/pages/BiographyPage"));
+const PartnerPage = lazy(() => import("@/pages/PartnerPage"));
+const CaseStudiesPage = lazy(() => import("@/pages/CaseStudiesPage"));
+const CaseStudyDetailPage = lazy(() => import("@/pages/CaseStudyDetailPage"));
+const PrivacyPage = lazy(() => import("@/pages/PrivacyPage"));
+const AdminDashboard = lazy(() => import("@/pages/AdminDashboard"));
+const BlogPage = lazy(() => import("@/pages/BlogPage"));
+const BlogPostPage = lazy(() => import("@/pages/BlogPostPage"));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -37,6 +40,14 @@ function PageTracker() {
   const { pathname } = useLocation();
   useEffect(() => { trackPageView(pathname); }, [pathname]);
   return null;
+}
+
+function PageLoader() {
+  return (
+    <div className="min-h-screen bg-[#080808] flex items-center justify-center">
+      <div className="w-8 h-8 border-2 border-[#c9a84c]/30 border-t-[#c9a84c] rounded-full animate-spin" />
+    </div>
+  );
 }
 
 function HomePage({ locale, setLocale }) {
@@ -80,16 +91,20 @@ function App() {
     <BrowserRouter>
       <ScrollToTop />
       <PageTracker />
-      <Routes>
-        <Route path="/" element={<HomePage locale={locale} setLocale={setLocale} />} />
-        <Route path="/about" element={<BiographyPage locale={locale} setLocale={setLocale} />} />
-        <Route path="/services/:slug" element={<ServiceDetailPage locale={locale} setLocale={setLocale} />} />
-        <Route path="/partners/:slug" element={<PartnerPage locale={locale} setLocale={setLocale} />} />
-        <Route path="/case-studies" element={<CaseStudiesPage locale={locale} setLocale={setLocale} />} />
-        <Route path="/case-studies/:id" element={<CaseStudyDetailPage locale={locale} setLocale={setLocale} />} />
-        <Route path="/privacy" element={<PrivacyPage locale={locale} setLocale={setLocale} />} />
-        <Route path="/admin/analytics" element={<AdminDashboard />} />
-      </Routes>
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/" element={<HomePage locale={locale} setLocale={setLocale} />} />
+          <Route path="/about" element={<BiographyPage locale={locale} setLocale={setLocale} />} />
+          <Route path="/services/:slug" element={<ServiceDetailPage locale={locale} setLocale={setLocale} />} />
+          <Route path="/partners/:slug" element={<PartnerPage locale={locale} setLocale={setLocale} />} />
+          <Route path="/case-studies" element={<CaseStudiesPage locale={locale} setLocale={setLocale} />} />
+          <Route path="/case-studies/:id" element={<CaseStudyDetailPage locale={locale} setLocale={setLocale} />} />
+          <Route path="/privacy" element={<PrivacyPage locale={locale} setLocale={setLocale} />} />
+          <Route path="/blog" element={<BlogPage locale={locale} setLocale={setLocale} />} />
+          <Route path="/blog/:slug" element={<BlogPostPage locale={locale} setLocale={setLocale} />} />
+          <Route path="/admin/analytics" element={<AdminDashboard />} />
+        </Routes>
+      </Suspense>
       <WhatsAppWidget />
       <BackToTop />
       <CookieBanner locale={locale} />

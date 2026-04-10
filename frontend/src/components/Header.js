@@ -176,42 +176,42 @@ export default function Header({ locale, setLocale }) {
       </div>
 
       {mobileOpen && (
-        <div className="lg:hidden bg-[#080808]/98 backdrop-blur-xl border-t border-white/5 mt-3 max-h-[80vh] overflow-y-auto" data-testid="mobile-menu">
-          <div className="max-w-7xl mx-auto px-6 py-6 space-y-1">
-            <button onClick={() => navigateTo("#home")} className="block w-full text-left text-white/70 hover:text-[#c9a84c] text-sm font-medium tracking-wider uppercase py-2.5">{t(locale, "nav_home")}</button>
+        <div className="lg:hidden fixed inset-0 top-[60px] bg-[#080808] z-40 overflow-y-auto" data-testid="mobile-menu">
+          <div className="px-6 py-8 space-y-1">
+            <button onClick={() => navigateTo("#home")} className="block w-full text-left text-white/70 hover:text-[#c9a84c] text-sm font-medium tracking-wider uppercase py-3 border-b border-white/5">{t(locale, "nav_home")}</button>
 
-            <div>
-              <button onClick={() => toggleMobileDropdown("services")} className="flex items-center justify-between w-full text-white/70 hover:text-[#c9a84c] text-sm font-medium tracking-wider uppercase py-2.5">
-                {t(locale, "nav_services")} <ChevronDown className={`w-4 h-4 transition-transform ${mobileDropdown === "services" ? "rotate-180" : ""}`} />
+            <div className="border-b border-white/5">
+              <button onClick={() => toggleMobileDropdown("services")} className="flex items-center justify-between w-full text-white/70 hover:text-[#c9a84c] text-sm font-medium tracking-wider uppercase py-3">
+                {t(locale, "nav_services")} <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${mobileDropdown === "services" ? "rotate-180 text-[#c9a84c]" : ""}`} />
               </button>
               {mobileDropdown === "services" && (
-                <div className="pl-4 space-y-0.5">
+                <div className="pl-5 pb-3 space-y-0.5 border-l-2 border-[#c9a84c]/20 ml-2">
                   {serviceItems.map((item) => (
-                    <Link key={item.to} to={item.to} onClick={() => setMobileOpen(false)} className="block text-white/50 hover:text-[#c9a84c] text-sm py-2 transition-colors">{item.label}</Link>
+                    <Link key={item.to} to={item.to} onClick={() => setMobileOpen(false)} className="block text-white/50 hover:text-[#c9a84c] text-sm py-2.5 transition-colors">{item.label}</Link>
                   ))}
                 </div>
               )}
             </div>
 
-            <button onClick={() => navigateTo("#about")} className="block w-full text-left text-white/70 hover:text-[#c9a84c] text-sm font-medium tracking-wider uppercase py-2.5">{t(locale, "nav_about")}</button>
+            <button onClick={() => navigateTo("#about")} className="block w-full text-left text-white/70 hover:text-[#c9a84c] text-sm font-medium tracking-wider uppercase py-3 border-b border-white/5">{t(locale, "nav_about")}</button>
 
-            <div>
-              <button onClick={() => toggleMobileDropdown("clients")} className="flex items-center justify-between w-full text-white/70 hover:text-[#c9a84c] text-sm font-medium tracking-wider uppercase py-2.5">
-                {t(locale, "nav_clients")} <ChevronDown className={`w-4 h-4 transition-transform ${mobileDropdown === "clients" ? "rotate-180" : ""}`} />
+            <div className="border-b border-white/5">
+              <button onClick={() => toggleMobileDropdown("clients")} className="flex items-center justify-between w-full text-white/70 hover:text-[#c9a84c] text-sm font-medium tracking-wider uppercase py-3">
+                {t(locale, "nav_clients")} <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${mobileDropdown === "clients" ? "rotate-180 text-[#c9a84c]" : ""}`} />
               </button>
               {mobileDropdown === "clients" && (
-                <div className="pl-4 space-y-0.5">
+                <div className="pl-5 pb-3 space-y-0.5 border-l-2 border-[#c9a84c]/20 ml-2">
                   {clientItems.map((item) => (
-                    <Link key={item.to} to={item.to} onClick={() => setMobileOpen(false)} className="block text-white/50 hover:text-[#c9a84c] text-sm py-2 transition-colors">{item.label}</Link>
+                    <Link key={item.to} to={item.to} onClick={() => setMobileOpen(false)} className="block text-white/50 hover:text-[#c9a84c] text-sm py-2.5 transition-colors">{item.label}</Link>
                   ))}
                 </div>
               )}
             </div>
 
-            <button onClick={() => navigateTo("#contact")} className="block w-full text-left text-white/70 hover:text-[#c9a84c] text-sm font-medium tracking-wider uppercase py-2.5">{t(locale, "nav_contact")}</button>
+            <button onClick={() => navigateTo("#contact")} className="block w-full text-left text-white/70 hover:text-[#c9a84c] text-sm font-medium tracking-wider uppercase py-3 border-b border-white/5">{t(locale, "nav_contact")}</button>
 
             {/* Mobile social links */}
-            <div className="flex items-center gap-4 pt-4 border-t border-white/5">
+            <div className="flex items-center gap-5 pt-6">
               <a href="https://www.linkedin.com/in/mauro-ferrante/" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#c9a84c] transition-colors"><LinkedInIcon className="w-5 h-5" /></a>
               <a href="https://www.facebook.com/mfmarketingconsultant" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#c9a84c] transition-colors"><FacebookIcon className="w-5 h-5" /></a>
               <a href="https://www.instagram.com/mauro_business_consulting/?hl=es" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#c9a84c] transition-colors"><InstagramIcon className="w-5 h-5" /></a>
