@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { t } from "@/lib/i18n";
 import { ArrowDown } from "lucide-react";
 import { useParallax } from "@/lib/hooks";
+import { trackCTA, trackWhatsApp } from "@/lib/tracker";
 
 function useCountUp(target, duration = 1500, start = false) {
   const [count, setCount] = useState(0);
@@ -63,7 +64,7 @@ export default function Hero({ locale }) {
 
   const typewriterText = useTypewriter([t(locale, "hero_typewriter_1"), t(locale, "hero_typewriter_2"), t(locale, "hero_typewriter_3")]);
 
-  const scrollToContact = () => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+  const scrollToContact = () => { trackCTA("hero_book_consultation"); document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" }); };
   const parallaxRef = useParallax();
 
   const base = "transition-all duration-700 ease-out";
@@ -110,11 +111,11 @@ export default function Hero({ locale }) {
               </button>
 
               <div className="flex items-center gap-2 text-xs">
-                <button onClick={() => window.open("https://wa.me/393491177007", "_blank")} className="text-[#25D366]/60 hover:text-[#25D366] font-medium transition-colors cursor-pointer" data-testid="wa-eu-btn">
+                <button onClick={() => { trackWhatsApp("europe_asia"); window.open("https://wa.me/393491177007", "_blank"); }} className="text-[#25D366]/60 hover:text-[#25D366] font-medium transition-colors cursor-pointer" data-testid="wa-eu-btn">
                   {locale === "it" ? "Europa / Asia" : "Europe / Asia"}
                 </button>
                 <span className="text-white/20">·</span>
-                <button onClick={() => window.open("https://wa.me/51964243686", "_blank")} className="text-[#25D366]/60 hover:text-[#25D366] font-medium transition-colors cursor-pointer" data-testid="wa-latam-btn">
+                <button onClick={() => { trackWhatsApp("usa_latam"); window.open("https://wa.me/51964243686", "_blank"); }} className="text-[#25D366]/60 hover:text-[#25D366] font-medium transition-colors cursor-pointer" data-testid="wa-latam-btn">
                   LATAM / USA
                 </button>
               </div>

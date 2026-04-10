@@ -2,6 +2,7 @@ import { useState } from "react";
 import { t } from "@/lib/i18n";
 import { Mail, Send, CheckCircle, AlertCircle } from "lucide-react";
 import { useReveal } from "@/hooks/use-reveal";
+import { trackFormSubmit, trackWhatsApp, trackEmail } from "@/lib/tracker";
 import axios from "axios";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -36,6 +37,7 @@ export default function Contact({ locale }) {
     try {
       const res = await axios.post(`${API}/contact`, form);
       if (res.data.ok) {
+        trackFormSubmit(form.service);
         setSubmitStatus("success");
         if (res.data.fallback && res.data.mailto) {
           window.location.href = res.data.mailto;
@@ -68,15 +70,15 @@ export default function Contact({ locale }) {
 
         {/* Contact Buttons */}
         <div className="flex flex-wrap justify-center gap-4 mb-16" data-testid="contact-buttons">
-          <a href="https://wa.me/393491177007" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-[#25D366]/10 border border-[#25D366]/20 hover:border-[#25D366]/40 rounded-xl px-6 py-4 transition-all duration-300 group" data-testid="contact-wa-eu">
+          <a href="https://wa.me/393491177007" target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsApp("europe_asia")} className="inline-flex items-center gap-3 bg-[#25D366]/10 border border-[#25D366]/20 hover:border-[#25D366]/40 rounded-xl px-6 py-4 transition-all duration-300 group" data-testid="contact-wa-eu">
             <WhatsAppIconSvg className="w-5 h-5 text-[#25D366]" />
             <div><div className="text-white text-sm font-medium">Europa & Asia</div><div className="text-white/30 text-[10px]">+39 349 117 7007</div></div>
           </a>
-          <a href="https://wa.me/51964243686" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-[#25D366]/10 border border-[#25D366]/20 hover:border-[#25D366]/40 rounded-xl px-6 py-4 transition-all duration-300 group" data-testid="contact-wa-latam">
+          <a href="https://wa.me/51964243686" target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsApp("usa_latam")} className="inline-flex items-center gap-3 bg-[#25D366]/10 border border-[#25D366]/20 hover:border-[#25D366]/40 rounded-xl px-6 py-4 transition-all duration-300 group" data-testid="contact-wa-latam">
             <WhatsAppIconSvg className="w-5 h-5 text-[#25D366]" />
             <div><div className="text-white text-sm font-medium">LATAM & USA</div><div className="text-white/30 text-[10px]">+51 964 243 686</div></div>
           </a>
-          <a href="mailto:mauro@mauroferrante.com" className="inline-flex items-center gap-3 bg-[#c9a84c]/10 border border-[#c9a84c]/20 hover:border-[#c9a84c]/40 rounded-xl px-6 py-4 transition-all duration-300 group" data-testid="contact-email">
+          <a href="mailto:mauro@mauroferrante.com" onClick={() => trackEmail()} className="inline-flex items-center gap-3 bg-[#c9a84c]/10 border border-[#c9a84c]/20 hover:border-[#c9a84c]/40 rounded-xl px-6 py-4 transition-all duration-300 group" data-testid="contact-email">
             <Mail className="w-5 h-5 text-[#c9a84c]" />
             <div><div className="text-white text-sm font-medium">mauro@mauroferrante.com</div><div className="text-white/30 text-[10px]">Email</div></div>
           </a>

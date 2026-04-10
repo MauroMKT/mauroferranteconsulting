@@ -48,24 +48,30 @@ Create a full-stack web application for Mauro Ferrante Consulting (marketing, bu
 - Keyword-optimized descriptions
 
 ### Contact Info
-- Email: mauro@mauroferranteconsulting.com
+- Email: mauro@mauroferrante.com (sito) / mauro@mauroferranteconsulting.com (solo Privacy Policy)
 - WhatsApp EU/Asia: +39 349 117 7007
 - WhatsApp USA/LATAM: +51 964 243 686
-- LinkedIn: https://www.linkedin.com/in/mauro-ferrante/
-- Facebook: https://www.facebook.com/mfmarketingconsultant
-- Instagram: https://www.instagram.com/mauro_business_consulting/
+
+### Email Integration
+- SMTP via Gmail (smtp.gmail.com:465 SSL) with App Password
+- HTML branded email template for contact form submissions
+
+### Analytics & Conversion Tracking
+- Page view tracking on every route change
+- Event tracking: CTA clicks, WhatsApp clicks, email clicks, form submissions
+- Admin dashboard at /admin/analytics (password protected)
+- Dashboard: daily/weekly/monthly stats, conversion rates, top pages, event breakdown, recent contacts
 
 ## Backlog
 
 ### P0 (Critical)
-- None currently
+- None
 
 ### P1 (Important)
 - Mobile responsiveness verification for header submenus
 - Add Canada marker label to i18n translations
 
 ### P2 (Nice to have)
-- Analytics integration (Google Analytics/Plausible)
+- Google Analytics integration (additional)
 - Performance optimization (image lazy loading, code splitting)
 - Blog/Insights section with full articles
-- Testimonial video embeds

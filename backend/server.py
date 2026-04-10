@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, Header, HTTPException
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -9,11 +9,12 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pathlib import Path
-from pydantic import BaseModel, Field, ConfigDict
-from typing import Optional
+from pydantic import BaseModel, Field
+from typing import Optional, List
 import uuid
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 import urllib.parse
+import hashlib
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -27,6 +28,8 @@ SMTP_PORT = int(os.environ.get('SMTP_PORT', '465'))
 SMTP_USER = os.environ.get('SMTP_USER')
 SMTP_PASS = os.environ.get('SMTP_PASS')
 SMTP_TO = os.environ.get('SMTP_TO')
+ADMIN_PASS = os.environ.get('ADMIN_PASS', '')
+ADMIN_TOKEN = hashlib.sha256(ADMIN_PASS.encode()).hexdigest() if ADMIN_PASS else ''
 
 app = FastAPI()
 api_router = APIRouter(prefix="/api")
@@ -151,6 +154,109 @@ async def submit_contact(form: ContactForm):
 async def get_contacts():
     contacts = await db.contacts.find({}, {"_id": 0}).sort("created_at", -1).to_list(100)
     return contacts
+
+
+# ─── Analytics Tracking ───────────────────────────────────────
+
+class TrackEvent(BaseModel):
+    event: str = Field(..., min_length=1)
+    page: Optional[str] = None
+    metadata: Optional[dict] = None
+
+class AdminLogin(BaseModel):
+    password: str
+
+def verify_admin(token: str):
+    if not token or token != ADMIN_TOKEN:
+        raise HTTPException(status_code=401, detail="Unauthorized")
+
+@api_router.post("/track")
+async def track_event(evt: TrackEvent):
+    doc = {
+        "id": str(uuid.uuid4()),
+        "event": evt.event,
+        "page": evt.page or "/",
+        "metadata": evt.metadata or {},
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+    }
+    await db.analytics.insert_one(doc)
+    return {"ok": True}
+
+@api_router.post("/admin/login")
+async def admin_login(body: AdminLogin):
+    if body.password == ADMIN_PASS:
+        return {"ok": True, "token": ADMIN_TOKEN}
+    raise HTTPException(status_code=401, detail="Invalid password")
+
+@api_router.get("/admin/stats")
+async def admin_stats(token: str = ""):
+    verify_admin(token)
+    now = datetime.now(timezone.utc)
+    today_start = now.replace(hour=0, minute=0, second=0, microsecond=0).isoformat()
+    week_start = (now - timedelta(days=7)).isoformat()
+    month_start = (now - timedelta(days=30)).isoformat()
+
+    total_events = await db.analytics.count_documents({})
+    today_views = await db.analytics.count_documents({"event": "page_view", "timestamp": {"$gte": today_start}})
+    week_views = await db.analytics.count_documents({"event": "page_view", "timestamp": {"$gte": week_start}})
+    month_views = await db.analytics.count_documents({"event": "page_view", "timestamp": {"$gte": month_start}})
+
+    today_conversions = await db.analytics.count_documents({"event": "form_submit", "timestamp": {"$gte": today_start}})
+    week_conversions = await db.analytics.count_documents({"event": "form_submit", "timestamp": {"$gte": week_start}})
+    month_conversions = await db.analytics.count_documents({"event": "form_submit", "timestamp": {"$gte": month_start}})
+
+    wa_clicks = await db.analytics.count_documents({"event": "whatsapp_click", "timestamp": {"$gte": month_start}})
+    email_clicks = await db.analytics.count_documents({"event": "email_click", "timestamp": {"$gte": month_start}})
+    cta_clicks = await db.analytics.count_documents({"event": "cta_click", "timestamp": {"$gte": month_start}})
+
+    # Top pages (last 30 days)
+    pipeline_pages = [
+        {"$match": {"event": "page_view", "timestamp": {"$gte": month_start}}},
+        {"$group": {"_id": "$page", "count": {"$sum": 1}}},
+        {"$sort": {"count": -1}},
+        {"$limit": 10},
+    ]
+    top_pages = await db.analytics.aggregate(pipeline_pages).to_list(10)
+    top_pages_clean = [{"page": p["_id"], "count": p["count"]} for p in top_pages]
+
+    # Daily visits (last 14 days)
+    daily_data = []
+    for i in range(13, -1, -1):
+        day = now - timedelta(days=i)
+        day_start = day.replace(hour=0, minute=0, second=0, microsecond=0).isoformat()
+        day_end = (day.replace(hour=0, minute=0, second=0, microsecond=0) + timedelta(days=1)).isoformat()
+        views = await db.analytics.count_documents({"event": "page_view", "timestamp": {"$gte": day_start, "$lt": day_end}})
+        conversions = await db.analytics.count_documents({"event": "form_submit", "timestamp": {"$gte": day_start, "$lt": day_end}})
+        daily_data.append({"date": day.strftime("%d/%m"), "views": views, "conversions": conversions})
+
+    # Event breakdown (last 30 days)
+    pipeline_events = [
+        {"$match": {"timestamp": {"$gte": month_start}}},
+        {"$group": {"_id": "$event", "count": {"$sum": 1}}},
+        {"$sort": {"count": -1}},
+    ]
+    event_breakdown = await db.analytics.aggregate(pipeline_events).to_list(20)
+    events_clean = [{"event": e["_id"], "count": e["count"]} for e in event_breakdown]
+
+    # Recent contacts
+    recent_contacts = await db.contacts.find({}, {"_id": 0}).sort("created_at", -1).to_list(10)
+
+    conversion_rate_week = round((week_conversions / week_views * 100), 1) if week_views > 0 else 0
+    conversion_rate_month = round((month_conversions / month_views * 100), 1) if month_views > 0 else 0
+
+    return {
+        "overview": {
+            "total_events": total_events,
+            "today": {"views": today_views, "conversions": today_conversions},
+            "week": {"views": week_views, "conversions": week_conversions, "conversion_rate": conversion_rate_week},
+            "month": {"views": month_views, "conversions": month_conversions, "conversion_rate": conversion_rate_month},
+        },
+        "actions": {"whatsapp_clicks": wa_clicks, "email_clicks": email_clicks, "cta_clicks": cta_clicks},
+        "top_pages": top_pages_clean,
+        "daily": daily_data,
+        "events": events_clean,
+        "recent_contacts": recent_contacts,
+    }
 
 
 app.include_router(api_router)

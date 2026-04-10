@@ -23,10 +23,18 @@ import PartnerPage from "@/pages/PartnerPage";
 import CaseStudiesPage from "@/pages/CaseStudiesPage";
 import CaseStudyDetailPage from "@/pages/CaseStudyDetailPage";
 import PrivacyPage from "@/pages/PrivacyPage";
+import AdminDashboard from "@/pages/AdminDashboard";
+import { trackPageView } from "@/lib/tracker";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+}
+
+function PageTracker() {
+  const { pathname } = useLocation();
+  useEffect(() => { trackPageView(pathname); }, [pathname]);
   return null;
 }
 
@@ -69,6 +77,7 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <PageTracker />
       <Routes>
         <Route path="/" element={<HomePage locale={locale} setLocale={setLocale} />} />
         <Route path="/about" element={<BiographyPage locale={locale} setLocale={setLocale} />} />
@@ -77,6 +86,7 @@ function App() {
         <Route path="/case-studies" element={<CaseStudiesPage locale={locale} setLocale={setLocale} />} />
         <Route path="/case-studies/:id" element={<CaseStudyDetailPage locale={locale} setLocale={setLocale} />} />
         <Route path="/privacy" element={<PrivacyPage locale={locale} setLocale={setLocale} />} />
+        <Route path="/admin/analytics" element={<AdminDashboard />} />
       </Routes>
       <WhatsAppWidget />
       <BackToTop />
