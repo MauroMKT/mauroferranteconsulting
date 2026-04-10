@@ -102,7 +102,7 @@ export default function Footer({ locale }) {
             <div>
               <h4 className="text-white/60 text-xs font-medium tracking-[0.2em] uppercase mb-4">{t(locale, "footer_contact_title")}</h4>
               <ul className="space-y-3">
-                <li><a href="mailto:mauro@mauroferranteconsulting.com" className="text-white/30 hover:text-[#c9a84c] text-sm transition-colors flex items-center gap-2" data-testid="footer-email"><Mail className="w-3.5 h-3.5" />mauro@mauroferranteconsulting.com</a></li>
+                <li><a href="mailto:mauro@mauroferrante.com" className="text-white/30 hover:text-[#c9a84c] text-sm transition-colors flex items-center gap-2" data-testid="footer-email"><Mail className="w-3.5 h-3.5" />mauro@mauroferrante.com</a></li>
                 <li><a href="https://wa.me/393491177007" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#25D366] text-sm transition-colors flex items-center gap-2" data-testid="footer-wa-eu"><WhatsAppIconSvg className="w-3.5 h-3.5" />EUROPA & ASIA</a></li>
                 <li><a href="https://wa.me/51964243686" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#25D366] text-sm transition-colors flex items-center gap-2" data-testid="footer-wa-latam"><WhatsAppIconSvg className="w-3.5 h-3.5" />USA & LATAM</a></li>
               </ul>

@@ -207,7 +207,7 @@ export default function ServiceDetailPage({ locale, setLocale }) {
           <div className="flex flex-wrap justify-center gap-4">
             <a href="https://wa.me/393491177007" target="_blank" rel="noopener noreferrer" className="bg-[#25D366]/20 text-[#25D366] border border-[#25D366]/30 hover:bg-[#25D366]/30 px-6 py-3 rounded-lg text-sm font-medium transition-all">WhatsApp EUROPA & ASIA</a>
             <a href="https://wa.me/51964243686" target="_blank" rel="noopener noreferrer" className="bg-[#25D366]/20 text-[#25D366] border border-[#25D366]/30 hover:bg-[#25D366]/30 px-6 py-3 rounded-lg text-sm font-medium transition-all">WhatsApp USA & LATAM</a>
-            <a href="mailto:mauro@mauroferranteconsulting.com" className="bg-[#c9a84c]/10 text-[#c9a84c] border border-[#c9a84c]/30 hover:bg-[#c9a84c]/20 px-6 py-3 rounded-lg text-sm font-medium transition-all">Email</a>
+            <a href="mailto:mauro@mauroferrante.com" className="bg-[#c9a84c]/10 text-[#c9a84c] border border-[#c9a84c]/30 hover:bg-[#c9a84c]/20 px-6 py-3 rounded-lg text-sm font-medium transition-all">Email</a>
           </div>
         </div>
       </section>
