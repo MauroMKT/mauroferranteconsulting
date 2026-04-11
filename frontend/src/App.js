@@ -13,6 +13,7 @@ import Clients from "@/components/Clients";
 import Insights from "@/components/Insights";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Newsletter from "@/components/Newsletter";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import BackToTop from "@/components/BackToTop";
 import CaseStudiesPreview from "@/components/CaseStudiesPreview";
@@ -69,6 +70,7 @@ function HomePage({ locale, setLocale }) {
         <Clients locale={locale} />
         <Insights locale={locale} />
         <Contact locale={locale} />
+        <Newsletter locale={locale} />
       </main>
       <Footer locale={locale} />
     </div>
