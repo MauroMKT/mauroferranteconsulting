@@ -23,12 +23,12 @@ Full-stack web app for Mauro Ferrante Consulting (marketing, business management
 - 20 verified reviews
 
 ### Pages & Routing
-- Homepage (Hero, WhyMauro, Services, Stats, About, Method, WorldMap, CaseStudies, Reviews, Clients, Insights, Contact)
+- Homepage (Hero, WhyMauro, Services, Stats, About, Method, WorldMap, CaseStudies, Reviews, Clients, Insights, Contact, Newsletter)
 - Biography (/about)
 - 3 Service detail pages (/services/project-management, /services/digital-marketing, /services/real-estate)
 - 3 Partner pages (/partners/kw-gchouse, /partners/trem-group, /partners/azequo-engineering)
 - Case Studies listing (/case-studies) with filters + 20 detail pages
-- Blog (/blog) with 5 articles + individual post pages (/blog/:slug)
+- Blog (/blog) with 8 articles + individual post pages (/blog/:slug) - All 5 languages
 - Privacy Policy (/privacy) - GDPR compliant
 - Admin Analytics Dashboard (/admin/analytics)
 
@@ -52,12 +52,24 @@ Full-stack web app for Mauro Ferrante Consulting (marketing, business management
 - Dynamic meta tags per page (react-helmet-async)
 - Open Graph, Twitter Cards, JSON-LD structured data
 - Sitemap.xml (35+ URLs), robots.txt, hreflang, canonical URLs
-- Google Analytics GA4 placeholder (needs real tracking ID)
+- Google Analytics GA4 (ID: G-TEK1TF3459)
 
 ### Performance
 - React.lazy code splitting for all sub-pages
 - Image lazy loading (loading="lazy")
 - sendBeacon for non-blocking analytics
+
+### Newsletter (NEW - Feb 2026)
+- Subscription component on homepage with 5-language translations
+- API: POST /api/newsletter/subscribe (saves to MongoDB, sends welcome email)
+- Admin: GET /api/admin/newsletter (view subscribers)
+- Duplicate email protection (case-insensitive)
+
+### Blog System (COMPLETED - Feb 2026)
+- 8 articles with full translations (EN, IT, ES, FR, DE)
+- Categories: project-management, digital-marketing, real-estate
+- Featured post layout + grid for remaining articles
+- Related articles on post pages
 
 ### Contact Info
 - Email: mauro@mauroferrante.com (site) / mauro@mauroferranteconsulting.com (Privacy only)
@@ -66,11 +78,10 @@ Full-stack web app for Mauro Ferrante Consulting (marketing, business management
 ## Backlog
 
 ### P1 (Important)
-- Replace GA4 placeholder ID (G-XXXXXXXXXX) with real tracking ID
-- Complete blog article translations (ES, FR, DE missing content)
+- Lighthouse Performance Audit
+- Clarify push notifications vs email reports (user requested push, agent implemented email reports)
 
 ### P2 (Nice to have)
-- Newsletter subscription
-- More blog articles
-- Performance audit (Lighthouse)
 - Image optimization (WebP conversion)
+- A/B testing on CTA and exit intent popup
+- Backend refactoring: split server.py into modular routers
