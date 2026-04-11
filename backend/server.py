@@ -19,6 +19,12 @@ import hashlib
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
 mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
@@ -379,28 +385,6 @@ async def admin_stats(token: str = ""):
     }
 
 
-app.include_router(api_router)
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_credentials=True,
-    allow_origins=os.environ.get('CORS_ORIGINS', '*').split(','),
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
-logger = logging.getLogger(__name__)
-
-
-@app.on_event("shutdown")
-async def shutdown_db_client():
-    client.close()
-
-
 # ─── Newsletter Subscription ─────────────────────────────────
 
 class NewsletterSubscribe(BaseModel):
@@ -425,7 +409,6 @@ async def newsletter_subscribe(body: NewsletterSubscribe):
     await db.newsletter.insert_one(doc)
     logger.info(f"Newsletter subscription: {body.email}")
 
-    # Send welcome email
     welcome_html = f"""
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 12px; overflow: hidden;">
         <div style="background: linear-gradient(135deg, #c9a84c, #a88a3a); padding: 24px 30px;">
@@ -448,3 +431,18 @@ async def get_newsletter_subscribers(token: str = ""):
     verify_admin(token)
     subs = await db.newsletter.find({"active": True}, {"_id": 0}).sort("subscribed_at", -1).to_list(500)
     return {"subscribers": subs, "total": len(subs)}
+
+
+app.include_router(api_router)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_credentials=True,
+    allow_origins=os.environ.get('CORS_ORIGINS', '*').split(','),
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+@app.on_event("shutdown")
+async def shutdown_db_client():
+    client.close()
