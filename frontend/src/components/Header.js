@@ -136,7 +136,7 @@ export default function Header({ locale, setLocale }) {
         <nav className="hidden lg:flex items-center gap-7" data-testid="desktop-nav">
           <button onClick={() => navigateTo("#home")} className={navBtnClass("home")} data-testid="nav-home">{t(locale, "nav_home")}</button>
           <DropdownMenu label={t(locale, "nav_services")} items={serviceItems} onNavigate={() => setMobileOpen(false)} active={isHome && activeSection === "services"} />
-          <button onClick={() => navigateTo("#about")} className={navBtnClass("about")} data-testid="nav-about">{t(locale, "nav_about")}</button>
+          <Link to="/about" className={`text-xs font-medium tracking-[0.15em] uppercase transition-colors duration-300 ${location.pathname === "/about" ? "text-[#c9a84c]" : "text-white/60 hover:text-[#c9a84c]"}`} data-testid="nav-about">{t(locale, "nav_about")}</Link>
           <DropdownMenu label={t(locale, "nav_clients")} items={clientItems} onNavigate={() => setMobileOpen(false)} active={isHome && activeSection === "clients"} />
           <button onClick={() => navigateTo("#contact")} className={navBtnClass("contact")} data-testid="nav-contact">{t(locale, "nav_contact")}</button>
         </nav>
@@ -193,7 +193,7 @@ export default function Header({ locale, setLocale }) {
               )}
             </div>
 
-            <button onClick={() => navigateTo("#about")} className="block w-full text-left text-white/70 hover:text-[#c9a84c] text-sm font-medium tracking-wider uppercase py-3 border-b border-white/5">{t(locale, "nav_about")}</button>
+            <Link to="/about" onClick={() => setMobileOpen(false)} className="block w-full text-left text-white/70 hover:text-[#c9a84c] text-sm font-medium tracking-wider uppercase py-3 border-b border-white/5">{t(locale, "nav_about")}</Link>
 
             <div className="border-b border-white/5">
               <button onClick={() => toggleMobileDropdown("clients")} className="flex items-center justify-between w-full text-white/70 hover:text-[#c9a84c] text-sm font-medium tracking-wider uppercase py-3">
