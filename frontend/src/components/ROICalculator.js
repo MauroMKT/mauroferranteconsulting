@@ -11,7 +11,7 @@ const texts = {
     typeLabel: "Property Type",
     types: { studio: "Studio Apartment", one_bed: "1-Bedroom", two_bed: "2-Bedroom", villa: "House / Villa" },
     cityLabel: "City",
-    cities: { roma: "Rome, Italy", lima: "Lima, Peru", valencia: "Valencia, Spain", monaco: "Munich, Germany" },
+    cities: { roma: "Rome, Italy", lima: "Lima, Peru", valencia: "Valencia, Spain", monaco: "Munich, Germany", miami: "Miami, USA" },
     yearlyRental: "Estimated Yearly Rental",
     roiLabel: "Gross Rental Yield",
     fiveYear: "5-Year Rental Income",
@@ -28,7 +28,7 @@ const texts = {
     typeLabel: "Tipo di Proprieta",
     types: { studio: "Monolocale", one_bed: "Bilocale", two_bed: "Trilocale", villa: "Casa / Villa" },
     cityLabel: "Citta",
-    cities: { roma: "Roma, Italia", lima: "Lima, Peru", valencia: "Valencia, Spagna", monaco: "Monaco di Baviera, Germania" },
+    cities: { roma: "Roma, Italia", lima: "Lima, Peru", valencia: "Valencia, Spagna", monaco: "Monaco di Baviera, Germania", miami: "Miami, USA" },
     yearlyRental: "Affitto Annuale Stimato",
     roiLabel: "Rendimento Lordo",
     fiveYear: "Reddito da Affitto 5 Anni",
@@ -45,7 +45,7 @@ const texts = {
     typeLabel: "Tipo de Propiedad",
     types: { studio: "Estudio", one_bed: "1 Habitacion", two_bed: "2 Habitaciones", villa: "Casa / Villa" },
     cityLabel: "Ciudad",
-    cities: { roma: "Roma, Italia", lima: "Lima, Peru", valencia: "Valencia, Espana", monaco: "Munich, Alemania" },
+    cities: { roma: "Roma, Italia", lima: "Lima, Peru", valencia: "Valencia, Espana", monaco: "Munich, Alemania", miami: "Miami, EE.UU." },
     yearlyRental: "Alquiler Anual Estimado",
     roiLabel: "Rendimiento Bruto",
     fiveYear: "Ingresos por Alquiler 5 Anos",
@@ -62,7 +62,7 @@ const texts = {
     typeLabel: "Type de Propriete",
     types: { studio: "Studio", one_bed: "1 Chambre", two_bed: "2 Chambres", villa: "Maison / Villa" },
     cityLabel: "Ville",
-    cities: { roma: "Rome, Italie", lima: "Lima, Perou", valencia: "Valence, Espagne", monaco: "Munich, Allemagne" },
+    cities: { roma: "Rome, Italie", lima: "Lima, Perou", valencia: "Valence, Espagne", monaco: "Munich, Allemagne", miami: "Miami, USA" },
     yearlyRental: "Loyer Annuel Estime",
     roiLabel: "Rendement Brut",
     fiveYear: "Revenus Locatifs 5 Ans",
@@ -79,7 +79,7 @@ const texts = {
     typeLabel: "Immobilientyp",
     types: { studio: "Studio-Apartment", one_bed: "1-Zimmer", two_bed: "2-Zimmer", villa: "Haus / Villa" },
     cityLabel: "Stadt",
-    cities: { roma: "Rom, Italien", lima: "Lima, Peru", valencia: "Valencia, Spanien", monaco: "Munchen, Deutschland" },
+    cities: { roma: "Rom, Italien", lima: "Lima, Peru", valencia: "Valencia, Spanien", monaco: "Munchen, Deutschland", miami: "Miami, USA" },
     yearlyRental: "Geschatzte Jahresmiete",
     roiLabel: "Brutto-Rendite",
     fiveYear: "Mieteinnahmen 5 Jahre",
@@ -92,10 +92,10 @@ const texts = {
 
 // Gross rental yields (%) by property type and city — based on real market averages
 const yields = {
-  studio:  { roma: 5.8, lima: 7.5, valencia: 6.8, monaco: 3.8 },
-  one_bed: { roma: 5.2, lima: 7.0, valencia: 6.3, monaco: 3.5 },
-  two_bed: { roma: 4.5, lima: 6.5, valencia: 5.8, monaco: 3.2 },
-  villa:   { roma: 3.2, lima: 5.0, valencia: 4.5, monaco: 2.5 },
+  studio:  { roma: 5.8, lima: 7.5, valencia: 6.8, monaco: 3.8, miami: 6.5 },
+  one_bed: { roma: 5.2, lima: 7.0, valencia: 6.3, monaco: 3.5, miami: 5.8 },
+  two_bed: { roma: 4.5, lima: 6.5, valencia: 5.8, monaco: 3.2, miami: 5.2 },
+  villa:   { roma: 3.2, lima: 5.0, valencia: 4.5, monaco: 2.5, miami: 4.0 },
 };
 
 // Annual capital appreciation rates (%) by city — based on 5-year trends
@@ -104,9 +104,11 @@ const appreciationRates = {
   lima: 6.0,     // Lima: emerging market, strong growth
   valencia: 5.5, // Valencia: post-pandemic boom, tech hub growth
   monaco: 4.0,   // Munich: stable German market, limited supply
+  miami: 7.0,    // Miami: high demand, international buyers, luxury market
 };
 
-const fmt = (n) => new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
+const fmtEur = (n) => new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
+const fmtUsd = (n) => new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(n);
 
 export default function ROICalculator({ locale }) {
   const { ref, visible } = useReveal();
@@ -114,6 +116,8 @@ export default function ROICalculator({ locale }) {
   const [type, setType] = useState("one_bed");
   const [city, setCity] = useState("roma");
   const txt = texts[locale] || texts.en;
+  const fmt = city === "miami" ? fmtUsd : fmtEur;
+  const currLabel = city === "miami" ? "USD" : "EUR";
 
   const results = useMemo(() => {
     const yieldRate = yields[type]?.[city] || 5.0;
@@ -144,7 +148,7 @@ export default function ROICalculator({ locale }) {
           <div className="bg-[#0f0f0f] border border-white/5 rounded-2xl p-8 space-y-6" data-testid="roi-inputs">
             {/* Amount slider */}
             <div>
-              <label className="text-white/50 text-xs font-medium tracking-wider uppercase mb-3 block">{txt.investLabel}</label>
+              <label className="text-white/50 text-xs font-medium tracking-wider uppercase mb-3 block">{txt.investLabel.replace(/\(.*\)/, `(${currLabel})`)}</label>
               <div className="text-[#c9a84c] text-3xl font-serif font-bold mb-4">{fmt(amount)}</div>
               <input type="range" min={50000} max={1500000} step={25000} value={amount}
                 onChange={(e) => setAmount(Number(e.target.value))}
