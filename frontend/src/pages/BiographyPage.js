@@ -171,6 +171,7 @@ export default function BiographyPage({ locale, setLocale }) {
               <span className="text-[#c9a84c] text-xs font-medium tracking-[0.3em] uppercase">{t(locale, "about_page_hero_sub")}</span>
               <h1 className="text-4xl sm:text-5xl font-serif text-white font-bold">{t(locale, "about_title")}</h1>
               <p className="text-[#c9a84c]/60 text-base font-medium">{t(locale, "about_subtitle")}</p>
+              <p className="text-white/40 text-sm italic">{locale === "it" ? "Aiuto le aziende di Monaco di Baviera a scalare attraverso l'Automazione e il Fractional Management." : locale === "es" ? "Ayudo a las empresas de Munich a escalar a traves de la Automatizacion y el Fractional Management." : locale === "fr" ? "J'aide les entreprises de Munich a se developper grace a l'Automatisation et au Fractional Management." : locale === "de" ? "Ich helfe Munchner Unternehmen durch Automatisierung und Fractional Management zu skalieren." : "Helping Munich-based Businesses scale through Automation & Fractional Management."}</p>
               <p className="text-white/50 text-sm leading-relaxed">{t(locale, "about_p1")}</p>
               <p className="text-white/50 text-sm leading-relaxed">{t(locale, "about_p2")}</p>
               <p className="text-white/50 text-sm leading-relaxed">{t(locale, "about_p3")}</p>
