@@ -21,7 +21,6 @@ import CookieBanner from "@/components/CookieBanner";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import SEO from "@/components/SEO";
 import VideoTestimonials from "@/components/VideoTestimonials";
-import ROICalculator from "@/components/ROICalculator";
 import { trackPageView } from "@/lib/tracker";
 
 const ServiceDetailPage = lazy(() => import("@/pages/ServiceDetailPage"));
@@ -70,7 +69,6 @@ function HomePage({ locale, setLocale }) {
         <CaseStudiesPreview locale={locale} />
         <VideoTestimonials locale={locale} />
         <Clients locale={locale} />
-        <ROICalculator locale={locale} />
         <Insights locale={locale} />
         <Contact locale={locale} />
         <Newsletter locale={locale} />

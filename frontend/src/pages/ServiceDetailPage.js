@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Contact from "@/components/Contact";
 import SEO from "@/components/SEO";
+import ROICalculator from "@/components/ROICalculator";
 import { caseStudies } from "@/lib/caseStudies";
 import { ArrowLeft, CheckCircle2, ArrowRight, TrendingUp, Clock, MapPin, Tag } from "lucide-react";
 
@@ -196,6 +197,9 @@ export default function ServiceDetailPage({ locale, setLocale }) {
           </div>
         </section>
       )}
+
+      {/* ROI Calculator — only on Real Estate page */}
+      {slug === "real-estate" && <ROICalculator locale={locale} />}
 
       {/* CTA */}
       <section className="py-16 bg-[#0a0a0a]">

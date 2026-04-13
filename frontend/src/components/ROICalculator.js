@@ -5,16 +5,16 @@ import { TrendingUp, DollarSign, Home, Percent, Calculator } from "lucide-react"
 const texts = {
   en: {
     label: "Investment Calculator",
-    title: "Dubai Real Estate ROI Simulator",
+    title: "Real Estate ROI Simulator",
     sub: "Estimate your potential returns based on real market data",
-    investLabel: "Investment Amount (USD)",
+    investLabel: "Investment Amount (EUR)",
     typeLabel: "Property Type",
-    types: { studio: "Studio Apartment", one_bed: "1-Bedroom", two_bed: "2-Bedroom", villa: "Villa" },
-    areaLabel: "Area",
-    areas: { marina: "Dubai Marina", downtown: "Downtown Dubai", jvc: "JVC", palm: "Palm Jumeirah", creek: "Dubai Creek" },
+    types: { studio: "Studio Apartment", one_bed: "1-Bedroom", two_bed: "2-Bedroom", villa: "House / Villa" },
+    cityLabel: "City",
+    cities: { roma: "Rome, Italy", lima: "Lima, Peru", valencia: "Valencia, Spain", monaco: "Munich, Germany" },
     yearlyRental: "Estimated Yearly Rental",
     roiLabel: "Gross Rental Yield",
-    fiveYear: "5-Year Projection",
+    fiveYear: "5-Year Rental Income",
     appreciation: "Capital Appreciation (5Y)",
     totalReturn: "Total Estimated Return",
     disclaimer: "Estimates based on average market data. Actual returns may vary. Consult with our team for personalized analysis.",
@@ -22,16 +22,16 @@ const texts = {
   },
   it: {
     label: "Calcolatore Investimenti",
-    title: "Simulatore ROI Immobiliare Dubai",
+    title: "Simulatore ROI Immobiliare",
     sub: "Stima i tuoi potenziali rendimenti basati su dati di mercato reali",
-    investLabel: "Importo Investimento (USD)",
+    investLabel: "Importo Investimento (EUR)",
     typeLabel: "Tipo di Proprieta",
-    types: { studio: "Monolocale", one_bed: "Bilocale", two_bed: "Trilocale", villa: "Villa" },
-    areaLabel: "Zona",
-    areas: { marina: "Dubai Marina", downtown: "Downtown Dubai", jvc: "JVC", palm: "Palm Jumeirah", creek: "Dubai Creek" },
+    types: { studio: "Monolocale", one_bed: "Bilocale", two_bed: "Trilocale", villa: "Casa / Villa" },
+    cityLabel: "Citta",
+    cities: { roma: "Roma, Italia", lima: "Lima, Peru", valencia: "Valencia, Spagna", monaco: "Monaco di Baviera, Germania" },
     yearlyRental: "Affitto Annuale Stimato",
     roiLabel: "Rendimento Lordo",
-    fiveYear: "Proiezione 5 Anni",
+    fiveYear: "Reddito da Affitto 5 Anni",
     appreciation: "Rivalutazione Capitale (5A)",
     totalReturn: "Ritorno Totale Stimato",
     disclaimer: "Stime basate su dati di mercato medi. I rendimenti effettivi possono variare. Consulta il nostro team per un'analisi personalizzata.",
@@ -39,16 +39,16 @@ const texts = {
   },
   es: {
     label: "Calculadora de Inversiones",
-    title: "Simulador ROI Inmobiliario Dubai",
+    title: "Simulador ROI Inmobiliario",
     sub: "Estima tus retornos potenciales basados en datos reales del mercado",
-    investLabel: "Monto de Inversion (USD)",
+    investLabel: "Monto de Inversion (EUR)",
     typeLabel: "Tipo de Propiedad",
-    types: { studio: "Estudio", one_bed: "1 Habitacion", two_bed: "2 Habitaciones", villa: "Villa" },
-    areaLabel: "Zona",
-    areas: { marina: "Dubai Marina", downtown: "Downtown Dubai", jvc: "JVC", palm: "Palm Jumeirah", creek: "Dubai Creek" },
+    types: { studio: "Estudio", one_bed: "1 Habitacion", two_bed: "2 Habitaciones", villa: "Casa / Villa" },
+    cityLabel: "Ciudad",
+    cities: { roma: "Roma, Italia", lima: "Lima, Peru", valencia: "Valencia, Espana", monaco: "Munich, Alemania" },
     yearlyRental: "Alquiler Anual Estimado",
     roiLabel: "Rendimiento Bruto",
-    fiveYear: "Proyeccion 5 Anos",
+    fiveYear: "Ingresos por Alquiler 5 Anos",
     appreciation: "Apreciacion de Capital (5A)",
     totalReturn: "Retorno Total Estimado",
     disclaimer: "Estimaciones basadas en datos promedio del mercado. Los retornos reales pueden variar.",
@@ -56,16 +56,16 @@ const texts = {
   },
   fr: {
     label: "Calculateur d'Investissement",
-    title: "Simulateur ROI Immobilier Dubai",
+    title: "Simulateur ROI Immobilier",
     sub: "Estimez vos rendements potentiels bases sur des donnees reelles du marche",
-    investLabel: "Montant d'Investissement (USD)",
+    investLabel: "Montant d'Investissement (EUR)",
     typeLabel: "Type de Propriete",
-    types: { studio: "Studio", one_bed: "1 Chambre", two_bed: "2 Chambres", villa: "Villa" },
-    areaLabel: "Zone",
-    areas: { marina: "Dubai Marina", downtown: "Downtown Dubai", jvc: "JVC", palm: "Palm Jumeirah", creek: "Dubai Creek" },
+    types: { studio: "Studio", one_bed: "1 Chambre", two_bed: "2 Chambres", villa: "Maison / Villa" },
+    cityLabel: "Ville",
+    cities: { roma: "Rome, Italie", lima: "Lima, Perou", valencia: "Valence, Espagne", monaco: "Munich, Allemagne" },
     yearlyRental: "Loyer Annuel Estime",
     roiLabel: "Rendement Brut",
-    fiveYear: "Projection 5 Ans",
+    fiveYear: "Revenus Locatifs 5 Ans",
     appreciation: "Appreciation du Capital (5A)",
     totalReturn: "Rendement Total Estime",
     disclaimer: "Estimations basees sur des donnees moyennes du marche. Les rendements reels peuvent varier.",
@@ -73,16 +73,16 @@ const texts = {
   },
   de: {
     label: "Investitionsrechner",
-    title: "Dubai Immobilien ROI-Simulator",
+    title: "Immobilien ROI-Simulator",
     sub: "Schatzen Sie Ihre potenziellen Renditen basierend auf realen Marktdaten",
-    investLabel: "Investitionsbetrag (USD)",
+    investLabel: "Investitionsbetrag (EUR)",
     typeLabel: "Immobilientyp",
-    types: { studio: "Studio-Apartment", one_bed: "1-Zimmer", two_bed: "2-Zimmer", villa: "Villa" },
-    areaLabel: "Gegend",
-    areas: { marina: "Dubai Marina", downtown: "Downtown Dubai", jvc: "JVC", palm: "Palm Jumeirah", creek: "Dubai Creek" },
+    types: { studio: "Studio-Apartment", one_bed: "1-Zimmer", two_bed: "2-Zimmer", villa: "Haus / Villa" },
+    cityLabel: "Stadt",
+    cities: { roma: "Rom, Italien", lima: "Lima, Peru", valencia: "Valencia, Spanien", monaco: "Munchen, Deutschland" },
     yearlyRental: "Geschatzte Jahresmiete",
     roiLabel: "Brutto-Rendite",
-    fiveYear: "5-Jahres-Prognose",
+    fiveYear: "Mieteinnahmen 5 Jahre",
     appreciation: "Kapitalzuwachs (5J)",
     totalReturn: "Geschatzte Gesamtrendite",
     disclaimer: "Schatzungen basierend auf durchschnittlichen Marktdaten. Die tatsachlichen Renditen konnen variieren.",
@@ -90,36 +90,41 @@ const texts = {
   },
 };
 
+// Gross rental yields (%) by property type and city — based on real market averages
 const yields = {
-  studio:  { marina: 7.2, downtown: 6.8, jvc: 8.5, palm: 5.8, creek: 7.0 },
-  one_bed: { marina: 6.8, downtown: 6.5, jvc: 8.0, palm: 5.5, creek: 6.7 },
-  two_bed: { marina: 6.2, downtown: 6.0, jvc: 7.5, palm: 5.2, creek: 6.3 },
-  villa:   { marina: 4.5, downtown: 4.2, jvc: 6.0, palm: 4.8, creek: 5.0 },
+  studio:  { roma: 5.8, lima: 7.5, valencia: 6.8, monaco: 3.8 },
+  one_bed: { roma: 5.2, lima: 7.0, valencia: 6.3, monaco: 3.5 },
+  two_bed: { roma: 4.5, lima: 6.5, valencia: 5.8, monaco: 3.2 },
+  villa:   { roma: 3.2, lima: 5.0, valencia: 4.5, monaco: 2.5 },
 };
 
+// Annual capital appreciation rates (%) by city — based on 5-year trends
 const appreciationRates = {
-  marina: 5.5, downtown: 6.0, jvc: 7.5, palm: 4.5, creek: 8.0,
+  roma: 3.5,     // Rome: steady growth, historic center premium
+  lima: 6.0,     // Lima: emerging market, strong growth
+  valencia: 5.5, // Valencia: post-pandemic boom, tech hub growth
+  monaco: 4.0,   // Munich: stable German market, limited supply
 };
 
-const fmt = (n) => new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(n);
+const fmt = (n) => new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
 
 export default function ROICalculator({ locale }) {
   const { ref, visible } = useReveal();
-  const [amount, setAmount] = useState(300000);
+  const [amount, setAmount] = useState(250000);
   const [type, setType] = useState("one_bed");
-  const [area, setArea] = useState("marina");
+  const [city, setCity] = useState("roma");
   const txt = texts[locale] || texts.en;
 
   const results = useMemo(() => {
-    const yieldRate = yields[type]?.[area] || 6.5;
-    const appRate = appreciationRates[area] || 5.5;
+    const yieldRate = yields[type]?.[city] || 5.0;
+    const appRate = appreciationRates[city] || 4.0;
     const yearlyRental = amount * (yieldRate / 100);
     const fiveYearRental = yearlyRental * 5;
     const fiveYearAppreciation = amount * Math.pow(1 + appRate / 100, 5) - amount;
     const totalReturn = fiveYearRental + fiveYearAppreciation;
     const totalReturnPct = ((totalReturn / amount) * 100).toFixed(1);
     return { yieldRate, yearlyRental, fiveYearRental, fiveYearAppreciation, totalReturn, totalReturnPct };
-  }, [amount, type, area]);
+  }, [amount, type, city]);
 
   return (
     <section className="relative py-28 bg-[#0a0a0a] overflow-hidden" data-testid="roi-calculator-section">
@@ -141,12 +146,12 @@ export default function ROICalculator({ locale }) {
             <div>
               <label className="text-white/50 text-xs font-medium tracking-wider uppercase mb-3 block">{txt.investLabel}</label>
               <div className="text-[#c9a84c] text-3xl font-serif font-bold mb-4">{fmt(amount)}</div>
-              <input type="range" min={100000} max={2000000} step={50000} value={amount}
+              <input type="range" min={50000} max={1500000} step={25000} value={amount}
                 onChange={(e) => setAmount(Number(e.target.value))}
                 className="w-full h-1 bg-white/10 rounded-full appearance-none cursor-pointer accent-[#c9a84c] [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:bg-[#c9a84c] [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:cursor-pointer"
                 data-testid="roi-amount-slider" />
               <div className="flex justify-between text-white/20 text-[10px] mt-1">
-                <span>$100K</span><span>$2M</span>
+                <span>50.000</span><span>1.500.000</span>
               </div>
             </div>
 
@@ -164,14 +169,14 @@ export default function ROICalculator({ locale }) {
               </div>
             </div>
 
-            {/* Area */}
+            {/* City */}
             <div>
-              <label className="text-white/50 text-xs font-medium tracking-wider uppercase mb-3 block">{txt.areaLabel}</label>
-              <div className="flex flex-wrap gap-2">
-                {Object.entries(txt.areas).map(([key, label]) => (
-                  <button key={key} onClick={() => setArea(key)}
-                    className={`px-4 py-2 rounded-full text-xs transition-all duration-300 border ${area === key ? "bg-[#c9a84c]/10 border-[#c9a84c]/30 text-[#c9a84c]" : "bg-white/[0.02] border-white/5 text-white/40 hover:border-white/15"}`}
-                    data-testid={`roi-area-${key}`}>
+              <label className="text-white/50 text-xs font-medium tracking-wider uppercase mb-3 block">{txt.cityLabel}</label>
+              <div className="grid grid-cols-2 gap-2">
+                {Object.entries(txt.cities).map(([key, label]) => (
+                  <button key={key} onClick={() => setCity(key)}
+                    className={`px-4 py-2.5 rounded-xl text-xs transition-all duration-300 border text-left ${city === key ? "bg-[#c9a84c]/10 border-[#c9a84c]/30 text-[#c9a84c]" : "bg-white/[0.02] border-white/5 text-white/40 hover:border-white/15"}`}
+                    data-testid={`roi-city-${key}`}>
                     {label}
                   </button>
                 ))}
@@ -230,8 +235,8 @@ export default function ROICalculator({ locale }) {
                 <div className="h-full bg-emerald-500/50 rounded-r-full transition-all duration-700" style={{ width: `${Math.min((results.fiveYearAppreciation / results.totalReturn) * 100, 100)}%` }} />
               </div>
               <div className="flex justify-between mt-2 text-[10px]">
-                <span className="text-[#c9a84c]/50">Rental Income</span>
-                <span className="text-emerald-400/50">Capital Appreciation</span>
+                <span className="text-[#c9a84c]/50">{locale === "it" ? "Reddito da Affitto" : "Rental Income"}</span>
+                <span className="text-emerald-400/50">{locale === "it" ? "Rivalutazione Capitale" : "Capital Appreciation"}</span>
               </div>
             </div>
 

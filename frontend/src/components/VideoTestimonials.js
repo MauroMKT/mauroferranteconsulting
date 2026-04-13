@@ -1,15 +1,16 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { t } from "@/lib/i18n";
 import { reviews } from "@/lib/reviews";
 import { useReveal } from "@/hooks/use-reveal";
-import { Play, Quote, ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { Play, Quote, ChevronLeft, ChevronRight, Star, ArrowRight } from "lucide-react";
 
 const sectionText = {
-  en: { label: "Client Stories", title: "What Our Clients Say", sub: "Real testimonials from real projects across 13 countries" },
-  it: { label: "Storie dei Clienti", title: "Cosa Dicono i Nostri Clienti", sub: "Testimonianze reali da progetti in 13 paesi" },
-  es: { label: "Historias de Clientes", title: "Lo Que Dicen Nuestros Clientes", sub: "Testimonios reales de proyectos en 13 paises" },
-  fr: { label: "Temoignages Clients", title: "Ce Que Disent Nos Clients", sub: "Temoignages reels de projets dans 13 pays" },
-  de: { label: "Kundenstimmen", title: "Was Unsere Kunden Sagen", sub: "Echte Testimonials aus Projekten in 13 Landern" },
+  en: { label: "Client Stories", title: "What Our Clients Say", sub: "Real testimonials from real projects across 13 countries", showAll: "Read All Reviews" },
+  it: { label: "Storie dei Clienti", title: "Cosa Dicono i Nostri Clienti", sub: "Testimonianze reali da progetti in 13 paesi", showAll: "Leggi Tutte le Recensioni" },
+  es: { label: "Historias de Clientes", title: "Lo Que Dicen Nuestros Clientes", sub: "Testimonios reales de proyectos en 13 paises", showAll: "Leer Todas las Resenas" },
+  fr: { label: "Temoignages Clients", title: "Ce Que Disent Nos Clients", sub: "Temoignages reels de projets dans 13 pays", showAll: "Lire Tous les Temoignages" },
+  de: { label: "Kundenstimmen", title: "Was Unsere Kunden Sagen", sub: "Echte Testimonials aus Projekten in 13 Landern", showAll: "Alle Bewertungen Lesen" },
 };
 
 const featured = [0, 4, 13, 16, 12, 3];
@@ -138,6 +139,15 @@ export default function VideoTestimonials({ locale }) {
                 </button>
               );
             })}
+          </div>
+
+          {/* Show all reviews button */}
+          <div className="text-center mt-10">
+            <Link to="/about" className="inline-flex items-center gap-3 bg-[#c9a84c]/10 text-[#c9a84c] hover:bg-[#c9a84c]/20 border border-[#c9a84c]/20 hover:border-[#c9a84c]/40 text-sm font-medium px-8 py-4 rounded-xl transition-all duration-300" data-testid="show-all-reviews-btn">
+              {txt.showAll}
+              <span className="bg-[#c9a84c]/20 text-[#c9a84c] text-xs font-bold px-2.5 py-1 rounded-full">{reviews.length}</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </div>
