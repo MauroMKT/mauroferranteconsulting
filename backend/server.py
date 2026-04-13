@@ -64,10 +64,12 @@ async def send_email(subject, html_body, reply_to=None):
 from routes.contact import setup_contact_routes
 from routes.analytics import setup_analytics_routes
 from routes.newsletter import setup_newsletter_routes
+from routes.blog import setup_blog_routes
 
 setup_contact_routes(api_router, db, send_email)
 setup_analytics_routes(api_router, db, send_email)
 setup_newsletter_routes(api_router, db, send_email)
+setup_blog_routes(api_router, db)
 
 @api_router.get("/")
 async def root():

@@ -20,6 +20,8 @@ import CaseStudiesPreview from "@/components/CaseStudiesPreview";
 import CookieBanner from "@/components/CookieBanner";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import SEO from "@/components/SEO";
+import VideoTestimonials from "@/components/VideoTestimonials";
+import ROICalculator from "@/components/ROICalculator";
 import { trackPageView } from "@/lib/tracker";
 
 const ServiceDetailPage = lazy(() => import("@/pages/ServiceDetailPage"));
@@ -66,8 +68,9 @@ function HomePage({ locale, setLocale }) {
         <MethodTimeline locale={locale} />
         <WorldMap locale={locale} />
         <CaseStudiesPreview locale={locale} />
-        <Reviews locale={locale} limit={6} />
+        <VideoTestimonials locale={locale} />
         <Clients locale={locale} />
+        <ROICalculator locale={locale} />
         <Insights locale={locale} />
         <Contact locale={locale} />
         <Newsletter locale={locale} />

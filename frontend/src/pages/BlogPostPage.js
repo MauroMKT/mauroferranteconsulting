@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Contact from "@/components/Contact";
 import SEO from "@/components/SEO";
+import BlogReactions from "@/components/BlogReactions";
 import { ArrowLeft, ArrowRight, Clock, Calendar, Tag } from "lucide-react";
 
 const categoryLabels = {
@@ -69,6 +70,9 @@ export default function BlogPostPage({ locale, setLocale }) {
                 <Tag className="w-3 h-3" />{tag}
               </span>
             ))}
+          </div>
+          <div className="mt-10 pt-8 border-t border-white/5">
+            <BlogReactions slug={slug} locale={locale} />
           </div>
         </div>
       </section>

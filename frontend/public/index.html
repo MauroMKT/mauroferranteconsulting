@@ -53,6 +53,21 @@
             gtag('config', 'G-TEK1TF3459');
         </script>
 
+        <!-- Meta Pixel (Facebook & Instagram) -->
+        <script>
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window,document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '106162408253852');
+            fbq('track', 'PageView');
+        </script>
+        <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=106162408253852&ev=PageView&noscript=1"/></noscript>
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet" />
@@ -136,8 +151,56 @@
           }
         }
         </script>
-        <!--
-      This HTML file is a template.
+
+        <!-- FAQ Schema Markup -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What services does Mauro Ferrante Consulting offer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We offer strategic consulting in three main areas: Project Management (Agile, Waterfall, PMO Setup), Digital Marketing & Brand Strategy (SEO, SEM, CRM, Web Development), and Real Estate Investment Advisory (Market research, due diligence, portfolio management). We serve clients across 13 countries."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "In which countries does Mauro Ferrante Consulting operate?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We operate in 13 countries including Italy, Spain, France, Germany, United Kingdom, Switzerland, Belgium, Malta, United States, Canada, Peru, Thailand, and Saudi Arabia."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How can I book a free consultation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can book a free 30-minute strategy session directly through our website by clicking 'Book a Free Consultation' or via our Calendly link. You can also reach us via WhatsApp or through our contact form."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the Kaizen methodology used by Mauro Ferrante?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Kaizen is a Japanese philosophy of continuous improvement that Mauro applies to every project. Combined with Ikigai (finding purpose) and Lean Six Sigma (operational excellence), this disciplined approach rooted in martial arts principles ensures consistent, measurable results."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much does it cost to invest in Dubai real estate?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Dubai real estate investments start from approximately $150,000 USD for studio apartments in developing areas. Premium properties range from $300,000 to several million. We provide personalized advisory to help you find the right investment based on your budget and goals."
+              }
+            }
+          ]
+        }
+        </script>
       If you open it directly in the browser, you will see an empty page.
 
       You can add webfonts, meta tags, or analytics to this file.
