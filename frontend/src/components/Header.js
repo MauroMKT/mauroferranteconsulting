@@ -17,7 +17,7 @@ const InstagramIcon = ({ className }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
 );
 
-function DropdownMenu({ label, items, onNavigate, active }) {
+function DropdownMenu({ label, items, onNavigate, active, onLabelClick }) {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
   const timeoutRef = useRef(null);
@@ -39,7 +39,7 @@ function DropdownMenu({ label, items, onNavigate, active }) {
   return (
     <div ref={ref} className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <button className={`flex items-center gap-1 text-xs font-medium tracking-[0.15em] uppercase transition-colors duration-300 ${active ? "text-[#c9a84c]" : "text-white/60 hover:text-[#c9a84c]"}`}
-        onClick={() => setOpen(!open)} data-testid={`dropdown-${label.toLowerCase().replace(/\s/g, '-')}`}>
+        onClick={() => { if (onLabelClick) { onLabelClick(); setOpen(false); } else { setOpen(!open); } }} data-testid={`dropdown-${label.toLowerCase().replace(/\s/g, '-')}`}>
         {label} <ChevronDown className={`w-3 h-3 transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
       {open && (
@@ -112,6 +112,10 @@ export default function Header({ locale, setLocale }) {
     { to: "/services/real-estate", label: t(locale, "re_title") },
   ];
 
+  const aboutItems = [
+    { to: "/about", label: locale === "it" ? "Biografia Completa" : locale === "es" ? "Biografia Completa" : locale === "fr" ? "Biographie Complete" : locale === "de" ? "Vollstandige Biografie" : "Full Biography" },
+  ];
+
   const clientItems = [
     { to: "/partners/kw-gchouse", label: "KW GCHOUSE" },
     { to: "/partners/trem-group", label: "TREM Group" },
@@ -135,8 +139,8 @@ export default function Header({ locale, setLocale }) {
 
         <nav className="hidden lg:flex items-center gap-7" data-testid="desktop-nav">
           <button onClick={() => navigateTo("#home")} className={navBtnClass("home")} data-testid="nav-home">{t(locale, "nav_home")}</button>
-          <DropdownMenu label={t(locale, "nav_services")} items={serviceItems} onNavigate={() => setMobileOpen(false)} active={isHome && activeSection === "services"} />
-          <Link to="/about" className={`text-xs font-medium tracking-[0.15em] uppercase transition-colors duration-300 ${location.pathname === "/about" ? "text-[#c9a84c]" : "text-white/60 hover:text-[#c9a84c]"}`} data-testid="nav-about">{t(locale, "nav_about")}</Link>
+          <DropdownMenu label={t(locale, "nav_services")} items={serviceItems} onNavigate={() => setMobileOpen(false)} onLabelClick={() => navigateTo("#services")} active={isHome && activeSection === "services"} />
+          <DropdownMenu label={t(locale, "nav_about")} items={aboutItems} onNavigate={() => setMobileOpen(false)} onLabelClick={() => navigateTo("#about")} active={isHome && activeSection === "about"} />
           <DropdownMenu label={t(locale, "nav_clients")} items={clientItems} onNavigate={() => setMobileOpen(false)} active={isHome && activeSection === "clients"} />
           <button onClick={() => navigateTo("#contact")} className={navBtnClass("contact")} data-testid="nav-contact">{t(locale, "nav_contact")}</button>
         </nav>
@@ -193,7 +197,21 @@ export default function Header({ locale, setLocale }) {
               )}
             </div>
 
-            <Link to="/about" onClick={() => setMobileOpen(false)} className="block w-full text-left text-white/70 hover:text-[#c9a84c] text-sm font-medium tracking-wider uppercase py-3 border-b border-white/5">{t(locale, "nav_about")}</Link>
+            <div className="border-b border-white/5">
+              <button onClick={() => toggleMobileDropdown("about")} className="flex items-center justify-between w-full text-white/70 hover:text-[#c9a84c] text-sm font-medium tracking-wider uppercase py-3">
+                {t(locale, "nav_about")} <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${mobileDropdown === "about" ? "rotate-180 text-[#c9a84c]" : ""}`} />
+              </button>
+              {mobileDropdown === "about" && (
+                <div className="pl-5 pb-3 space-y-0.5 border-l-2 border-[#c9a84c]/20 ml-2">
+                  <button onClick={() => navigateTo("#about")} className="block text-white/50 hover:text-[#c9a84c] text-sm py-2.5 transition-colors w-full text-left">
+                    {locale === "it" ? "Sezione About" : locale === "es" ? "Seccion About" : locale === "fr" ? "Section A Propos" : locale === "de" ? "Uber Uns Bereich" : "About Section"}
+                  </button>
+                  {aboutItems.map((item) => (
+                    <Link key={item.to} to={item.to} onClick={() => setMobileOpen(false)} className="block text-white/50 hover:text-[#c9a84c] text-sm py-2.5 transition-colors">{item.label}</Link>
+                  ))}
+                </div>
+              )}
+            </div>
 
             <div className="border-b border-white/5">
               <button onClick={() => toggleMobileDropdown("clients")} className="flex items-center justify-between w-full text-white/70 hover:text-[#c9a84c] text-sm font-medium tracking-wider uppercase py-3">
