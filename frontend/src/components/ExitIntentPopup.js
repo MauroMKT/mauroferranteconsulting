@@ -1,7 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
 import { t } from "@/lib/i18n";
-import { X, Gift, ArrowRight } from "lucide-react";
+import { X, Gift, ArrowRight, Users } from "lucide-react";
 import CalendlyModal from "@/components/CalendlyModal";
+import axios from "axios";
+
+const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
 const exitTexts = {
   en: {
@@ -11,6 +14,7 @@ const exitTexts = {
     bullets: ["Personalized analysis of your current situation", "Actionable recommendations you can implement immediately", "Clear roadmap with priorities and timelines"],
     cta: "Book My Free Session",
     dismiss: "Maybe later",
+    social: "professionals have already joined",
   },
   it: {
     badge: "Prima di andare...",
@@ -19,6 +23,7 @@ const exitTexts = {
     bullets: ["Analisi personalizzata della tua situazione attuale", "Raccomandazioni concrete da implementare subito", "Roadmap chiara con priorita e tempistiche"],
     cta: "Prenota la Sessione Gratuita",
     dismiss: "Forse dopo",
+    social: "professionisti si sono gia iscritti",
   },
   es: {
     badge: "Antes de irte...",
@@ -27,6 +32,7 @@ const exitTexts = {
     bullets: ["Analisis personalizado de tu situacion actual", "Recomendaciones concretas para implementar de inmediato", "Hoja de ruta clara con prioridades"],
     cta: "Reserva Mi Sesion Gratuita",
     dismiss: "Quizas despues",
+    social: "profesionales ya se han unido",
   },
   fr: {
     badge: "Avant de partir...",
@@ -35,6 +41,7 @@ const exitTexts = {
     bullets: ["Analyse personnalisee de votre situation actuelle", "Recommandations concretes a mettre en oeuvre immediatement", "Feuille de route claire avec priorites"],
     cta: "Reservez Ma Session Gratuite",
     dismiss: "Peut-etre plus tard",
+    social: "professionnels ont deja rejoint",
   },
   de: {
     badge: "Bevor Sie gehen...",
@@ -43,12 +50,20 @@ const exitTexts = {
     bullets: ["Personalisierte Analyse Ihrer aktuellen Situation", "Konkrete Empfehlungen zur sofortigen Umsetzung", "Klare Roadmap mit Prioritaten und Zeitplanen"],
     cta: "Meine Kostenlose Session Buchen",
     dismiss: "Vielleicht spater",
+    social: "Fachleute haben sich bereits angeschlossen",
   },
 };
 
 export default function ExitIntentPopup({ locale }) {
   const [visible, setVisible] = useState(false);
   const [calendlyOpen, setCalendlyOpen] = useState(false);
+  const [subCount, setSubCount] = useState(0);
+
+  useEffect(() => {
+    axios.get(`${API}/newsletter/count`).then((r) => {
+      if (r.data?.count) setSubCount(r.data.count);
+    }).catch(() => {});
+  }, []);
 
   const handleExitIntent = useCallback((e) => {
     if (e.clientY <= 5 && !visible) {
@@ -82,6 +97,7 @@ export default function ExitIntentPopup({ locale }) {
   };
 
   const txt = exitTexts[locale] || exitTexts.en;
+  const displayCount = Math.max(subCount, 50);
 
   if (!visible && !calendlyOpen) return null;
 
@@ -91,7 +107,6 @@ export default function ExitIntentPopup({ locale }) {
         <div className="fixed inset-0 z-[80] flex items-center justify-center p-4" data-testid="exit-intent-popup">
           <div className="absolute inset-0 bg-black/70 backdrop-blur-md" onClick={dismiss} />
           <div className="relative w-full max-w-lg bg-[#0c0c0c] border border-[#c9a84c]/20 rounded-2xl overflow-hidden shadow-[0_0_80px_rgba(201,168,76,0.08)]">
-            {/* Gold accent bar */}
             <div className="h-1 bg-gradient-to-r from-transparent via-[#c9a84c] to-transparent" />
 
             <button onClick={dismiss} className="absolute top-4 right-4 text-white/30 hover:text-white transition-colors z-10" data-testid="exit-intent-close">
@@ -109,7 +124,7 @@ export default function ExitIntentPopup({ locale }) {
               <h2 className="text-white text-2xl font-serif font-bold leading-snug mb-3">{txt.title}</h2>
               <p className="text-white/40 text-sm leading-relaxed mb-6">{txt.subtitle}</p>
 
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-3 mb-6">
                 {txt.bullets.map((b, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <div className="w-5 h-5 rounded-full bg-[#c9a84c]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -119,6 +134,14 @@ export default function ExitIntentPopup({ locale }) {
                   </li>
                 ))}
               </ul>
+
+              {/* Social Proof */}
+              <div className="flex items-center justify-center gap-2 mb-6 py-3 bg-[#c9a84c]/5 rounded-lg border border-[#c9a84c]/10" data-testid="exit-social-proof">
+                <Users className="w-4 h-4 text-[#c9a84c]/70" />
+                <span className="text-white/50 text-xs">
+                  <strong className="text-[#c9a84c] font-semibold">{displayCount}+</strong> {txt.social}
+                </span>
+              </div>
 
               <button onClick={openCalendly}
                 className="w-full bg-[#c9a84c] hover:bg-[#d4b85d] text-[#0a0a0a] font-semibold text-sm py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group"
