@@ -3,6 +3,7 @@ import { t } from "@/lib/i18n";
 import { blogPosts } from "@/lib/blogPosts";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Contact from "@/components/Contact";
 import SEO from "@/components/SEO";
 import { ArrowLeft, ArrowRight, Clock, Calendar } from "lucide-react";
 
@@ -91,6 +92,7 @@ export default function BlogPage({ locale, setLocale }) {
         </div>
       </section>
 
+      <Contact locale={locale} />
       <Footer locale={locale} />
     </div>
   );

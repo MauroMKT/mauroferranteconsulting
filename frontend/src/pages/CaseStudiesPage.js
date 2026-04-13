@@ -3,6 +3,7 @@ import { t } from "@/lib/i18n";
 import { caseStudies } from "@/lib/caseStudies";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Contact from "@/components/Contact";
 import SEO from "@/components/SEO";
 import { ArrowLeft, ArrowRight, MapPin, Filter } from "lucide-react";
 import { useState } from "react";
@@ -89,6 +90,7 @@ export default function CaseStudiesPage({ locale, setLocale }) {
         </div>
       </section>
 
+      <Contact locale={locale} />
       <Footer locale={locale} />
     </div>
   );

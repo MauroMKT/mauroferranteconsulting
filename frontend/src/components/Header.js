@@ -102,7 +102,11 @@ export default function Header({ locale, setLocale }) {
       const el = document.querySelector(anchor);
       if (el) el.scrollIntoView({ behavior: "smooth" });
     } else {
-      navigate("/" + anchor);
+      navigate("/");
+      setTimeout(() => {
+        const el = document.querySelector(anchor);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 400);
     }
   };
 

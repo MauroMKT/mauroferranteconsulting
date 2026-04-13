@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { t } from "@/lib/i18n";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Contact from "@/components/Contact";
 import SEO from "@/components/SEO";
 import { ArrowLeft } from "lucide-react";
 
@@ -122,6 +123,7 @@ export default function PrivacyPage({ locale, setLocale }) {
         </div>
       </section>
 
+      <Contact locale={locale} />
       <Footer locale={locale} />
     </div>
   );
