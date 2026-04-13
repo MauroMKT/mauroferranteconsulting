@@ -145,7 +145,7 @@ export default function Header({ locale, setLocale }) {
           <button onClick={() => navigateTo("#home")} className={navBtnClass("home")} data-testid="nav-home">{t(locale, "nav_home")}</button>
           <DropdownMenu label={t(locale, "nav_services")} items={serviceItems} onNavigate={() => setMobileOpen(false)} onLabelClick={() => navigateTo("#services")} active={isHome && activeSection === "services"} />
           <DropdownMenu label={t(locale, "nav_about")} items={aboutItems} onNavigate={() => setMobileOpen(false)} onLabelClick={() => navigateTo("#about")} active={isHome && activeSection === "about"} />
-          <DropdownMenu label={t(locale, "nav_clients")} items={clientItems} onNavigate={() => setMobileOpen(false)} active={isHome && activeSection === "clients"} />
+          <DropdownMenu label={t(locale, "nav_clients")} items={clientItems} onNavigate={() => setMobileOpen(false)} onLabelClick={() => navigateTo("#clients")} active={isHome && activeSection === "clients"} />
           <button onClick={() => navigateTo("#contact")} className={navBtnClass("contact")} data-testid="nav-contact">{t(locale, "nav_contact")}</button>
         </nav>
 
