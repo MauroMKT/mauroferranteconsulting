@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import { t } from "@/lib/i18n";
 import { insights, categoryColors } from "@/lib/insights";
-import { Clock } from "lucide-react";
+import { Clock, ArrowRight } from "lucide-react";
 import { useReveal } from "@/hooks/use-reveal";
 
 export default function Insights({ locale, limit = 3 }) {
@@ -23,7 +24,7 @@ export default function Insights({ locale, limit = 3 }) {
             const color = categoryColors[insight.category] ?? "#c9a84c";
 
             return (
-              <div key={insight.slug} className="group bg-[#0f0f0f] border border-white/5 rounded-xl overflow-hidden hover:border-[#c9a84c]/20 transition-all duration-500" data-testid={`insight-card-${i}`}>
+              <Link key={insight.slug} to={`/blog/${insight.slug}`} className="group bg-[#0f0f0f] border border-white/5 rounded-xl overflow-hidden hover:border-[#c9a84c]/20 transition-all duration-500" data-testid={`insight-card-${i}`}>
                 <div className="relative h-48 overflow-hidden">
                   <img src={insight.image} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f] to-transparent" />
@@ -38,11 +39,20 @@ export default function Insights({ locale, limit = 3 }) {
                     <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{insight.readMins} min</span>
                   </div>
                   <h3 className="text-white font-semibold text-base mb-3 line-clamp-2 group-hover:text-[#c9a84c] transition-colors">{title}</h3>
-                  <p className="text-white/40 text-sm leading-relaxed line-clamp-3">{excerpt}</p>
+                  <p className="text-white/40 text-sm leading-relaxed line-clamp-3 mb-4">{excerpt}</p>
+                  <span className="inline-flex items-center gap-1.5 text-[#c9a84c]/60 text-xs font-medium group-hover:text-[#c9a84c] transition-colors">
+                    {locale === "it" ? "Leggi l'articolo" : locale === "es" ? "Leer articulo" : locale === "fr" ? "Lire l'article" : locale === "de" ? "Artikel lesen" : "Read article"} <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                  </span>
                 </div>
-              </div>
+              </Link>
             );
           })}
+        </div>
+
+        <div className="text-center mt-10">
+          <Link to="/blog" className="inline-flex items-center gap-2 text-[#c9a84c]/60 hover:text-[#c9a84c] text-sm font-medium transition-colors" data-testid="insights-view-all">
+            {locale === "it" ? "Tutti gli articoli" : locale === "es" ? "Todos los articulos" : locale === "fr" ? "Tous les articles" : locale === "de" ? "Alle Artikel" : "All articles"} <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </section>
