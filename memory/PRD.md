@@ -5,7 +5,7 @@ Full-stack web app for Mauro Ferrante Consulting (marketing, business management
 
 ## Architecture
 - **Frontend**: React SPA (CRA) with Tailwind CSS, react-router-dom, react-helmet-async
-- **Backend**: FastAPI (Python) with MongoDB
+- **Backend**: FastAPI (Python) with MongoDB — **Modular routes** (routes/contact.py, routes/analytics.py, routes/newsletter.py)
 - **Email**: SMTP via Gmail (smtp.gmail.com:465 SSL)
 - **Styling**: Tailwind CSS + custom CSS animations
 - **i18n**: Custom JSON-based translations (EN, IT, ES, FR, DE)
@@ -16,72 +16,61 @@ Full-stack web app for Mauro Ferrante Consulting (marketing, business management
 ## Implemented Features
 
 ### Core
-- Multi-language (EN, IT, ES, FR, DE) with flag emoji selector (US flag for EN)
-- Interactive world map: 13 countries (Russia/China excluded, Canada added)
+- Multi-language (EN, IT, ES, FR, DE) with flag emoji selector
+- Interactive world map: 13 countries
 - Contact form: SMTP email delivery + MongoDB storage + fallback mailto
 - WhatsApp: Europe/Asia (+39 349 117 7007) & USA/LATAM (+51 964 243 686)
 - 20 verified reviews
 
 ### Pages & Routing
 - Homepage (Hero, WhyMauro, Services, Stats, About, Method, WorldMap, CaseStudies, Reviews, Clients, Insights, Contact, Newsletter)
-- Biography (/about)
-- 3 Service detail pages (/services/project-management, /services/digital-marketing, /services/real-estate)
-- 3 Partner pages (/partners/kw-gchouse, /partners/trem-group, /partners/azequo-engineering)
+- Biography (/about) — with Philosophy section (Kaizen, Ikigai, Lean Six Sigma) + Case Studies
+- 3 Service detail pages
+- 3 Partner pages
 - Case Studies listing (/case-studies) with filters + 20 detail pages
-- Blog (/blog) with 8 articles + individual post pages (/blog/:slug) - All 5 languages
-- Privacy Policy (/privacy) - GDPR compliant
+- Blog (/blog) with 8 articles (all 5 languages) + individual post pages
+- Privacy Policy (/privacy)
 - Admin Analytics Dashboard (/admin/analytics)
 
-### Visual Enhancements
-- Parallax hero, shimmer gradient on "Ferrante", glow hover on cards
-- Active section indicator in nav, fade-in reveals
-- Full-screen mobile menu with accordion submenus
-- Social icons (LinkedIn, Facebook, Instagram) in header/footer
+### About Page — Philosophy & Discipline (NEW - Feb 2026)
+- Kaizen (Continuous Improvement), Ikigai (Purpose & Passion), Lean Six Sigma (Operational Excellence)
+- Rooted in martial arts discipline — translated in all 5 languages
+- Case Studies preview section added
 
-### Calendly Integration
-- "Book a Free Consultation" CTA opens Calendly modal (dark theme)
-- URL: https://calendly.com/mauro-29/business-meeting
+### Insights (UPDATED - Feb 2026)
+- 3 articles fully translated in all 5 languages (ES, FR, DE expanded from one-liners to full excerpts)
+
+### Exit Intent Popup (UPDATED - Feb 2026)
+- Social proof: Newsletter subscriber counter displayed (50+ minimum shown)
+- Fetches count from GET /api/newsletter/count
+
+### Newsletter (Feb 2026)
+- Subscription component on homepage (5-language translations)
+- API: POST /api/newsletter/subscribe, GET /api/newsletter/count
+- Admin: GET /api/admin/newsletter
+
+### Blog System (Feb 2026)
+- 8 articles with full translations (EN, IT, ES, FR, DE)
+- Featured post layout + grid
 
 ### Analytics & Tracking
-- Custom tracking: page views, CTA/WhatsApp/email clicks, form submissions
-- Admin dashboard (/admin/analytics): stats, charts, top pages, event breakdown, contacts table
-- Milestone email notifications (5, 10, 25, 50, 100, 200, 500 forms)
-- Weekly report (send from dashboard)
-
-### SEO
-- Dynamic meta tags per page (react-helmet-async)
-- Open Graph, Twitter Cards, JSON-LD structured data
-- Sitemap.xml (35+ URLs), robots.txt, hreflang, canonical URLs
+- Custom tracking + Admin dashboard + Milestone emails + Weekly reports
 - Google Analytics GA4 (ID: G-TEK1TF3459)
 
-### Performance
-- React.lazy code splitting for all sub-pages
-- Image lazy loading (loading="lazy")
-- sendBeacon for non-blocking analytics
+### SEO
+- Dynamic meta tags, Open Graph, Twitter Cards, JSON-LD, Sitemap, robots.txt
 
-### Newsletter (NEW - Feb 2026)
-- Subscription component on homepage with 5-language translations
-- API: POST /api/newsletter/subscribe (saves to MongoDB, sends welcome email)
-- Admin: GET /api/admin/newsletter (view subscribers)
-- Duplicate email protection (case-insensitive)
-
-### Blog System (COMPLETED - Feb 2026)
-- 8 articles with full translations (EN, IT, ES, FR, DE)
-- Categories: project-management, digital-marketing, real-estate
-- Featured post layout + grid for remaining articles
-- Related articles on post pages
+### Backend Refactoring (Feb 2026)
+- server.py: ~85 lines (was 450+)
+- routes/contact.py: Contact form + SMTP
+- routes/analytics.py: Tracking, admin stats, reports
+- routes/newsletter.py: Subscribe, count, admin list
 
 ### Contact Info
 - Email: mauro@mauroferrante.com (site) / mauro@mauroferranteconsulting.com (Privacy only)
-- Social: LinkedIn, Facebook, Instagram
 
 ## Backlog
 
-### P1 (Important)
-- Lighthouse Performance Audit
-- Clarify push notifications vs email reports (user requested push, agent implemented email reports)
-
 ### P2 (Nice to have)
-- Image optimization (WebP conversion)
+- Lighthouse Performance Audit + Image optimization (WebP)
 - A/B testing on CTA and exit intent popup
-- Backend refactoring: split server.py into modular routers
