@@ -119,7 +119,11 @@ export default function Footer({ locale }) {
       <div className="border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <span className="text-white/15 text-[10px] tracking-wider">&copy; {year} Mauro Ferrante Consulting Studio. {t(locale, "footer_rights")}</span>
-          <Link to="/privacy" className="text-white/15 hover:text-white/30 text-[10px] tracking-wider transition-colors" data-testid="footer-privacy-link">{t(locale, "footer_privacy")}</Link>
+          <div className="flex items-center gap-3">
+            <Link to="/privacy" className="text-white/15 hover:text-white/30 text-[10px] tracking-wider transition-colors" data-testid="footer-privacy-link">{t(locale, "footer_privacy")}</Link>
+            <span className="text-white/10">|</span>
+            <Link to="/impressum" className="text-white/15 hover:text-white/30 text-[10px] tracking-wider transition-colors" data-testid="footer-impressum-link">{t(locale, "footer_impressum")}</Link>
+          </div>
         </div>
       </div>
 

@@ -116,6 +116,21 @@ export default function PrivacyPage({ locale, setLocale }) {
               <p>Il Titolare si riserva il diritto di modificare la presente Privacy Policy in qualsiasi momento. Le modifiche saranno pubblicate su questa pagina con indicazione della data di ultimo aggiornamento. Si consiglia di consultare periodicamente questa pagina.</p>
             </div>
 
+            {/* GDPR Compliance Section */}
+            <div className="bg-[#c9a84c]/[0.03] border border-[#c9a84c]/10 rounded-xl p-8" data-testid="gdpr-section">
+              <h2 className="text-white font-serif text-xl font-bold mb-4">{t(locale, "gdpr_section_title")}</h2>
+              <p>{t(locale, "gdpr_section_text")} <a href="mailto:mauro@mauroferranteconsulting.com" className="text-[#c9a84c] hover:underline">mauro@mauroferranteconsulting.com</a></p>
+
+              <h3 className="text-white/70 font-semibold mt-6 mb-2">{t(locale, "gdpr_legal_basis_title")}</h3>
+              <p>{t(locale, "gdpr_legal_basis_text")}</p>
+
+              <h3 className="text-white/70 font-semibold mt-6 mb-2">{t(locale, "gdpr_dpo_title")}</h3>
+              <p>{t(locale, "gdpr_dpo_text")} <a href="mailto:mauro@mauroferranteconsulting.com" className="text-[#c9a84c] hover:underline">mauro@mauroferranteconsulting.com</a></p>
+
+              <h3 className="text-white/70 font-semibold mt-6 mb-2">{t(locale, "gdpr_authority_title")}</h3>
+              <p>{t(locale, "gdpr_authority_text")}</p>
+            </div>
+
             <div className="border-t border-white/10 pt-8">
               <p className="text-white/30 text-xs">Per qualsiasi domanda o richiesta relativa alla presente Privacy Policy, si prega di contattare: <a href="mailto:mauro@mauroferranteconsulting.com" className="text-[#c9a84c] hover:underline">mauro@mauroferranteconsulting.com</a></p>
             </div>

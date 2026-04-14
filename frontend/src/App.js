@@ -19,6 +19,7 @@ import BackToTop from "@/components/BackToTop";
 import CaseStudiesPreview from "@/components/CaseStudiesPreview";
 import CookieBanner from "@/components/CookieBanner";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
+import NotificationBell from "@/components/NotificationBell";
 import SEO from "@/components/SEO";
 import VideoTestimonials from "@/components/VideoTestimonials";
 import { trackPageView } from "@/lib/tracker";
@@ -32,6 +33,7 @@ const PrivacyPage = lazy(() => import("@/pages/PrivacyPage"));
 const AdminDashboard = lazy(() => import("@/pages/AdminDashboard"));
 const BlogPage = lazy(() => import("@/pages/BlogPage"));
 const BlogPostPage = lazy(() => import("@/pages/BlogPostPage"));
+const ImpressumPage = lazy(() => import("@/pages/ImpressumPage"));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -106,6 +108,7 @@ function App() {
           <Route path="/privacy" element={<PrivacyPage locale={locale} setLocale={setLocale} />} />
           <Route path="/blog" element={<BlogPage locale={locale} setLocale={setLocale} />} />
           <Route path="/blog/:slug" element={<BlogPostPage locale={locale} setLocale={setLocale} />} />
+          <Route path="/impressum" element={<ImpressumPage locale={locale} setLocale={setLocale} />} />
           <Route path="/admin/analytics" element={<AdminDashboard />} />
         </Routes>
       </Suspense>
@@ -113,6 +116,7 @@ function App() {
       <BackToTop />
       <CookieBanner locale={locale} />
       <ExitIntentPopup locale={locale} />
+      <NotificationBell locale={locale} />
     </BrowserRouter>
   );
 }
