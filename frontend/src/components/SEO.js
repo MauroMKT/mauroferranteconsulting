@@ -4,7 +4,7 @@ const BASE_URL = "https://www.mauroferranteconsulting.com";
 
 const defaultMeta = {
   title: "Mauro Ferrante Consulting Studio | Project Management, Digital Marketing & Real Estate",
-  description: "Consulenza strategica internazionale in Project Management, Digital Marketing e Investimenti Immobiliari. 20+ anni di esperienza in 13 paesi.",
+  description: "International strategic consulting in Project Management, Digital Marketing & Real Estate. 20+ years, 70+ cities: Roma, München, London, Paris, Miami, Dubai, Valencia, Lima, New York. Book a free consultation.",
   image: `${BASE_URL}/images/logo-mf.png`,
 };
 
