@@ -1,14 +1,7 @@
 import { Link } from "react-router-dom";
 import { t } from "@/lib/i18n";
-import { Globe2, Award, TrendingUp, Users, ArrowRight } from "lucide-react";
+import { Globe2, ArrowRight } from "lucide-react";
 import { useReveal } from "@/hooks/use-reveal";
-
-const statsDef = [
-  { valueKey: "stats_projects", labelKey: "stats_projects_label", icon: TrendingUp },
-  { valueKey: "stats_countries", labelKey: "stats_countries_label", icon: Globe2 },
-  { valueKey: "stats_years", labelKey: "stats_years_label", icon: Award },
-  { valueKey: "stats_clients", labelKey: "stats_clients_label", icon: Users },
-];
 
 const marketKeys = [
   "about_market_italy", "about_market_spain", "about_market_france", "about_market_peru",
@@ -22,22 +15,6 @@ export default function About({ locale }) {
 
   return (
     <>
-      {/* Stats Bar */}
-      <div className="bg-[#0f0f0f] border-y border-white/5 py-10" data-testid="about-stats-bar">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {statsDef.map((stat) => {
-            const Icon = stat.icon;
-            return (
-              <div key={stat.valueKey} className="text-center">
-                <Icon className="w-5 h-5 text-[#c9a84c]/50 mx-auto mb-3" />
-                <div className="text-3xl font-serif font-bold text-white">{t(locale, stat.valueKey)}</div>
-                <div className="text-white/30 text-[10px] tracking-[0.15em] uppercase mt-1">{t(locale, stat.labelKey)}</div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
       {/* About Section */}
       <section id="about" className="relative py-28 bg-[#080808] overflow-hidden" data-testid="about-section">
         <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }} />
