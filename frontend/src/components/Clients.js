@@ -5,11 +5,11 @@ import { ArrowUpRight } from "lucide-react";
 
 const clients = [
   {
-    name: "KW GCHOUSE", fullName: "Keller Williams GCHOUSE",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/api-attachments/E0WwhZIBddrYN4fG7n2v8-e6eyDCpSfCUbdI43a6wp2gAvw288cy.webp",
-    bg: "#1a1a1a", slug: "kw-gchouse",
-    taglineIt: "Rete immobiliare mondiale", taglineEn: "Global real estate network",
-    taglineEs: "Red inmobiliaria global", taglineFr: "Réseau immobilier mondial", taglineDe: "Weltweites Immobiliennetz",
+    name: "RE/MAX Easy", fullName: "RE/MAX Easy — Roma",
+    logo: "/images/remax-easy-logo.svg",
+    bg: "#0d1b3e", slug: "remax-easy",
+    taglineIt: "Consulenza immobiliare d'eccellenza a Roma", taglineEn: "Premium real estate consulting in Rome",
+    taglineEs: "Consultoría inmobiliaria de excelencia en Roma", taglineFr: "Conseil immobilier d'excellence à Rome", taglineDe: "Erstklassige Immobilienberatung in Rom",
   },
   {
     name: "TREM Group", fullName: "The Real Estate Marketing Group",

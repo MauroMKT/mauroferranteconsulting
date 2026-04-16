@@ -5,6 +5,44 @@ import Contact from "@/components/Contact";
 import { ArrowLeft, Globe, Building2, Users, TrendingUp, MonitorSmartphone, ExternalLink, CheckCircle2, ShieldCheck, Layers, Truck, GraduationCap } from "lucide-react";
 
 const partnersData = {
+  "remax-easy": {
+    name: "RE/MAX Easy",
+    fullName: "RE/MAX Easy — Dieffecase srl",
+    logo: "/images/remax-easy-logo.svg",
+    heroImage: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1400&q=85&fit=crop",
+    website: "https://www.remax.it/trova/agenti-agenzie/agenzia/easy",
+    description: {
+      en: "RE/MAX Easy is a modern real estate agency based in Rome, part of the RE/MAX international network — the world's largest by number of agents. Led by Broker Daniela Vittori, the team operates with ethics, collaboration, dedication, and loyalty. Their mission: selling properties at the best market value, in the shortest time, with minimum hassle.",
+      it: "RE/MAX Easy è un'agenzia immobiliare moderna con sede a Roma, parte della rete internazionale RE/MAX — la più grande al mondo per numero di agenti. Guidata dal Broker Daniela Vittori, il team opera con etica, collaborazione, dedizione e lealtà. La loro missione: vendere immobili al miglior valore di mercato, nel minor tempo possibile, con il minor disturbo.",
+      es: "RE/MAX Easy es una agencia inmobiliaria moderna con sede en Roma, parte de la red internacional RE/MAX — la más grande del mundo por número de agentes. Liderada por la Broker Daniela Vittori, el equipo opera con ética, colaboración, dedicación y lealtad.",
+      fr: "RE/MAX Easy est une agence immobilière moderne basée à Rome, faisant partie du réseau international RE/MAX — le plus grand au monde par nombre d'agents. Dirigée par le Broker Daniela Vittori, l'équipe opère avec éthique, collaboration, dévouement et loyauté.",
+      de: "RE/MAX Easy ist eine moderne Immobilienagentur mit Sitz in Rom, Teil des internationalen RE/MAX-Netzwerks — dem weltweit größten nach Anzahl der Makler. Unter der Leitung von Broker Daniela Vittori arbeitet das Team mit Ethik, Zusammenarbeit, Hingabe und Loyalität.",
+    },
+    collaboration: {
+      en: "Mauro Ferrante Consulting Studio collaborates with RE/MAX Easy to provide comprehensive real estate advisory services in Rome. Together, we combine strategic consulting expertise with deep local market knowledge to deliver exceptional results for buyers, sellers, and investors.",
+      it: "Mauro Ferrante Consulting Studio collabora con RE/MAX Easy per fornire servizi completi di consulenza immobiliare a Roma. Insieme, combiniamo l'esperienza nella consulenza strategica con una profonda conoscenza del mercato locale per offrire risultati eccezionali a compratori, venditori e investitori.",
+      es: "Mauro Ferrante Consulting Studio colabora con RE/MAX Easy para proporcionar servicios integrales de asesoría inmobiliaria en Roma.",
+      fr: "Mauro Ferrante Consulting Studio collabore avec RE/MAX Easy pour fournir des services complets de conseil immobilier à Rome.",
+      de: "Mauro Ferrante Consulting Studio arbeitet mit RE/MAX Easy zusammen, um umfassende Immobilienberatung in Rom anzubieten.",
+    },
+    services: {
+      en: ["Residential & commercial property sales", "Property valuation at best market price", "Buyer needs analysis & targeted viewings", "International investor advisory", "RE/MAX global collaboration network", "Advanced marketing & technology tools", "Short-term rental consulting", "Legal & administrative support coordination"],
+      it: ["Compravendita residenziale e commerciale", "Valutazione immobili al miglior prezzo di mercato", "Analisi esigenze acquirente e visite mirate", "Consulenza per investitori internazionali", "Rete di collaborazione globale RE/MAX", "Strumenti avanzati di marketing e tecnologia", "Consulenza affitti brevi", "Coordinamento supporto legale e amministrativo"],
+      es: ["Compraventa residencial y comercial", "Valoración de inmuebles al mejor precio", "Análisis de necesidades y visitas específicas", "Asesoría para inversores internacionales", "Red global de colaboración RE/MAX", "Herramientas avanzadas de marketing", "Consultoría alquileres cortos", "Soporte legal y administrativo"],
+      fr: ["Vente résidentielle et commerciale", "Évaluation au meilleur prix du marché", "Analyse des besoins et visites ciblées", "Conseil pour investisseurs internationaux", "Réseau global RE/MAX", "Outils marketing avancés", "Conseil location courte durée", "Support juridique et administratif"],
+      de: ["Wohn- und Gewerbeimmobilienverkauf", "Bewertung zum besten Marktpreis", "Bedarfsanalyse und gezielte Besichtigungen", "Beratung für internationale Investoren", "Globales RE/MAX-Netzwerk", "Fortschrittliche Marketing-Tools", "Kurzzeitvermietungsberatung", "Rechtliche und administrative Unterstützung"],
+    },
+    stats: [
+      { icon: Users, value: "145K+", label: { en: "RE/MAX agents worldwide", it: "Agenti RE/MAX nel mondo", es: "Agentes RE/MAX en el mundo", fr: "Agents RE/MAX dans le monde", de: "RE/MAX-Makler weltweit" } },
+      { icon: Globe, value: "110+", label: { en: "Countries", it: "Paesi", es: "Países", fr: "Pays", de: "Länder" } },
+      { icon: Building2, value: "Roma", label: { en: "Via Mario Menghini, 103/105", it: "Via Mario Menghini, 103/105", es: "Via Mario Menghini, 103/105", fr: "Via Mario Menghini, 103/105", de: "Via Mario Menghini, 103/105" } },
+      { icon: TrendingUp, value: "#1", label: { en: "Real estate franchise worldwide", it: "Franchising immobiliare al mondo", es: "Franquicia inmobiliaria mundial", fr: "Franchise immobilière mondiale", de: "Immobilien-Franchise weltweit" } },
+    ],
+    languages: ["Italiano", "English", "Română", "Русский"],
+    address: "Via Mario Menghini, 103/105, 00179 Roma RM",
+    vatNumber: "P.IVA: 12713691009",
+    companyName: "Dieffecase srl",
+  },
   "kw-gchouse": {
     name: "KW GCHOUSE",
     fullName: "Keller Williams GCHOUSE",

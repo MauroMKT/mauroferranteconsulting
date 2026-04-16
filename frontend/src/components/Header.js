@@ -121,7 +121,7 @@ export default function Header({ locale, setLocale }) {
   ];
 
   const clientItems = [
-    { to: "/partners/kw-gchouse", label: "KW GCHOUSE" },
+    { to: "/partners/remax-easy", label: "RE/MAX Easy" },
     { to: "/partners/trem-group", label: "TREM Group" },
     { to: "/partners/azequo-engineering", label: "Azequo Engineering" },
     { to: "/case-studies", label: t(locale, "case_studies_menu") },
