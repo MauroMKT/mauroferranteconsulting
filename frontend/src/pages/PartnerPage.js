@@ -9,6 +9,7 @@ const partnersData = {
     name: "RE/MAX Easy",
     fullName: "RE/MAX Easy — Dieffecase srl",
     logo: "/images/remax-easy-logo.svg",
+    logoBg: "#ffffff",
     heroImage: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1400&q=85&fit=crop",
     website: "https://www.remax.it/trova/agenti-agenzie/agenzia/easy",
     description: {
