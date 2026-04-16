@@ -159,7 +159,7 @@ export default function PartnerPage({ locale, setLocale }) {
             <ArrowLeft className="w-4 h-4" /> Home
           </Link>
           <div className="flex items-center gap-6 mb-6">
-            <div className="w-20 h-20 rounded-xl bg-[#111] border border-white/10 flex items-center justify-center p-2">
+            <div className={`w-20 h-20 rounded-xl border border-white/10 flex items-center justify-center p-2`} style={{ background: partner.logoBg || "#111" }}>
               <img src={partner.logo} alt={partner.name} className="max-h-14 max-w-[64px] object-contain" />
             </div>
             <div>
