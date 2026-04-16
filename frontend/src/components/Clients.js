@@ -7,7 +7,7 @@ const clients = [
   {
     name: "RE/MAX Easy", fullName: "RE/MAX Easy — Roma",
     logo: "/images/remax-easy-logo.svg",
-    bg: "#0d1b3e", slug: "remax-easy",
+    bg: "#ffffff", slug: "remax-easy",
     taglineIt: "Consulenza immobiliare d'eccellenza a Roma", taglineEn: "Premium real estate consulting in Rome",
     taglineEs: "Consultoría inmobiliaria de excelencia en Roma", taglineFr: "Conseil immobilier d'excellence à Rome", taglineDe: "Erstklassige Immobilienberatung in Rom",
   },
