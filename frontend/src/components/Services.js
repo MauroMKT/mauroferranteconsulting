@@ -41,11 +41,11 @@ export default function Services({ locale }) {
         </div>
 
         {/* Tabs */}
-        <div className="flex flex-col sm:flex-row gap-2 mb-12 bg-[#111] rounded-xl p-1.5" data-testid="service-tabs">
+        <div className="flex gap-2 mb-12 bg-[#111] rounded-xl p-1.5 overflow-x-auto scrollbar-hide" data-testid="service-tabs">
           {services.map((service, idx) => (
             <button key={service.id} onClick={() => setActiveService(idx)}
               onMouseEnter={() => { if (window.matchMedia("(hover: hover)").matches) setActiveService(idx); }}
-              className={`flex-1 px-6 py-3.5 rounded-lg text-sm font-semibold tracking-wider uppercase transition-all duration-300 ${
+              className={`flex-1 min-w-[140px] px-6 py-3.5 rounded-lg text-sm font-semibold tracking-wider uppercase transition-all duration-300 whitespace-nowrap ${
                 activeService === idx ? "bg-[#c9a84c] text-[#0a0a0a] shadow-[0_4px_20px_rgba(201,168,76,0.3)]" : "text-white/50 hover:text-white/80 hover:bg-white/5"
               }`}
               data-testid={`service-tab-${idx}`}
