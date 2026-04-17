@@ -133,8 +133,8 @@ export default function Header({ locale, setLocale }) {
 
   return (
     <header data-testid="main-header"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled || !isHome ? "bg-[#080808]/95 backdrop-blur-xl border-b border-[#c9a84c]/10 py-2" : "bg-transparent py-4"
+      className={`fixed top-0 left-0 right-0 transition-all duration-500 ${
+        mobileOpen ? "z-[200] bg-[#080808] py-2" : `z-50 ${scrolled || !isHome ? "bg-[#080808]/95 backdrop-blur-xl border-b border-[#c9a84c]/10 py-2" : "bg-transparent py-4"}`
       }`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group" data-testid="header-logo">
@@ -184,7 +184,7 @@ export default function Header({ locale, setLocale }) {
       </div>
 
       {mobileOpen && (
-        <div className="lg:hidden fixed inset-0 top-[60px] bg-[#080808] z-40 overflow-y-auto" data-testid="mobile-menu">
+        <div className="lg:hidden fixed inset-0 top-[60px] bg-[#080808] z-[200] overflow-y-auto" data-testid="mobile-menu">
           <div className="px-6 py-8 space-y-1">
             <button onClick={() => navigateTo("#home")} className="block w-full text-left text-white/70 hover:text-[#c9a84c] text-sm font-medium tracking-wider uppercase py-3 border-b border-white/5">{t(locale, "nav_home")}</button>
 
