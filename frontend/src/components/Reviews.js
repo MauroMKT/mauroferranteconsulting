@@ -18,7 +18,8 @@ function PlatformBadge({ platform }) {
   );
 }
 
-function ReviewCard({ r, i }) {
+function ReviewCard({ r, i, locale }) {
+  const reviewText = (locale === "it" && r.textIt) ? r.textIt : (locale === "es" && r.textEs) ? r.textEs : (locale === "fr" && r.textFr) ? r.textFr : (locale === "de" && r.textDe) ? r.textDe : r.text;
   return (
     <div className="group bg-[#0f0f0f] border border-white/5 rounded-xl p-6 hover:border-[#c9a84c]/20 transition-all duration-500" data-testid={`review-card-${i}`}>
       <div className="flex gap-1 mb-4">
@@ -28,7 +29,7 @@ function ReviewCard({ r, i }) {
           </svg>
         ))}
       </div>
-      <p className="text-white/50 text-sm leading-relaxed mb-6 line-clamp-4">"{r.text}"</p>
+      <p className="text-white/50 text-sm leading-relaxed mb-6 line-clamp-4">"{reviewText}"</p>
       <div className="flex items-center justify-between">
         <div>
           <div className="text-white text-sm font-medium">{r.name}</div>
@@ -80,7 +81,7 @@ export default function Reviews({ locale, limit, showAll = false }) {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {displayed.map((r, i) => (
-            <ReviewCard key={i} r={r} i={i} />
+            <ReviewCard key={i} r={r} i={i} locale={locale} />
           ))}
         </div>
 
