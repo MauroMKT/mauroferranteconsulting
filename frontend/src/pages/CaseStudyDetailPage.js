@@ -51,6 +51,14 @@ export default function CaseStudyDetailPage({ locale, setLocale }) {
 
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-white font-bold leading-tight">{title}</h1>
 
+          {cs.logo && (
+            <div className="mt-6 inline-flex items-center gap-4">
+              <div className="w-16 h-16 rounded-xl border border-white/10 flex items-center justify-center p-2" style={{ background: cs.logoBg || "#111" }}>
+                <img src={cs.logo} alt={title} className="max-h-12 max-w-[48px] object-contain" />
+              </div>
+            </div>
+          )}
+
           {client && (
             <p className="text-white/30 text-sm mt-4 italic">{client}</p>
           )}

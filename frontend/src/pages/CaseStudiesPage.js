@@ -65,6 +65,11 @@ export default function CaseStudiesPage({ locale, setLocale }) {
                   className="group bg-[#0f0f0f] border border-white/5 rounded-xl p-7 hover:border-[#c9a84c]/20 transition-all duration-500 block"
                   data-testid={`cs-card-${cs.id}`}>
                   <div className="flex items-center gap-3 mb-3">
+                    {cs.logo && (
+                      <div className="w-8 h-8 rounded-md border border-white/10 flex items-center justify-center p-1 flex-shrink-0" style={{ background: cs.logoBg || "#111" }}>
+                        <img src={cs.logo} alt="" className="max-h-6 max-w-[24px] object-contain" />
+                      </div>
+                    )}
                     <span className="text-[#c9a84c] text-xs font-medium">{cs.year}</span>
                     <span className="text-white/15">|</span>
                     <span className="flex items-center gap-1 text-white/30 text-xs"><MapPin className="w-3 h-3" />{cs.country}</span>
