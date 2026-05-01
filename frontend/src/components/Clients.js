@@ -12,6 +12,13 @@ const clients = [
     taglineEs: "Consultoría inmobiliaria de excelencia en Roma", taglineFr: "Conseil immobilier d'excellence à Rome", taglineDe: "Erstklassige Immobilienberatung in Rom",
   },
   {
+    name: "ONE Development", fullName: "ONE Development — Batumi, Georgia",
+    logo: "/images/logo-one-development.jpg",
+    bg: "#1a1a2e", slug: "one-development",
+    taglineIt: "Real estate lifestyle a Batumi", taglineEn: "Lifestyle real estate in Batumi",
+    taglineEs: "Real estate lifestyle en Batumi", taglineFr: "Immobilier lifestyle à Batoumi", taglineDe: "Lifestyle-Immobilien in Batumi",
+  },
+  {
     name: "TREM Group", fullName: "The Real Estate Marketing Group",
     logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/api-attachments/s3Ipp2rySdBzKRdZL1PrR-aD2bTY0yQupmL8m8B7QtLn3UUaEVmd.webp",
     bg: "#181e2e", slug: "trem-group",

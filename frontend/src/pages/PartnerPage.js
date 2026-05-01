@@ -44,6 +44,45 @@ const partnersData = {
     vatNumber: "P.IVA: 12713691009",
     companyName: "Dieffecase srl",
   },
+  "one-development": {
+    name: "ONE Development",
+    fullName: "ONE Development — Batumi, Georgia",
+    logo: "/images/logo-one-development.jpg",
+    logoBg: "#1a1a2e",
+    heroImage: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1400&q=85&fit=crop",
+    website: "https://one.ge",
+    description: {
+      en: "ONE Development is a lifestyle real estate developer specialising in residential properties with strong investment potential, designed to suit diverse lifestyles in Batumi's prime urban locations. The first developer to implement a renovation project under the 'Batumi Without Dangerous Buildings' municipal program. Each development in their diverse portfolio reflects the unique lifestyle of its location, combining comfort, functionality, aesthetics, and investment appeal. Each project is strategically located in Batumi's most promising areas with functional layouts carefully designed for maximum comfort. ONE Development understands why a particular building, with its specific design and technical features, is developed in a given location for a defined target audience — to ensure maximum investment value.",
+      it: "ONE Development è un developer immobiliare lifestyle specializzato in proprietà residenziali con forte potenziale di investimento, progettate per adattarsi a diversi stili di vita nelle migliori location urbane di Batumi. Primo developer a implementare un progetto di ristrutturazione nell'ambito del programma municipale 'Batumi Senza Edifici Pericolosi'. Ogni sviluppo nel loro portafoglio diversificato riflette lo stile di vita unico della sua posizione, combinando comfort, funzionalità, estetica e attrattiva per gli investimenti. Ogni progetto è strategicamente situato nelle aree più promettenti di Batumi con layout funzionali accuratamente progettati per il massimo comfort.",
+      es: "ONE Development es un promotor inmobiliario lifestyle especializado en propiedades residenciales con fuerte potencial de inversión, diseñadas para adaptarse a diversos estilos de vida en las mejores ubicaciones urbanas de Batumi. Primer promotor en implementar un proyecto de renovación bajo el programa municipal 'Batumi Sin Edificios Peligrosos'. Cada desarrollo refleja el estilo de vida único de su ubicación, combinando confort, funcionalidad, estética y atractivo de inversión.",
+      fr: "ONE Development est un promoteur immobilier lifestyle spécialisé dans les propriétés résidentielles à fort potentiel d'investissement, conçues pour s'adapter à divers modes de vie dans les meilleurs emplacements urbains de Batoumi. Premier promoteur à mettre en œuvre un projet de rénovation dans le cadre du programme municipal 'Batoumi Sans Bâtiments Dangereux'. Chaque développement reflète le style de vie unique de son emplacement, alliant confort, fonctionnalité, esthétique et attrait pour l'investissement.",
+      de: "ONE Development ist ein Lifestyle-Immobilienentwickler, der sich auf Wohnimmobilien mit starkem Investitionspotenzial spezialisiert hat, die für verschiedene Lebensstile in Batumis besten städtischen Lagen konzipiert sind. Erster Entwickler, der ein Sanierungsprojekt im Rahmen des Kommunalprogramms 'Batumi Ohne Gefährliche Gebäude' umgesetzt hat. Jede Entwicklung spiegelt den einzigartigen Lebensstil ihres Standorts wider und vereint Komfort, Funktionalität, Ästhetik und Investitionsattraktivität.",
+    },
+    collaboration: {
+      en: "Mauro Ferrante Consulting Studio collaborates with ONE Development to connect international investors with premium real estate opportunities in Batumi, Georgia. Through strategic advisory and market analysis, we help clients identify high-potential properties in one of the Black Sea's fastest-growing investment destinations.",
+      it: "Mauro Ferrante Consulting Studio collabora con ONE Development per connettere investitori internazionali con opportunità immobiliari premium a Batumi, Georgia. Attraverso consulenza strategica e analisi di mercato, aiutiamo i clienti a identificare proprietà ad alto potenziale in una delle destinazioni di investimento in più rapida crescita del Mar Nero.",
+      es: "Mauro Ferrante Consulting Studio colabora con ONE Development para conectar inversores internacionales con oportunidades inmobiliarias premium en Batumi, Georgia.",
+      fr: "Mauro Ferrante Consulting Studio collabore avec ONE Development pour connecter les investisseurs internationaux avec des opportunités immobilières premium à Batoumi, Géorgie.",
+      de: "Mauro Ferrante Consulting Studio arbeitet mit ONE Development zusammen, um internationale Investoren mit erstklassigen Immobilienmöglichkeiten in Batumi, Georgien, zu verbinden.",
+    },
+    services: {
+      en: ["Lifestyle residential developments", "Investment-grade property design", "Municipal renovation programs", "Strategic location planning", "Functional layout optimisation", "Mixed-use development projects", "International investor advisory", "Award-winning architectural design"],
+      it: ["Sviluppi residenziali lifestyle", "Progettazione immobiliare investment-grade", "Programmi di ristrutturazione municipale", "Pianificazione strategica della location", "Ottimizzazione layout funzionali", "Progetti di sviluppo mixed-use", "Consulenza per investitori internazionali", "Design architettonico premiato"],
+      es: ["Desarrollos residenciales lifestyle", "Diseño inmobiliario de inversión", "Programas de renovación municipal", "Planificación estratégica de ubicación", "Optimización de layouts funcionales", "Proyectos de desarrollo de uso mixto", "Asesoría para inversores internacionales", "Diseño arquitectónico premiado"],
+      fr: ["Développements résidentiels lifestyle", "Conception immobilière d'investissement", "Programmes de rénovation municipale", "Planification stratégique d'emplacement", "Optimisation des agencements fonctionnels", "Projets de développement mixte", "Conseil aux investisseurs internationaux", "Design architectural primé"],
+      de: ["Lifestyle-Wohnentwicklungen", "Investmentgerechtes Immobiliendesign", "Kommunale Sanierungsprogramme", "Strategische Standortplanung", "Funktionale Layoutoptimierung", "Mixed-Use-Entwicklungsprojekte", "Internationale Investorenberatung", "Preisgekröntes architektonisches Design"],
+    },
+    stats: [
+      { icon: Building2, value: "415K m²", label: { en: "Total construction volume", it: "Volume totale di costruzione", es: "Volumen total de construcción", fr: "Volume total de construction", de: "Gesamtbauvolumen" } },
+      { icon: TrendingUp, value: "5", label: { en: "Unique projects in Batumi", it: "Progetti unici a Batumi", es: "Proyectos únicos en Batumi", fr: "Projets uniques à Batoumi", de: "Einzigartige Projekte in Batumi" } },
+      { icon: Globe, value: "3", label: { en: "Years in development", it: "Anni di sviluppo", es: "Años en desarrollo", fr: "Années de développement", de: "Jahre in der Entwicklung" } },
+      { icon: Users, value: "2", label: { en: "European Property Awards 2025-2026", it: "European Property Awards 2025-2026", es: "European Property Awards 2025-2026", fr: "European Property Awards 2025-2026", de: "European Property Awards 2025-2026" } },
+    ],
+    awards: [
+      "ONE — Residential Renovation/Redevelopment Award Winner Georgia (European Property Awards 2025-2026)",
+      "Stay & Rent — Mixed-Use Development Award Winner Georgia (European Property Awards 2025-2026)",
+    ],
+  },
   "kw-gchouse": {
     name: "KW GCHOUSE",
     fullName: "Keller Williams GCHOUSE",
@@ -250,6 +289,18 @@ export default function PartnerPage({ locale, setLocale }) {
               <div className="flex flex-wrap justify-center gap-3">
                 {partner.certifications.map((c) => (
                   <span key={c} className="bg-[#c9a84c]/10 text-[#c9a84c] text-xs font-medium px-4 py-2 rounded-full border border-[#c9a84c]/20">{c}</span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Awards */}
+          {partner.awards && (
+            <div className="mt-12 text-center">
+              <h3 className="text-white/60 text-xs tracking-[0.2em] uppercase mb-4">Awards</h3>
+              <div className="flex flex-wrap justify-center gap-3">
+                {partner.awards.map((a) => (
+                  <span key={a} className="bg-[#c9a84c]/10 text-[#c9a84c] text-xs font-medium px-4 py-2 rounded-full border border-[#c9a84c]/20">{a}</span>
                 ))}
               </div>
             </div>
