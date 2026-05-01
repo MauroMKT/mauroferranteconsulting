@@ -8,7 +8,7 @@ const services = [
   {
     id: "project-management", titleKey: "pm_title", subtitleKey: "pm_subtitle", descKey: "pm_desc",
     details: ["pm_detail_1", "pm_detail_2", "pm_detail_3", "pm_detail_4", "pm_detail_5", "pm_detail_6"],
-    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=900&q=80&fit=crop",
+    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=60&fit=crop",
     imageAlt: "Professional project management team",
   },
   {
@@ -20,7 +20,7 @@ const services = [
   {
     id: "real-estate", titleKey: "re_title", subtitleKey: "re_subtitle", descKey: "re_desc",
     details: ["re_detail_1", "re_detail_2", "re_detail_3", "re_detail_4", "re_detail_5", "re_detail_6"],
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&q=80&fit=crop",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=60&fit=crop",
     imageAlt: "Luxury real estate",
   },
 ];
@@ -87,7 +87,7 @@ export default function Services({ locale }) {
                 <div className="flex flex-wrap gap-4">
                   <Link to={`/services/${service.id}`}
                     className="inline-flex items-center gap-2 bg-[#c9a84c]/10 text-[#c9a84c] hover:bg-[#c9a84c]/20 text-sm font-medium px-6 py-3 rounded-lg transition-all duration-200" data-testid={`service-detail-link-${idx}`}>
-                    {t(locale, "learn_more")} <ArrowRight className="w-4 h-4" />
+                    {t(locale, service.titleKey)} — {t(locale, "learn_more")} <ArrowRight className="w-4 h-4" />
                   </Link>
                   <button onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
                     className="inline-flex items-center gap-2 text-white/40 hover:text-white/70 text-sm font-medium px-6 py-3 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20">

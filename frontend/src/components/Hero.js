@@ -60,7 +60,7 @@ export default function Hero({ locale }) {
   }, []);
 
   const yearsCount = useCountUp(20, 1400, statsVisible);
-  const countriesCount = useCountUp(13, 1200, statsVisible);
+  const countriesCount = useCountUp(14, 1200, statsVisible);
   const projectsCount = useCountUp(150, 1600, statsVisible);
 
   const typewriterText = useTypewriter([t(locale, "hero_typewriter_1"), t(locale, "hero_typewriter_2"), t(locale, "hero_typewriter_3")]);
@@ -77,7 +77,7 @@ export default function Hero({ locale }) {
     <section id="home" data-testid="hero-section" className="relative min-h-screen flex items-center overflow-hidden bg-[#080808]">
       {/* Background */}
       <div className="absolute inset-0 overflow-hidden">
-        <img ref={parallaxRef} src="https://images.unsplash.com/photo-1677508266628-1eb612e55cb4?w=1920&q=80&fit=crop" alt="Dubai skyline at night" className="w-full h-full object-cover opacity-30 scale-110 parallax-bg" />
+        <img ref={parallaxRef} src="https://images.unsplash.com/photo-1677508266628-1eb612e55cb4?w=800&q=60&fit=crop" alt="Dubai skyline at night" className="w-full h-full object-cover opacity-30 scale-110 parallax-bg" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#080808] via-[#080808]/80 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-[#080808]/60" />
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#c9a84c]/5 to-transparent" />
@@ -113,11 +113,11 @@ export default function Hero({ locale }) {
               </button>
 
               <div className="flex items-center gap-2 text-xs">
-                <button onClick={() => { trackWhatsApp("europe_asia"); window.open("https://wa.me/393491177007", "_blank"); }} className="text-[#25D366]/60 hover:text-[#25D366] font-medium transition-colors cursor-pointer" data-testid="wa-eu-btn">
+                <button onClick={() => { trackWhatsApp("europe_asia"); window.open("https://wa.me/393491177007", "_blank"); }} className="text-[#25D366] hover:text-[#2be573] font-medium transition-colors cursor-pointer" data-testid="wa-eu-btn">
                   {locale === "it" ? "Europa / Asia" : "Europe / Asia"}
                 </button>
                 <span className="text-white/20">·</span>
-                <button onClick={() => { trackWhatsApp("usa_latam"); window.open("https://wa.me/51964243686", "_blank"); }} className="text-[#25D366]/60 hover:text-[#25D366] font-medium transition-colors cursor-pointer" data-testid="wa-latam-btn">
+                <button onClick={() => { trackWhatsApp("usa_latam"); window.open("https://wa.me/51964243686", "_blank"); }} className="text-[#25D366] hover:text-[#2be573] font-medium transition-colors cursor-pointer" data-testid="wa-latam-btn">
                   LATAM / USA
                 </button>
               </div>
@@ -145,7 +145,7 @@ export default function Hero({ locale }) {
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-br from-[#c9a84c]/20 via-transparent to-[#c9a84c]/10 rounded-2xl blur-xl" />
               <div className="relative overflow-hidden rounded-xl border border-[#c9a84c]/20">
-                <img src="/images/mauro-ferrante.jpg" alt="Mauro Ferrante" className="w-full h-[580px] object-cover object-top" data-testid="hero-photo" />
+                <img src="/images/mauro-ferrante.webp" alt="Mauro Ferrante - International Business Consultant" width="500" height="604" className="w-full h-[580px] object-cover object-top" data-testid="hero-photo" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/60 via-transparent to-transparent" />
               </div>
               <div className="absolute -bottom-3 -right-3 bg-[#111] border border-[#c9a84c]/30 rounded-xl px-4 py-2.5 backdrop-blur-sm">

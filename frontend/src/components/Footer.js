@@ -64,7 +64,7 @@ export default function Footer({ locale }) {
             {/* Brand */}
             <div className="md:col-span-1">
               <div className="flex items-center gap-3 mb-4">
-                <img src="/images/logo-mf.png" alt="Mauro Ferrante" className="h-16 w-auto" />
+                <img src="/images/logo-mf-footer.webp" alt="Mauro Ferrante Consulting Studio" width="64" height="64" className="h-16 w-16" />
               </div>
               <p className="text-white/30 text-xs leading-relaxed">{t(locale, "footer_brand_desc")}</p>
               <div className="flex items-center gap-3 mt-6">

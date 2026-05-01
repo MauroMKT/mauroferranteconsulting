@@ -1,7 +1,7 @@
 export const insights = [
   {
     slug: "real-estate-dubai-2025", date: "2025-03-10", readMins: 6, category: "Real Estate",
-    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=900&q=80&fit=crop",
+    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&q=60&fit=crop",
     titles: {
       en: "How to invest in Dubai real estate in 2025",
       it: "Come investire nel real estate a Dubai nel 2025",
@@ -19,7 +19,7 @@ export const insights = [
   },
   {
     slug: "agile-pmi-italiane", date: "2025-02-18", readMins: 5, category: "Project Management",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&q=80&fit=crop",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=60&fit=crop",
     titles: {
       en: "Agile in Italian SMEs: why it works (and why it often fails)",
       it: "Agile nelle PMI italiane: perche funziona (e perche spesso fallisce)",
@@ -37,7 +37,7 @@ export const insights = [
   },
   {
     slug: "digital-transformation-errori", date: "2025-01-22", readMins: 7, category: "Digital",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80&fit=crop",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=60&fit=crop",
     titles: {
       en: "The 5 mistakes that sink corporate digital transformation",
       it: "I 5 errori che affossano la digital transformation aziendale",

@@ -27,7 +27,7 @@ export default function About({ locale }) {
               <div className="relative">
                 <div className="absolute -inset-3 bg-gradient-to-br from-[#c9a84c]/10 to-transparent rounded-2xl blur-lg" />
                 <div className="relative overflow-hidden rounded-xl border border-[#c9a84c]/15">
-                  <img src="/images/mauro-ferrante.jpg" alt="Mauro Ferrante" className="w-full h-[500px] object-cover object-top" loading="lazy" data-testid="about-photo" />
+                  <img src="/images/mauro-ferrante.webp" alt="Mauro Ferrante - International Business Consultant" width="500" height="604" className="w-full h-[500px] object-cover object-top" loading="lazy" data-testid="about-photo" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/70 via-transparent to-transparent" />
                 </div>
               </div>

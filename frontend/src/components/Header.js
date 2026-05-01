@@ -139,7 +139,7 @@ export default function Header({ locale, setLocale }) {
       }`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group" data-testid="header-logo">
-          <img src="/images/logo-mf.png" alt="Mauro Ferrante" className="h-14 w-auto" />
+          <img src="/images/logo-mf-header.webp" alt="Mauro Ferrante Consulting Studio" width="56" height="56" className="h-14 w-14" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-7" data-testid="desktop-nav">
