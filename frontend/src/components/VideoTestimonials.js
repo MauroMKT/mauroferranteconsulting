@@ -6,11 +6,11 @@ import { useReveal } from "@/hooks/use-reveal";
 import { Play, Quote, ChevronLeft, ChevronRight, Star, ArrowRight } from "lucide-react";
 
 const sectionText = {
-  en: { label: "Client Stories", title: "What Our Clients Say", sub: "Real testimonials from real projects across 13 countries", showAll: "Read All Reviews" },
-  it: { label: "Storie dei Clienti", title: "Cosa Dicono i Nostri Clienti", sub: "Testimonianze reali da progetti in 13 paesi", showAll: "Leggi Tutte le Recensioni" },
-  es: { label: "Historias de Clientes", title: "Lo Que Dicen Nuestros Clientes", sub: "Testimonios reales de proyectos en 13 paises", showAll: "Leer Todas las Resenas" },
-  fr: { label: "Temoignages Clients", title: "Ce Que Disent Nos Clients", sub: "Temoignages reels de projets dans 13 pays", showAll: "Lire Tous les Temoignages" },
-  de: { label: "Kundenstimmen", title: "Was Unsere Kunden Sagen", sub: "Echte Testimonials aus Projekten in 13 Landern", showAll: "Alle Bewertungen Lesen" },
+  en: { label: "Client Stories", title: "What Our Clients Say", sub: "Real testimonials from real projects across 14 countries", showAll: "Read All Reviews" },
+  it: { label: "Storie dei Clienti", title: "Cosa Dicono i Nostri Clienti", sub: "Testimonianze reali da progetti in 14 paesi", showAll: "Leggi Tutte le Recensioni" },
+  es: { label: "Historias de Clientes", title: "Lo Que Dicen Nuestros Clientes", sub: "Testimonios reales de proyectos en 14 paises", showAll: "Leer Todas las Resenas" },
+  fr: { label: "Temoignages Clients", title: "Ce Que Disent Nos Clients", sub: "Temoignages reels de projets dans 14 pays", showAll: "Lire Tous les Temoignages" },
+  de: { label: "Kundenstimmen", title: "Was Unsere Kunden Sagen", sub: "Echte Testimonials aus Projekten in 14 Landern", showAll: "Alle Bewertungen Lesen" },
 };
 
 const featured = [0, 4, 13, 16, 12, 3];

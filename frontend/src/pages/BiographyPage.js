@@ -26,31 +26,31 @@ const languages = [
 
 const careerMilestones = {
   en: [
-    { area: "Project Management & Operations", detail: "Over 150 projects managed across 13 countries, from startup launches to enterprise-scale digital transformations. Specialised in Agile, Waterfall and hybrid delivery." },
+    { area: "Project Management & Operations", detail: "Over 150 projects managed across 14 countries, from startup launches to enterprise-scale digital transformations. Specialised in Agile, Waterfall and hybrid delivery." },
     { area: "Digital Marketing & Brand Strategy", detail: "Designed and executed brand strategies, digital marketing campaigns and web development projects for companies across multiple sectors." },
     { area: "Real Estate Investments & Advisory", detail: "Guided international investors through property acquisitions, portfolio management and market entry strategies in Europe, LATAM and the Middle East." },
     { area: "Business Development & Consulting", detail: "Founded Mauro Ferrante Consulting Studio, providing end-to-end strategic consulting to businesses, entrepreneurs and investors worldwide." },
   ],
   it: [
-    { area: "Project Management & Operations", detail: "Oltre 150 progetti gestiti in 13 paesi, dal lancio di startup alle trasformazioni digitali enterprise. Specializzato in Agile, Waterfall e delivery ibrido." },
+    { area: "Project Management & Operations", detail: "Oltre 150 progetti gestiti in 14 paesi, dal lancio di startup alle trasformazioni digitali enterprise. Specializzato in Agile, Waterfall e delivery ibrido." },
     { area: "Digital Marketing & Brand Strategy", detail: "Progettato ed eseguito strategie di brand, campagne di marketing digitale e progetti di sviluppo web per aziende di diversi settori." },
     { area: "Investimenti Immobiliari & Advisory", detail: "Guidato investitori internazionali in acquisizioni, gestione del portafoglio e strategie di ingresso in Europa, LATAM e Medio Oriente." },
     { area: "Business Development & Consulting", detail: "Fondato il Mauro Ferrante Consulting Studio, fornendo consulenza strategica end-to-end a imprese, imprenditori e investitori." },
   ],
   es: [
-    { area: "Project Management & Operations", detail: "Mas de 150 proyectos gestionados en 13 paises, desde lanzamientos de startups hasta transformaciones digitales a escala empresarial." },
+    { area: "Project Management & Operations", detail: "Mas de 150 proyectos gestionados en 14 paises, desde lanzamientos de startups hasta transformaciones digitales a escala empresarial." },
     { area: "Digital Marketing & Brand Strategy", detail: "Disenado y ejecutado estrategias de marca, campanas de marketing digital y proyectos de desarrollo web para empresas de multiples sectores." },
     { area: "Inversiones Inmobiliarias & Advisory", detail: "Guiado a inversores internacionales en adquisiciones, gestion de portafolio y estrategias de entrada en Europa, LATAM y Medio Oriente." },
     { area: "Business Development & Consulting", detail: "Fundado Mauro Ferrante Consulting Studio, brindando consultoria estrategica integral a empresas, emprendedores e inversores." },
   ],
   fr: [
-    { area: "Project Management & Operations", detail: "Plus de 150 projets geres dans 13 pays, des lancements de startups aux transformations digitales a l'echelle de l'entreprise." },
+    { area: "Project Management & Operations", detail: "Plus de 150 projets geres dans 14 pays, des lancements de startups aux transformations digitales a l'echelle de l'entreprise." },
     { area: "Digital Marketing & Brand Strategy", detail: "Conception et execution de strategies de marque, campagnes de marketing digital et projets de developpement web pour des entreprises multi-secteurs." },
     { area: "Investissements Immobiliers & Advisory", detail: "Accompagnement d'investisseurs internationaux dans les acquisitions, la gestion de portefeuille et les strategies d'entree en Europe, LATAM et Moyen-Orient." },
     { area: "Business Development & Consulting", detail: "Fondation du Mauro Ferrante Consulting Studio, conseil strategique de bout en bout pour entreprises, entrepreneurs et investisseurs." },
   ],
   de: [
-    { area: "Project Management & Operations", detail: "Uber 150 Projekte in 13 Landern geleitet, von Startup-Starts bis hin zu digitalen Transformationen im Unternehmensmassstab." },
+    { area: "Project Management & Operations", detail: "Uber 150 Projekte in 14 Landern geleitet, von Startup-Starts bis hin zu digitalen Transformationen im Unternehmensmassstab." },
     { area: "Digital Marketing & Brand Strategy", detail: "Markenstrategien, digitale Marketingkampagnen und Webentwicklungsprojekte fur Unternehmen verschiedener Branchen konzipiert und umgesetzt." },
     { area: "Immobilieninvestitionen & Beratung", detail: "Internationale Investoren bei Akquisitionen, Portfoliomanagement und Markteintrittsstrategien in Europa, LATAM und dem Nahen Osten begleitet." },
     { area: "Business Development & Consulting", detail: "Grundung des Mauro Ferrante Consulting Studio, End-to-End strategische Beratung fur Unternehmen, Unternehmer und Investoren." },
@@ -147,7 +147,7 @@ export default function BiographyPage({ locale, setLocale }) {
 
   return (
     <div className="min-h-screen bg-[#080808]" data-testid="biography-page">
-      <SEO title="Mauro Ferrante - Biografia" description="Senior Consultant con oltre 20 anni di esperienza in 13 paesi. Project Management, Digital Marketing e Real Estate Investments." path="/about" />
+      <SEO title="Mauro Ferrante - Biografia" description="Senior Consultant con oltre 20 anni di esperienza in 14 paesi. Project Management, Digital Marketing e Real Estate Investments." path="/about" />
       <Header locale={locale} setLocale={setLocale} />
 
       {/* Hero */}

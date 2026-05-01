@@ -15,7 +15,7 @@ const categoryLabels = {
 
 export default function BlogPage({ locale, setLocale }) {
   const blogTitle = locale === "it" ? "Insights & Articoli" : locale === "es" ? "Insights y Articulos" : locale === "fr" ? "Insights et Articles" : locale === "de" ? "Insights & Artikel" : "Insights & Articles";
-  const blogDesc = locale === "it" ? "Strategie, analisi e lezioni apprese da oltre 20 anni di consulenza internazionale in 13 paesi." : "Strategies, analysis and lessons learned from over 20 years of international consulting across 13 countries.";
+  const blogDesc = locale === "it" ? "Strategie, analisi e lezioni apprese da oltre 20 anni di consulenza internazionale in 14 paesi." : "Strategies, analysis and lessons learned from over 20 years of international consulting across 14 countries.";
 
   return (
     <div className="min-h-screen bg-[#080808]" data-testid="blog-page">

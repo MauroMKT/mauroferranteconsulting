@@ -8,6 +8,7 @@ const marketKeys = [
   "about_market_usa", "about_market_canada", "about_market_russia", "about_market_china",
   "about_market_arabia", "about_market_argentina", "about_market_chile", "about_market_thailand",
   "about_market_denmark", "about_market_sweden", "about_market_norway", "about_market_uk", "about_market_eu",
+  "about_market_georgia",
 ];
 
 export default function About({ locale }) {

@@ -8,7 +8,7 @@ const HIGHLIGHTED_COUNTRIES = [
   "Italy", "Spain", "Peru", "United States of America", "Thailand",
   "Malta", "Belgium", "Germany", "France", "United Kingdom",
   "Switzerland", "Saudi Arabia", "Argentina", "Chile",
-  "Canada", "Denmark", "Sweden", "Norway",
+  "Canada", "Denmark", "Sweden", "Norway", "Georgia",
 ];
 
 const MARKERS = [
@@ -25,6 +25,7 @@ const MARKERS = [
   { name: "UK", coordinates: [-1.17, 52.36], labelKey: "about_market_uk" },
   { name: "Svizzera", coordinates: [8.23, 46.82], labelKey: "about_market_switzerland" },
   { name: "Arabia Saudita", coordinates: [45.08, 23.88], labelKey: "about_market_arabia" },
+  { name: "Georgia", coordinates: [43.36, 42.32], labelKey: "about_market_georgia" },
 ];
 
 const EUROPE_CENTER = [10, 48];
@@ -173,7 +174,7 @@ export default function WorldMap({ locale }) {
               <div className="w-6 h-0 border-t border-dashed border-[#c9a84c]/40" />
               <span className="text-white/30 text-[10px] tracking-wider">{locale === "it" ? "Rotte internazionali" : "International routes"}</span>
             </div>
-            <span className="text-[#c9a84c]/40 text-xs font-serif font-bold">13 {t(locale, "stats_countries_label")}</span>
+            <span className="text-[#c9a84c]/40 text-xs font-serif font-bold">14 {t(locale, "stats_countries_label")}</span>
           </div>
         </div>
       </div>
