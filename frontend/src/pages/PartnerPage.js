@@ -138,7 +138,7 @@ const partnersData = {
   "azequo-engineering": {
     name: "Azequo Engineering",
     fullName: "Azequo Engineering S.A.C.",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/api-attachments/r0i7tzQ89uG8DdfcS7cS1-1YO73Xiuya3XvjgQl0SL4iLlM9RQnQ.webp",
+    logo: "/images/logo-azequo.png",
     heroImage: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1400&q=85&fit=crop",
     website: "https://azequoengineering.com",
     description: {

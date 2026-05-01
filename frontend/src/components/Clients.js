@@ -27,8 +27,8 @@ const clients = [
   },
   {
     name: "Azequo Engineering", fullName: "Azequo Engineering S.A.C.",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/api-attachments/r0i7tzQ89uG8DdfcS7cS1-1YO73Xiuya3XvjgQl0SL4iLlM9RQnQ.webp",
-    bg: "#111", slug: "azequo-engineering",
+    logo: "/images/logo-azequo.png",
+    bg: "#000000", slug: "azequo-engineering",
     taglineIt: "Ingegneria industriale in Perù", taglineEn: "Industrial engineering in Peru",
     taglineEs: "Ingeniería industrial en Perú", taglineFr: "Ingénierie industrielle au Pérou", taglineDe: "Industrieingenieurwesen in Peru",
   },
