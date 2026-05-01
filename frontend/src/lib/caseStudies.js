@@ -364,7 +364,7 @@ export const caseStudies = [
   },
   // NEW CASE STUDIES - Valencia
   {
-    id: "cs-dm-08", service: "digital-marketing", year: 2024, country: "Spagna",
+    id: "cs-dm-08", service: "digital-marketing", year: "2016-2019", country: "Spagna",
     logo: "/images/logo-eisho360.jpg", logoBg: "#ffffff",
     titles: {
       en: "International Investment Authority Building for Eisho 360 Consulting",
@@ -389,7 +389,7 @@ export const caseStudies = [
     tags: ["Inbound Marketing", "LinkedIn Ads", "Personal Branding", "Kanban", "Foreign Investment"],
   },
   {
-    id: "cs-dm-09", service: "digital-marketing", year: 2024, country: "Spagna",
+    id: "cs-dm-09", service: "digital-marketing", year: "2013-2015", country: "Spagna",
     logo: "/images/logo-ailati.jpg", logoBg: "#ffffff",
     titles: {
       en: "Local Marketing & Customer Experience for Ailati Restaurante Italiano",
@@ -414,7 +414,7 @@ export const caseStudies = [
     tags: ["Local Marketing", "Geolocation Ads", "Hospitality", "Customer Satisfaction", "QR Feedback"],
   },
   {
-    id: "cs-dm-10", service: "digital-marketing", year: 2024, country: "Spagna",
+    id: "cs-dm-10", service: "digital-marketing", year: "2015-2016", country: "Spagna",
     logo: "/images/logo-freepub.jpg", logoBg: "#000000",
     titles: {
       en: "Complete Rebranding & Repositioning for FreePub Cocktail Bar",
