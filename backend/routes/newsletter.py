@@ -1,4 +1,4 @@
-from fastapi import HTTPException
+from fastapi import HTTPException, Request
 from pydantic import BaseModel, Field
 from typing import Optional
 import os
@@ -6,18 +6,48 @@ import uuid
 from datetime import datetime, timezone
 import re
 import logging
+import time
 
 logger = logging.getLogger(__name__)
+
+_nl_rate_limit = {}
+NL_RATE_WINDOW = 600
+NL_RATE_MAX = 5
+
+
+def _check_nl_rate(ip: str) -> bool:
+    now = time.time()
+    if ip in _nl_rate_limit:
+        entries = [t for t in _nl_rate_limit[ip] if now - t < NL_RATE_WINDOW]
+        _nl_rate_limit[ip] = entries
+        if len(entries) >= NL_RATE_MAX:
+            return False
+    _nl_rate_limit.setdefault(ip, []).append(now)
+    return True
 
 
 class NewsletterSubscribe(BaseModel):
     email: str = Field(..., min_length=5)
     locale: Optional[str] = "en"
+    hp: Optional[str] = Field("", alias="_hp")
+
+    model_config = {"populate_by_name": True}
 
 
 def setup_newsletter_routes(router, db, send_email):
     @router.post("/newsletter/subscribe")
-    async def newsletter_subscribe(body: NewsletterSubscribe):
+    async def newsletter_subscribe(body: NewsletterSubscribe, request: Request):
+        # Anti-spam: Honeypot
+        if body.hp:
+            logger.warning(f"Newsletter spam blocked (honeypot): {body.email}")
+            return {"ok": True, "message": "Subscribed successfully"}
+
+        # Anti-spam: Rate limiting
+        client_ip = request.headers.get("x-forwarded-for", request.client.host).split(",")[0].strip()
+        if not _check_nl_rate(client_ip):
+            logger.warning(f"Newsletter spam blocked (rate limit): {body.email} from {client_ip}")
+            return {"ok": False, "message": "Too many requests"}
+
         if not re.match(r'\S+@\S+\.\S+', body.email):
             return {"ok": False, "message": "Invalid email"}
         existing = await db.newsletter.find_one({"email": body.email.lower()})
@@ -33,7 +63,7 @@ def setup_newsletter_routes(router, db, send_email):
         await db.newsletter.insert_one(doc)
         logger.info(f"Newsletter subscription: {body.email}")
 
-        welcome_html = f"""
+        welcome_html = """
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 12px; overflow: hidden;">
             <div style="background: linear-gradient(135deg, #c9a84c, #a88a3a); padding: 24px 30px;">
                 <h1 style="color: #0a0a0a; font-size: 18px; margin: 0;">Benvenuto nella Newsletter!</h1>

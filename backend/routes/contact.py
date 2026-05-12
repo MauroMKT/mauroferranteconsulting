@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Request
 from pydantic import BaseModel, Field
 from typing import Optional
 import uuid
@@ -6,10 +6,27 @@ from datetime import datetime, timezone
 import urllib.parse
 import re
 import logging
+import time
 
 logger = logging.getLogger(__name__)
 
 router = APIRouter()
+
+# Rate limiting: track submissions per IP
+_rate_limit = {}
+RATE_LIMIT_WINDOW = 600  # 10 minutes
+RATE_LIMIT_MAX = 3  # max 3 submissions per window
+
+
+def _check_rate_limit(ip: str) -> bool:
+    now = time.time()
+    if ip in _rate_limit:
+        entries = [t for t in _rate_limit[ip] if now - t < RATE_LIMIT_WINDOW]
+        _rate_limit[ip] = entries
+        if len(entries) >= RATE_LIMIT_MAX:
+            return False
+    _rate_limit.setdefault(ip, []).append(now)
+    return True
 
 
 class ContactForm(BaseModel):
@@ -18,6 +35,10 @@ class ContactForm(BaseModel):
     email: str = Field(..., min_length=1)
     service: str = Field(..., min_length=1)
     message: str = Field(..., min_length=1)
+    hp: Optional[str] = Field("", alias="_hp")
+    ts: Optional[int] = Field(0, alias="_ts")
+
+    model_config = {"populate_by_name": True}
 
 
 class ContactResponse(BaseModel):
@@ -29,7 +50,25 @@ class ContactResponse(BaseModel):
 
 def setup_contact_routes(router, db, send_email):
     @router.post("/contact", response_model=ContactResponse)
-    async def submit_contact(form: ContactForm):
+    async def submit_contact(form: ContactForm, request: Request):
+        # Anti-spam: Honeypot check
+        if form.hp:
+            logger.warning(f"Spam blocked (honeypot): {form.email}")
+            return ContactResponse(ok=True, message="Message received")
+
+        # Anti-spam: Timestamp check (reject if submitted in < 3 seconds)
+        if form.ts:
+            elapsed = int(time.time() * 1000) - form.ts
+            if elapsed < 3000:
+                logger.warning(f"Spam blocked (too fast {elapsed}ms): {form.email}")
+                return ContactResponse(ok=True, message="Message received")
+
+        # Anti-spam: Rate limiting per IP
+        client_ip = request.headers.get("x-forwarded-for", request.client.host).split(",")[0].strip()
+        if not _check_rate_limit(client_ip):
+            logger.warning(f"Spam blocked (rate limit): {form.email} from {client_ip}")
+            return ContactResponse(ok=False, message="Too many requests. Please try again later.")
+
         if not re.match(r'\S+@\S+\.\S+', form.email):
             return ContactResponse(ok=False, message="Invalid email format")
         try:

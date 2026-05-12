@@ -16,6 +16,7 @@ export default function Contact({ locale }) {
   const [form, setForm] = useState({ name: "", phone: "", email: "", service: "", message: "" });
   const [errors, setErrors] = useState({});
   const [submitStatus, setSubmitStatus] = useState("idle");
+  const [formLoadTime] = useState(Date.now());
   const { ref: headerRef, visible: headerVisible } = useReveal();
 
   const validate = () => {
@@ -35,7 +36,7 @@ export default function Contact({ locale }) {
     if (!validate()) return;
     setSubmitStatus("loading");
     try {
-      const res = await axios.post(`${API}/contact`, form);
+      const res = await axios.post(`${API}/contact`, { ...form, _hp: document.getElementById("mfc_hp")?.value || "", _ts: formLoadTime });
       if (res.data.ok) {
         trackFormSubmit(form.service);
         setSubmitStatus("success");
@@ -97,6 +98,11 @@ export default function Contact({ locale }) {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="bg-[#0f0f0f] border border-white/5 rounded-2xl p-8 space-y-6" data-testid="contact-form">
+              {/* Honeypot - hidden from humans */}
+              <div style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, overflow: "hidden" }} aria-hidden="true">
+                <label htmlFor="mfc_hp">Leave empty</label>
+                <input type="text" id="mfc_hp" name="mfc_hp" tabIndex={-1} autoComplete="off" />
+              </div>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="text-white/60 text-xs font-medium tracking-wider uppercase mb-2 block">{t(locale, "form_name")} <span className="text-[#c9a84c]">*</span></label>

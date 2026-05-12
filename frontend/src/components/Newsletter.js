@@ -23,7 +23,7 @@ export default function Newsletter({ locale }) {
     if (!email) return;
     setLoading(true);
     try {
-      const res = await axios.post(`${API}/newsletter/subscribe`, { email, locale });
+      const res = await axios.post(`${API}/newsletter/subscribe`, { email, locale, _hp: document.getElementById("mfc_nl_hp")?.value || "" });
       if (res.data.ok) setStatus("success");
       else setStatus("error");
     } catch {
@@ -46,6 +46,9 @@ export default function Newsletter({ locale }) {
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="mt-8 flex flex-col sm:flex-row items-center gap-3 max-w-md mx-auto" data-testid="newsletter-form">
+            <div style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, overflow: "hidden" }} aria-hidden="true">
+              <input type="text" id="mfc_nl_hp" name="mfc_nl_hp" tabIndex={-1} autoComplete="off" />
+            </div>
             <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required
               className="w-full flex-1 bg-[#111] border border-white/10 text-white rounded-lg px-4 py-3.5 text-sm focus:outline-none focus:border-[#c9a84c]/40 transition-all placeholder:text-white/20"
               placeholder={t.placeholder} data-testid="newsletter-email" />
