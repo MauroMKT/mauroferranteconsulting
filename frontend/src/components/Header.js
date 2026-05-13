@@ -123,6 +123,7 @@ export default function Header({ locale, setLocale }) {
   const clientItems = [
     { to: "/partners/remax-easy", label: "RE/MAX Easy" },
     { to: "/partners/one-development", label: "ONE Development" },
+    { to: "/partners/evolution-media", label: "Evolution Media" },
     { to: "/partners/trem-group", label: "TREM Group" },
     { to: "/partners/azequo-engineering", label: "Azequo Engineering" },
     { to: "/case-studies", label: t(locale, "case_studies_menu") },

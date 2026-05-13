@@ -26,6 +26,13 @@ const clients = [
     taglineEs: "Marketing inmobiliario de lujo", taglineFr: "Marketing immobilier de luxe", taglineDe: "Luxus-Immobilienmarketing",
   },
   {
+    name: "Evolution Media", fullName: "Evolution Media Group",
+    logo: "/images/logo-evolution-media.webp",
+    bg: "#ffffff", slug: "evolution-media",
+    taglineIt: "Lead generation per agenzie immobiliari", taglineEn: "Real estate lead generation specialists",
+    taglineEs: "Generacion de leads inmobiliarios", taglineFr: "Generation de leads immobiliers", taglineDe: "Immobilien Lead-Generierung",
+  },
+  {
     name: "Azequo Engineering", fullName: "Azequo Engineering S.A.C.",
     logo: "/images/logo-azequo.png",
     bg: "#000000", slug: "azequo-engineering",
