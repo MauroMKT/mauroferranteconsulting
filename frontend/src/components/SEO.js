@@ -13,6 +13,18 @@ export default function SEO({ title, description, path = "/", type = "website", 
   const pageDesc = description || defaultMeta.description;
   const url = `${BASE_URL}${path}`;
 
+  const breadcrumbs = path !== "/" ? {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+      ...(path.split("/").filter(Boolean).length > 1
+        ? [{ "@type": "ListItem", "position": 2, "name": path.split("/")[1].replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase()), "item": `${BASE_URL}/${path.split("/")[1]}` }]
+        : []),
+      { "@type": "ListItem", "position": path.split("/").filter(Boolean).length + 1, "name": title || path.split("/").pop().replace(/-/g, " "), "item": url },
+    ],
+  } : null;
+
   return (
     <Helmet>
       <title>{pageTitle}</title>
@@ -27,6 +39,9 @@ export default function SEO({ title, description, path = "/", type = "website", 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={pageTitle} />
       <meta name="twitter:description" content={pageDesc} />
+      {breadcrumbs && (
+        <script type="application/ld+json">{JSON.stringify(breadcrumbs)}</script>
+      )}
     </Helmet>
   );
 }
