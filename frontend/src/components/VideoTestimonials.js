@@ -117,8 +117,11 @@ export default function VideoTestimonials({ locale }) {
             <div className="flex gap-2">
               {featuredReviews.map((_, i) => (
                 <button key={i} onClick={() => goTo(i)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${i === active ? "bg-[#c9a84c] w-6" : "bg-white/15 hover:bg-white/30"}`}
-                  data-testid={`testimonial-dot-${i}`} />
+                  className={`p-2 rounded-full transition-all duration-300`}
+                  data-testid={`testimonial-dot-${i}`}
+                  aria-label={`Slide ${i + 1}`}>
+                  <span className={`block rounded-full transition-all duration-300 ${i === active ? "bg-[#c9a84c] w-6 h-2" : "bg-white/40 hover:bg-white/60 w-2 h-2"}`} />
+                </button>
               ))}
             </div>
 

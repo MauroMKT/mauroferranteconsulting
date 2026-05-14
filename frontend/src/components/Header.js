@@ -153,15 +153,15 @@ export default function Header({ locale, setLocale }) {
 
         <div className="flex items-center gap-4">
           {/* Social icons - desktop */}
-          <div className="hidden lg:flex items-center gap-2">
-            <a href="https://www.linkedin.com/in/mauro-ferrante/" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#c9a84c] transition-colors" data-testid="header-linkedin">
-              <LinkedInIcon className="w-3.5 h-3.5" />
+          <div className="hidden lg:flex items-center gap-1">
+            <a href="https://www.linkedin.com/in/mauro-ferrante/" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-[#c9a84c] transition-colors p-2" data-testid="header-linkedin" aria-label="LinkedIn">
+              <LinkedInIcon className="w-4 h-4" />
             </a>
-            <a href="https://www.facebook.com/mfmarketingconsultant" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#c9a84c] transition-colors" data-testid="header-facebook">
-              <FacebookIcon className="w-3.5 h-3.5" />
+            <a href="https://www.facebook.com/mfmarketingconsultant" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-[#c9a84c] transition-colors p-2" data-testid="header-facebook" aria-label="Facebook">
+              <FacebookIcon className="w-4 h-4" />
             </a>
-            <a href="https://www.instagram.com/mauro_business_consulting/?hl=es" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#c9a84c] transition-colors" data-testid="header-instagram">
-              <InstagramIcon className="w-3.5 h-3.5" />
+            <a href="https://www.instagram.com/mauro_business_consulting/?hl=es" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-[#c9a84c] transition-colors p-2" data-testid="header-instagram" aria-label="Instagram">
+              <InstagramIcon className="w-4 h-4" />
             </a>
           </div>
 

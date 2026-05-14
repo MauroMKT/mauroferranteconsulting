@@ -82,31 +82,31 @@ export default function Footer({ locale }) {
 
             {/* Navigation */}
             <div>
-              <h4 className="text-white/60 text-xs font-medium tracking-[0.2em] uppercase mb-4">{t(locale, "footer_nav_title")}</h4>
+              <h3 className="text-white/80 text-xs font-medium tracking-[0.2em] uppercase mb-4">{t(locale, "footer_nav_title")}</h3>
               <ul className="space-y-3">
                 {navLinks.map((link) => (
-                  <li key={link.href}><button onClick={() => navigateTo(link.href)} className="text-white/30 hover:text-[#c9a84c] text-sm transition-colors">{t(locale, link.labelKey)}</button></li>
+                  <li key={link.href}><button onClick={() => navigateTo(link.href)} className="text-white/50 hover:text-[#c9a84c] text-sm transition-colors">{t(locale, link.labelKey)}</button></li>
                 ))}
-                <li><Link to="/case-studies" className="text-white/30 hover:text-[#c9a84c] text-sm transition-colors">{t(locale, "case_studies_menu")}</Link></li>
-                <li><Link to="/blog" className="text-white/30 hover:text-[#c9a84c] text-sm transition-colors">Blog</Link></li>
+                <li><Link to="/case-studies" className="text-white/50 hover:text-[#c9a84c] text-sm transition-colors">{t(locale, "case_studies_menu")}</Link></li>
+                <li><Link to="/blog" className="text-white/50 hover:text-[#c9a84c] text-sm transition-colors">Blog</Link></li>
               </ul>
             </div>
 
             {/* Services */}
             <div>
-              <h4 className="text-white/60 text-xs font-medium tracking-[0.2em] uppercase mb-4">{t(locale, "footer_services_title")}</h4>
+              <h3 className="text-white/80 text-xs font-medium tracking-[0.2em] uppercase mb-4">{t(locale, "footer_services_title")}</h3>
               <ul className="space-y-3">
                 {serviceLinks.map((link) => (
-                  <li key={link.labelKey}><button onClick={() => navigateTo("#services")} className="text-white/30 hover:text-[#c9a84c] text-sm transition-colors">{t(locale, link.labelKey)}</button></li>
+                  <li key={link.labelKey}><button onClick={() => navigateTo("#services")} className="text-white/50 hover:text-[#c9a84c] text-sm transition-colors">{t(locale, link.labelKey)}</button></li>
                 ))}
               </ul>
             </div>
 
             {/* Contacts */}
             <div>
-              <h4 className="text-white/60 text-xs font-medium tracking-[0.2em] uppercase mb-4">{t(locale, "footer_contact_title")}</h4>
+              <h3 className="text-white/80 text-xs font-medium tracking-[0.2em] uppercase mb-4">{t(locale, "footer_contact_title")}</h3>
               <ul className="space-y-3">
-                <li><a href="mailto:mauro@mauroferrante.com" className="text-white/30 hover:text-[#c9a84c] text-sm transition-colors flex items-center gap-2" data-testid="footer-email"><Mail className="w-3.5 h-3.5" />mauro@mauroferrante.com</a></li>
+                <li><a href="mailto:mauro@mauroferrante.com" className="text-white/50 hover:text-[#c9a84c] text-sm transition-colors flex items-center gap-2" data-testid="footer-email"><Mail className="w-3.5 h-3.5" />mauro@mauroferrante.com</a></li>
                 <li><a href="https://wa.me/393491177007" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#25D366] text-sm transition-colors flex items-center gap-2" data-testid="footer-wa-eu"><WhatsAppIconSvg className="w-3.5 h-3.5" />EUROPA & ASIA</a></li>
                 <li><a href="https://wa.me/51964243686" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#25D366] text-sm transition-colors flex items-center gap-2" data-testid="footer-wa-latam"><WhatsAppIconSvg className="w-3.5 h-3.5" />USA & LATAM</a></li>
               </ul>
@@ -118,11 +118,11 @@ export default function Footer({ locale }) {
       {/* Copyright */}
       <div className="border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <span className="text-white/15 text-[10px] tracking-wider">&copy; {year} Mauro Ferrante Consulting Studio. {t(locale, "footer_rights")}</span>
+          <span className="text-white/40 text-[10px] tracking-wider">&copy; {year} Mauro Ferrante Consulting Studio. {t(locale, "footer_rights")}</span>
           <div className="flex items-center gap-3">
-            <Link to="/privacy" className="text-white/15 hover:text-white/30 text-[10px] tracking-wider transition-colors" data-testid="footer-privacy-link">{t(locale, "footer_privacy")}</Link>
+            <Link to="/privacy" className="text-white/40 hover:text-white/60 text-[10px] tracking-wider transition-colors" data-testid="footer-privacy-link">{t(locale, "footer_privacy")}</Link>
             <span className="text-white/10">|</span>
-            <Link to="/impressum" className="text-white/15 hover:text-white/30 text-[10px] tracking-wider transition-colors" data-testid="footer-impressum-link">{t(locale, "footer_impressum")}</Link>
+            <Link to="/impressum" className="text-white/40 hover:text-white/60 text-[10px] tracking-wider transition-colors" data-testid="footer-impressum-link">{t(locale, "footer_impressum")}</Link>
           </div>
         </div>
       </div>
