@@ -1,7 +1,7 @@
 export const caseStudies = [
   // FEATURED: AZEQUO ENGINEERING - Brand Development & Marketing
   {
-    id: "cs-dm-11", service: "digital-marketing", year: "2019-2021", country: "Peru",
+    id: "cs-dm-11", service: "digital-marketing", year: "2024-2026", country: "Peru",
     logo: "/images/logo-azequo.png", logoBg: "#000000",
     titles: {
       en: "Brand Identity & Digital Marketing Strategy for Azequo Engineering",
