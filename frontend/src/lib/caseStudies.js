@@ -1,4 +1,108 @@
 export const caseStudies = [
+  // FEATURED: AZEQUO ENGINEERING - Brand Development & Marketing
+  {
+    id: "cs-dm-11", service: "digital-marketing", year: "2019-2021", country: "Peru",
+    logo: "/images/logo-azequo.png", logoBg: "#000000",
+    titles: {
+      en: "Brand Identity & Digital Marketing Strategy for Azequo Engineering",
+      it: "Identita di Brand & Strategia di Marketing Digitale per Azequo Engineering",
+      es: "Identidad de Marca & Estrategia de Marketing Digital para Azequo Engineering",
+      fr: "Identite de Marque & Strategie Marketing Digital pour Azequo Engineering",
+      de: "Markenidentitat & Digitale Marketingstrategie fur Azequo Engineering",
+    },
+    clients: { en: "Azequo Engineering S.A.C. — Lima, Peru", it: "Azequo Engineering S.A.C. — Lima, Peru" },
+    challenges: {
+      en: "Azequo Engineering is an industrial engineering firm in Peru specialising in quality management (ISO 9001, 14001, 45001), precision topographic surveys, logistics, and professional training for the mining sector. Despite strong technical expertise, the company had no recognisable brand identity, no website, and zero digital presence. In the Peruvian industrial market, credibility is built on perceived professionalism — and without a polished brand, Azequo was losing bids to competitors with better-looking proposals and online visibility, even when their technical offer was superior.",
+      it: "Azequo Engineering e un'azienda di ingegneria industriale in Peru specializzata in gestione qualita (ISO 9001, 14001, 45001), rilievi topografici di precisione, logistica e formazione professionale per il settore minerario. Nonostante una forte competenza tecnica, l'azienda non aveva un'identita di brand riconoscibile, nessun sito web e zero presenza digitale. Nel mercato industriale peruviano, la credibilita si costruisce sulla professionalita percepita — e senza un brand curato, Azequo perdeva gare d'appalto a favore di concorrenti con proposte piu presentabili e visibilita online, anche quando la loro offerta tecnica era superiore.",
+    },
+    solutions: {
+      en: "Complete Brand Identity: Designed the full brand system from scratch — logo, colour palette (industrial blue + safety orange), typography, business cards, proposal templates, PPE-branded materials, and vehicle livery. Every touchpoint was designed to communicate technical precision and reliability. Website & SEO: Built a bilingual (Spanish/English) website optimised for industrial B2B keywords like 'ISO certification Peru', 'topographic surveys mining', and 'industrial quality management Lima'. Implemented Google My Business with project photo galleries and client testimonials. Within 5 months, the site ranked on page 1 for 12 target keywords. LinkedIn B2B Strategy: Created a systematic LinkedIn content plan targeting mining company procurement managers and HSE directors. Published case studies showing measurable results from ISO implementations. The CEO's personal profile was repositioned as a thought leader in Peruvian industrial quality standards, growing from 200 to 3,800 connections in 8 months. Proposal Design System: Developed a standardised, professionally designed proposal template that visually communicated competence before a single word was read — increasing win rate on competitive bids.",
+      it: "Identita di Brand Completa: Progettato l'intero sistema di brand da zero — logo, palette colori (blu industriale + arancione sicurezza), tipografia, biglietti da visita, template per proposte, materiali brandizzati per DPI e livrea veicoli. Ogni punto di contatto progettato per comunicare precisione tecnica e affidabilita. Sito Web & SEO: Costruito un sito bilingue (spagnolo/inglese) ottimizzato per keyword B2B industriali come 'certificazione ISO Peru', 'rilievi topografici minerario', e 'gestione qualita industriale Lima'. Implementato Google My Business con gallerie foto progetti e testimonianze clienti. In 5 mesi, il sito posizionato in prima pagina per 12 keyword target. Strategia LinkedIn B2B: Creato un piano sistematico di contenuti LinkedIn targeting manager acquisti e direttori HSE di aziende minerarie. Pubblicati case study con risultati misurabili delle implementazioni ISO. Il profilo personale del CEO riposizionato come thought leader nella qualita industriale peruviana, crescendo da 200 a 3.800 connessioni in 8 mesi. Sistema Design Proposte: Sviluppato un template standardizzato e professionalmente progettato per le proposte commerciali che comunicava visivamente competenza prima ancora di leggere una parola — aumentando il win rate nelle gare competitive.",
+    },
+    results: {
+      en: "Brand recognition in the Lima industrial sector grew measurably — 3 unsolicited partnership requests within the first year of the rebrand. Website generated 28 qualified B2B inquiries in the first 6 months. Google ranking achieved page 1 for 12 industrial keywords. LinkedIn strategy produced 15 direct business opportunities from mining sector contacts. Proposal win rate increased from 22% to 41% after the design system implementation. The company secured 2 major mining contracts directly attributable to the improved brand perception and digital presence.",
+      it: "La riconoscibilita del brand nel settore industriale di Lima e cresciuta in modo misurabile — 3 richieste spontanee di partnership nel primo anno dal rebrand. Il sito web ha generato 28 richieste B2B qualificate nei primi 6 mesi. Posizionamento Google raggiunto in prima pagina per 12 keyword industriali. La strategia LinkedIn ha prodotto 15 opportunita di business dirette da contatti nel settore minerario. Il win rate delle proposte e aumentato dal 22% al 41% dopo l'implementazione del sistema di design. L'azienda ha ottenuto 2 importanti contratti minerari direttamente attribuibili alla migliorata percezione del brand e presenza digitale.",
+    },
+    tags: ["Brand Identity", "B2B Marketing", "Industrial SEO", "LinkedIn Strategy", "Proposal Design"],
+  },
+  // EISHO 360
+  {
+    id: "cs-dm-08", service: "digital-marketing", year: "2016-2019", country: "Spagna",
+    logo: "/images/logo-eisho360.jpg", logoBg: "#ffffff",
+    titles: {
+      en: "Inbound Marketing & Brand Authority for Eisho 360 Consulting",
+      it: "Inbound Marketing & Autorita di Brand per Eisho 360 Consulting",
+      es: "Inbound Marketing & Autoridad de Marca para Eisho 360 Consulting",
+      fr: "Inbound Marketing & Autorite de Marque pour Eisho 360 Consulting",
+      de: "Inbound Marketing & Markenautoritat fur Eisho 360 Consulting",
+    },
+    clients: { en: "Eisho 360 Consulting & Management — Valencia, Spain", it: "Eisho 360 Consulting & Management — Valencia, Spagna" },
+    challenges: {
+      en: "Eisho 360 is a consulting firm in Valencia specialising in supporting foreign investors entering the Spanish market. The primary challenge was establishing perceived authority (Trust) in a complex market where foreign investors are naturally cautious and competition from established local players is fierce. The firm had minimal online presence and no structured lead generation system.",
+      it: "Eisho 360 e una societa di consulenza a Valencia specializzata nel supporto agli investitori esteri. La sfida principale era costruire un'autorita percepita (Trust) in un mercato complesso dove gli investitori esteri sono naturalmente cauti e la concorrenza dei player locali e feroce. L'azienda aveva una presenza online minima e nessun sistema strutturato di lead generation.",
+    },
+    solutions: {
+      en: "Inbound Marketing & Lead Magnet: Created a 28-page White Paper on fiscal and real estate opportunities in the Comunidad Valenciana. Deployed LinkedIn Ads with surgical targeting on C-Level investors in Italy, Germany, UK and Scandinavia — achieving a 3.2% CTR (vs. 0.8% industry average). Personal Branding: Positioned the CEO as a thought leader through SEO-friendly blog content on 'Real Estate Law in Spain', 'Golden Visa Updates', and 'Market Analysis Valencia'. Within 4 months, 6 articles ranked on Google page 1. Brand Development: Built a cohesive visual identity that communicated trust, expertise and international credibility across all touchpoints.",
+      it: "Inbound Marketing & Lead Magnet: Creato un White Paper di 28 pagine sulle opportunita fiscali e immobiliari nella Comunita Valenciana. Lanciate campagne LinkedIn Ads con targeting chirurgico su profili C-Level e investitori in Italia, Germania, UK e Scandinavia — raggiungendo un CTR del 3.2% (vs. 0.8% media di settore). Personal Branding: Posizionamento del CEO come figura autorevole attraverso contenuti SEO-friendly su 'Diritto Immobiliare in Spagna', 'Aggiornamenti Golden Visa' e 'Analisi di Mercato Valencia'. In 4 mesi, 6 articoli in prima pagina Google. Sviluppo Brand: Costruita un'identita visiva coerente che comunicasse fiducia, competenza e credibilita internazionale su tutti i touchpoint.",
+    },
+    results: {
+      en: "Client acquisition cycle reduced by 30%. White Paper: 187 qualified downloads in 3 months, 12% conversion rate. LinkedIn: 34 qualified leads at €18.50/lead (vs. €45+ benchmark). Blog organic traffic: 120 to 2,400 monthly visits. Brand perception among target investors improved measurably — 3 inbound partnership requests within the first year.",
+      it: "Ciclo acquisizione clienti ridotto del 30%. White Paper: 187 download qualificati in 3 mesi, 12% tasso di conversione. LinkedIn: 34 lead qualificati a €18.50/lead (vs. €45+ benchmark). Traffico organico blog: da 120 a 2.400 visite mensili. Percezione del brand tra gli investitori target migliorata in modo misurabile — 3 richieste spontanee di partnership nel primo anno.",
+    },
+    tags: ["Inbound Marketing", "Personal Branding", "LinkedIn Ads", "Brand Development"],
+  },
+  // AILATI
+  {
+    id: "cs-dm-09", service: "digital-marketing", year: "2013-2015", country: "Spagna",
+    logo: "/images/logo-ailati.jpg", logoBg: "#ffffff",
+    titles: {
+      en: "Brand Positioning & Local Marketing for Ailati Restaurante Italiano",
+      it: "Posizionamento Brand & Local Marketing per Ailati Restaurante Italiano",
+      es: "Posicionamiento de Marca & Marketing Local para Ailati Restaurante Italiano",
+      fr: "Positionnement de Marque & Marketing Local pour Ailati Restaurante Italiano",
+      de: "Markenpositionierung & Lokales Marketing fur Ailati Restaurante Italiano",
+    },
+    clients: { en: "Ailati Restaurante Italiano — Zona Mestalla, Valencia, Spain", it: "Ailati Restaurante Italiano — Zona Mestalla, Valencia, Spagna" },
+    challenges: {
+      en: "Traditional Italian restaurant near Mestalla stadium needing to manage three different customer segments (business lunches, evening dinners, Match Day surges) while building a distinctive brand identity that stood out from industrial chain restaurants.",
+      it: "Ristorante italiano tradizionale vicino allo stadio Mestalla che doveva gestire tre segmenti di clientela diversi (pranzi aziendali, cene serali, ondate Match Day) costruendo un'identita di brand distintiva rispetto alle catene industriali.",
+    },
+    solutions: {
+      en: "Brand & Menu Redesign: Complete menu revision with sensory copywriting evoking Italian tradition ('La pasta come la faceva la nonna') to differentiate from chain competitors, emphasising authentic identity. Marketing & Geolocation: Hyper-geolocated Meta Ads (500m radius) promoting 'Menu Executive' for office workers and 'Match Day' pre-game offers for fans. Brand Experience: Implemented QR feedback at every table (ISO 10002 inspired) and built a consistent visual identity across all channels.",
+      it: "Brand & Menu Redesign: Revisione completa del menu con copywriting sensoriale che evoca la tradizione italiana ('La pasta come la faceva la nonna') per differenziarsi dalle catene, enfatizzando l'identita autentica. Marketing & Geolocalizzazione: Meta Ads iper-geolocalizzate (raggio 500m) con 'Menu Executive' per i lavoratori e offerte 'Match Day' pre-partita per i tifosi. Brand Experience: Implementato feedback QR al tavolo (ispirato ISO 10002) e costruita un'identita visiva coerente su tutti i canali.",
+    },
+    results: {
+      en: "Midweek revenue +22% in 2 months. Match Day occupancy: 100% (from ~70%). Google Maps: 4.1 to 4.5 stars. Social media: +180% followers in 4 months. QR system: 340+ reviews in 3 months. Wait times on match days: 18 to 11 minutes.",
+      it: "Fatturato infrasettimanale +22% in 2 mesi. Occupazione Match Day: 100% (da ~70%). Google Maps: da 4.1 a 4.5 stelle. Social media: +180% follower in 4 mesi. Sistema QR: 340+ recensioni in 3 mesi. Tempi attesa Match Day: da 18 a 11 minuti.",
+    },
+    tags: ["Brand Positioning", "Local Marketing", "Geolocation Ads", "Copywriting", "Hospitality"],
+  },
+  // FREEPUB
+  {
+    id: "cs-dm-10", service: "digital-marketing", year: "2015-2016", country: "Spagna",
+    logo: "/images/logo-freepub.jpg", logoBg: "#000000",
+    titles: {
+      en: "Complete Rebranding & Market Repositioning for FreePub",
+      it: "Rebranding Completo & Riposizionamento di Mercato per FreePub",
+      es: "Rebranding Completo & Reposicionamiento de Mercado para FreePub",
+      fr: "Rebranding Complet & Repositionnement de Marche pour FreePub",
+      de: "Komplettes Rebranding & Marktrepositionierung fur FreePub",
+    },
+    clients: { en: "FreePub — University District, Valencia, Spain", it: "FreePub — Zona Universitaria, Valencia, Spagna" },
+    challenges: {
+      en: "Critical identity transition from a Latino Pub (mass-market, low prices) to a 'Chic Cocktail Bar' (premium quality, curated experience). The existing brand was associated with cheap drinks, making it impossible to attract higher-spending clientele.",
+      it: "Transizione d'identita critica da Pub Latino (mass-market, prezzi bassi) a 'Chic Cocktail Bar' (qualita premium, esperienza curata). Il brand esistente era associato a drink economici, rendendo impossibile attrarre clientela con maggiore capacita di spesa.",
+    },
+    solutions: {
+      en: "Visual Identity Transformation: Complete rebranding — new logo, interior design, menu design, staff uniforms. Social Media Repositioning: Instagram/TikTok strategy shifted from 'cheap drinks' to cinematic Mixology content. Each post treated as a short film, building aspiration not price appeal. Emotional Marketing: Themed evenings with Guest Bartenders communicated through micro-influencer collaborations (3K-15K followers) in the 'Lifestyle/Chic' segment, creating exclusivity and FOMO.",
+      it: "Trasformazione Identita Visiva: Rebranding totale — nuovo logo, interior design, design menu, uniformi staff. Riposizionamento Social Media: Strategia Instagram/TikTok spostata da 'drink economici' a contenuti cinematografici di Mixology. Ogni post come un cortometraggio, costruendo aspirazione. Marketing Emozionale: Serate a tema con Guest Bartender comunicate attraverso collaborazioni con micro-influencer locali (3K-15K follower) nel segmento 'Lifestyle/Chic', creando esclusivita e FOMO.",
+    },
+    results: {
+      en: "Revenue per customer +52% in 4 months (€8.40 to €12.80). Cocktail cost ratio: 38% to 26%. Instagram: 800 to 4,200 followers, 6.8% engagement. Weekend clients: 90% 'volume' shifted to 75% 'premium'. Waste reduced 35%. Featured in 2 lifestyle magazines and 1 national cocktail blog.",
+      it: "Fatturato per cliente +52% in 4 mesi (€8.40 a €12.80). Rapporto costo cocktail: dal 38% al 26%. Instagram: da 800 a 4.200 follower, engagement 6.8%. Clienti weekend: dal 90% 'volume' al 75% 'premium'. Sprechi ridotti 35%. Presentato in 2 riviste lifestyle e 1 blog nazionale cocktail.",
+    },
+    tags: ["Rebranding", "Brand Repositioning", "Social Media", "Mixology", "Micro-Influencer"],
+  },
   // PROJECT MANAGEMENT
   {
     id: "cs-pm-01", service: "project-management", year: 2023, country: "Italia",
@@ -362,80 +466,5 @@ export const caseStudies = [
     },
     tags: ["Website Launch", "SEO", "Professional Services", "Google Ads"],
   },
-  // NEW CASE STUDIES - Valencia
-  {
-    id: "cs-dm-08", service: "digital-marketing", year: "2016-2019", country: "Spagna",
-    logo: "/images/logo-eisho360.jpg", logoBg: "#ffffff",
-    titles: {
-      en: "International Investment Authority Building for Eisho 360 Consulting",
-      it: "Costruzione di Autorità per Investimenti Internazionali — Eisho 360 Consulting",
-      es: "Construcción de Autoridad para Inversiones Internacionales — Eisho 360 Consulting",
-      fr: "Construction d'Autorité pour Investissements Internationaux — Eisho 360 Consulting",
-      de: "Aufbau von Investoren-Autorität — Eisho 360 Consulting"
-    },
-    clients: { en: "Eisho 360 Consulting & Management — Valencia, Spain", it: "Eisho 360 Consulting & Management — Valencia, Spagna" },
-    challenges: {
-      en: "Eisho 360 is a consulting firm in Valencia specialising in supporting foreign investors entering the Spanish market — particularly in real estate, fiscal planning and business relocation. The primary challenge was establishing perceived authority (Trust) in a market where foreign investors are naturally cautious, the regulatory environment is complex, and competition from established local players is fierce. The firm had minimal online presence and no structured lead generation system, resulting in heavy reliance on personal referrals with an unpredictable sales pipeline.",
-      it: "Eisho 360 è una società di consulenza a Valencia specializzata nel supporto agli investitori esteri che entrano nel mercato spagnolo — in particolare nel real estate, pianificazione fiscale e ricollocazione aziendale. La sfida principale era costruire un'autorità percepita (Trust) in un mercato dove gli investitori esteri sono naturalmente cauti, l'ambiente regolatorio è complesso e la concorrenza dei player locali consolidati è feroce. L'azienda aveva una presenza online minima e nessun sistema strutturato di lead generation, con una forte dipendenza dai referral personali e una pipeline di vendita imprevedibile."
-    },
-    solutions: {
-      en: "Inbound Marketing & Lead Magnet: Created a comprehensive 28-page White Paper on fiscal opportunities and real estate investment in the Comunidad Valenciana, offered as a gated download. Deployed LinkedIn Ads campaigns with surgical targeting on C-Level profiles and investors in Italy, Germany, UK and Scandinavia — achieving a 3.2% CTR (vs. industry average of 0.8%). Personal Branding: Positioned the CEO as a thought leader through a systematic SEO-friendly content strategy on the company blog, publishing bi-weekly articles on 'Real Estate Law in Spain', 'Golden Visa Updates', and 'Market Analysis Valencia'. Within 4 months, 6 articles ranked on Google page 1 for long-tail keywords. Agile Methodology: Implemented a Kanban board (Trello) to track every phase of the client investment journey — from initial inquiry and asset research through due diligence, legal review, and notarial closing — guaranteeing total transparency and real-time progress updates for each investor.",
-      it: "Inbound Marketing & Lead Magnet: Creato un White Paper tecnico di 28 pagine sulle opportunità fiscali e immobiliari nella Comunità Valenciana, offerto come download con registrazione. Lanciate campagne LinkedIn Ads con targeting chirurgico su profili C-Level e investitori in Italia, Germania, UK e Scandinavia — raggiungendo un CTR del 3.2% (vs. media di settore dello 0.8%). Personal Branding: Posizionamento del CEO come figura autorevole attraverso una strategia sistematica di contenuti SEO-friendly sul blog aziendale, con pubblicazione bisettimanale di articoli su 'Diritto Immobiliare in Spagna', 'Aggiornamenti Golden Visa' e 'Analisi di Mercato Valencia'. In 4 mesi, 6 articoli posizionati in prima pagina Google per keyword long-tail. Metodologia Agile: Implementazione di un Kanban board (Trello) per tracciare ogni fase del percorso di investimento del cliente — dalla richiesta iniziale alla ricerca dell'asset, passando per due diligence, revisione legale e chiusura notarile — garantendo trasparenza totale e aggiornamenti in tempo reale per ogni investitore."
-    },
-    results: {
-      en: "Client acquisition cycle reduced by 30% thanks to an automated pre-sale education funnel. The White Paper generated 187 qualified downloads in 3 months with a 12% conversion to consultation request. LinkedIn campaigns produced 34 qualified leads at a cost of €18.50 per lead (vs. industry benchmark of €45+). Blog organic traffic grew from 120 to 2,400 monthly visits. The Kanban system reduced internal miscommunication by 65% and client complaints about 'lack of updates' dropped to near zero.",
-      it: "Ciclo di acquisizione clienti ridotto del 30% grazie a un funnel di educazione pre-vendita automatizzato. Il White Paper ha generato 187 download qualificati in 3 mesi con un tasso di conversione del 12% in richiesta di consulenza. Le campagne LinkedIn hanno prodotto 34 lead qualificati a un costo di €18.50 per lead (vs. benchmark di settore di €45+). Il traffico organico del blog è cresciuto da 120 a 2.400 visite mensili. Il sistema Kanban ha ridotto la miscommunicazione interna del 65% e i reclami dei clienti per 'mancanza di aggiornamenti' sono scesi quasi a zero."
-    },
-    tags: ["Inbound Marketing", "LinkedIn Ads", "Personal Branding", "Kanban", "Foreign Investment"],
-  },
-  {
-    id: "cs-dm-09", service: "digital-marketing", year: "2013-2015", country: "Spagna",
-    logo: "/images/logo-ailati.jpg", logoBg: "#ffffff",
-    titles: {
-      en: "Local Marketing & Customer Experience for Ailati Restaurante Italiano",
-      it: "Local Marketing & Customer Experience per Ailati Restaurante Italiano",
-      es: "Marketing Local & Experiencia del Cliente para Ailati Restaurante Italiano",
-      fr: "Marketing Local & Expérience Client pour Ailati Restaurante Italiano",
-      de: "Lokales Marketing & Kundenerlebnis für Ailati Restaurante Italiano"
-    },
-    clients: { en: "Ailati Restaurante Italiano — Zona Mestalla, Valencia, Spain", it: "Ailati Restaurante Italiano — Zona Mestalla, Valencia, Spagna" },
-    challenges: {
-      en: "Ailati is a traditional Italian restaurant located in a mixed office-residential area near Valencia's Mestalla stadium. The restaurant needed to manage three fundamentally different customer flows: quick weekday business lunches, intimate evening dinners, and the chaotic Match Day surges when thousands of fans flood the area. Each segment required a different approach to marketing, service speed, and menu positioning. Online visibility was limited, with no structured review management and inconsistent social media presence.",
-      it: "Ailati è un ristorante italiano tradizionale situato in una zona mista uffici-residenziale vicino allo stadio Mestalla di Valencia. Il ristorante doveva gestire tre flussi di clientela fondamentalmente diversi: il pranzo rapido aziendale infrasettimanale, la cena intima serale e le ondate caotiche del Match Day quando migliaia di tifosi invadono la zona. Ogni segmento richiedeva un approccio diverso al marketing, alla velocità del servizio e al posizionamento del menu. La visibilità online era limitata, senza gestione strutturata delle recensioni e una presenza social media incoerente."
-    },
-    solutions: {
-      en: "Magnetic Marketing & Geolocation: Launched hyper-geolocated Meta Ads campaigns (500m radius) active from 11:00 to 13:00 promoting the 'Menu Executive' (€12.90 starter + main + water) targeting office workers, and separate 'Match Day' campaigns for fans with pre-game combo offers activated 48 hours before each home match. Customer Satisfaction System (ISO 10002 inspired): Implemented an immediate feedback system via QR codes at each table, collecting structured data on food quality, service speed, and atmosphere. This data was analysed weekly to optimise operations — particularly service workflow during match days, reducing average wait times by 25%. Persuasive Copywriting: Complete menu revision with sensory, emotion-driven descriptions evoking Italian tradition ('La pasta come la faceva la nonna' / 'Pasta like grandmother used to make') to differentiate from industrial chain restaurants, emphasising authentic Italian identity and artisanal preparation.",
-      it: "Marketing Magnetico & Geolocalizzazione: Lanciate campagne Meta Ads iper-geolocalizzate (raggio 500m) attive dalle 11:00 alle 13:00 con il 'Menu Executive' (€12.90 primo + secondo + acqua) per i lavoratori, e campagne separate 'Match Day' per i tifosi con offerte pre-partita attivate 48 ore prima di ogni partita casalinga. Sistema di Customer Satisfaction (ispirato ISO 10002): Implementato un sistema di feedback immediato tramite QR Code al tavolo, raccogliendo dati strutturati su qualità del cibo, velocità del servizio e atmosfera. Dati analizzati settimanalmente per ottimizzare le operazioni — in particolare il workflow di servizio durante i giorni di partita, riducendo i tempi di attesa medi del 25%. Copywriting Persuasivo: Revisione completa del menu con descrizioni sensoriali che evocano la tradizione italiana ('La pasta come la faceva la nonna') per differenziarsi dalle catene di ristorazione industriale, enfatizzando l'identità italiana autentica e la preparazione artigianale."
-    },
-    results: {
-      en: "Midweek revenue increased by 22% within the first 2 months thanks to the Executive Menu campaign. Match Day seat occupancy reached 100% (previously ~70%) with pre-booking rate of 45%. QR feedback system collected 340+ reviews in 3 months with an average rating of 4.6/5. Wait times on match days reduced from 18 minutes to 11 minutes average. Google Maps rating improved from 4.1 to 4.5 stars. Social media following grew 180% in 4 months through food photography and behind-the-scenes content.",
-      it: "Fatturato infrasettimanale aumentato del 22% nei primi 2 mesi grazie alla campagna Menu Executive. Occupazione posti nei Match Day raggiunta al 100% (prima ~70%) con tasso di prenotazione anticipata del 45%. Il sistema di feedback QR ha raccolto 340+ recensioni in 3 mesi con valutazione media di 4.6/5. Tempi di attesa nei giorni di partita ridotti da 18 a 11 minuti in media. Valutazione Google Maps migliorata da 4.1 a 4.5 stelle. Follower social media cresciuti del 180% in 4 mesi."
-    },
-    tags: ["Local Marketing", "Geolocation Ads", "Hospitality", "Customer Satisfaction", "QR Feedback"],
-  },
-  {
-    id: "cs-dm-10", service: "digital-marketing", year: "2015-2016", country: "Spagna",
-    logo: "/images/logo-freepub.jpg", logoBg: "#000000",
-    titles: {
-      en: "Complete Rebranding & Repositioning for FreePub Cocktail Bar",
-      it: "Rebranding Completo & Riposizionamento per FreePub Cocktail Bar",
-      es: "Rebranding Completo & Reposicionamiento para FreePub Cocktail Bar",
-      fr: "Rebranding Complet & Repositionnement pour FreePub Cocktail Bar",
-      de: "Komplettes Rebranding & Repositionierung für FreePub Cocktail Bar"
-    },
-    clients: { en: "FreePub — University District, Valencia, Spain", it: "FreePub — Zona Universitaria, Valencia, Spagna" },
-    challenges: {
-      en: "FreePub faced a critical identity transition: from a Latino Pub (mass-market target, low prices, high volume) to a 'Chic Cocktail Bar' (selective target, premium quality, curated experience). This is one of the most difficult pivots in hospitality — changing clientele while maintaining revenue during the transition. The existing brand was associated with cheap drinks and loud music, making it nearly impossible to attract the higher-spending demographic they wanted. Staff were trained for volume service, not craft cocktail preparation.",
-      it: "FreePub affrontava una transizione di identità critica: da Pub Latino (target di massa, prezzi bassi, alto volume) a 'Chic Cocktail Bar' (target selezionato, qualità premium, esperienza curata). Questo è uno dei pivot più difficili nell'hospitality — cambiare clientela mantenendo il fatturato durante la transizione. Il brand esistente era associato a drink economici e musica alta, rendendo quasi impossibile attrarre la demografica con maggiore capacità di spesa. Lo staff era formato per il servizio a volume, non per la preparazione di cocktail artigianali."
-    },
-    solutions: {
-      en: "Visual Identity Transformation: Complete rebranding of the coordinated image — new logo, interior design consultation, menu design, and staff uniforms. Instagram and TikTok strategy shifted from promoting 'cheap drinks' to showcasing the craft cocktail creation process (Mixology) with cinematic aesthetics. Each post was treated as a short film, building aspiration rather than price appeal. Emotional Marketing: Created themed evenings with Guest Bartenders and curated music selections, communicated exclusively through niche channels and collaborations with local micro-influencers in the 'Lifestyle/Chic' segment (3K-15K followers). This created a sense of exclusivity and FOMO that the mass-market approach never could. Lean Project Management: Optimised warehouse and bar line operations to reduce waste of expensive raw materials (fresh fruit, premium spirits, artisanal garnishes). Implemented a par-stock system and cocktail cost cards for every recipe, increasing the net margin per individual drink while maintaining perceived value.",
-      it: "Trasformazione dell'Identità Visiva: Rebranding totale dell'immagine coordinata — nuovo logo, consulenza interior design, design del menu e uniformi staff. Strategia Instagram e TikTok spostata dalla promozione di 'drink economici' alla dimostrazione del processo di creazione dei cocktail (Mixology) con un'estetica cinematografica. Ogni post trattato come un cortometraggio, costruendo aspirazione invece che appeal sul prezzo. Marketing Emozionale: Create serate a tema con Guest Bartender e selezione musicale curata, comunicate esclusivamente attraverso canali di nicchia e collaborazioni con micro-influencer locali del segmento 'Lifestyle/Chic' (3K-15K follower). Questo ha creato un senso di esclusività e FOMO che l'approccio mass-market non avrebbe mai potuto generare. Lean Project Management: Ottimizzazione del magazzino e della linea del bar per ridurre gli sprechi di materie prime costose (frutta fresca, spirits premium, guarnizioni artigianali). Implementato un sistema par-stock e schede costo cocktail per ogni ricetta, aumentando il margine netto per singola consumazione mantenendo il valore percepito."
-    },
-    results: {
-      en: "Average revenue per customer increased by 52% within 4 months (from €8.40 to €12.80 per visit). Cocktail cost-to-price ratio improved from 38% to 26% through waste reduction and recipe optimisation. Instagram grew from 800 to 4,200 followers with an average engagement rate of 6.8% (vs. industry average of 1.5%). Weekend occupancy shifted from 90% 'volume' clients to 75% 'premium' clients. Raw material waste reduced by 35% through the par-stock system. The venue was featured in 2 local lifestyle magazines and 1 national cocktail blog within 6 months of the rebrand.",
-      it: "Fatturato medio per cliente aumentato del 52% in 4 mesi (da €8.40 a €12.80 per visita). Rapporto costo-prezzo cocktail migliorato dal 38% al 26% grazie alla riduzione degli sprechi e ottimizzazione delle ricette. Instagram cresciuto da 800 a 4.200 follower con tasso di engagement medio del 6.8% (vs. media di settore dell'1.5%). Occupazione del weekend spostata dal 90% clienti 'volume' al 75% clienti 'premium'. Sprechi di materie prime ridotti del 35% con il sistema par-stock. Il locale è stato presentato in 2 riviste lifestyle locali e 1 blog nazionale di cocktail entro 6 mesi dal rebrand."
-    },
-    tags: ["Rebranding", "Mixology", "Social Media", "Lean Management", "Micro-Influencer"],
-  },
 ];
+
