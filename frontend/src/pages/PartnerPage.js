@@ -48,7 +48,7 @@ const partnersData = {
   "one-development": {
     name: "ONE Development",
     fullName: "ONE Development — Batumi, Georgia",
-    logo: "/images/logo-one-development.jpg",
+    logo: "/images/logo-one-development.webp",
     logoBg: "#ffffff",
     heroImage: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1400&q=85&fit=crop",
     website: "https://onedev.ge",

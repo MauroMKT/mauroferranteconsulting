@@ -28,7 +28,7 @@ export const caseStudies = [
   // EISHO 360
   {
     id: "cs-dm-08", service: "digital-marketing", year: "2016-2019", country: "Spagna",
-    logo: "/images/logo-eisho360.jpg", logoBg: "#ffffff",
+    logo: "/images/logo-eisho360.webp", logoBg: "#ffffff",
     titles: {
       en: "Inbound Marketing & Brand Authority for Eisho 360 Consulting",
       it: "Inbound Marketing & Autorita di Brand per Eisho 360 Consulting",
@@ -54,7 +54,7 @@ export const caseStudies = [
   // AILATI
   {
     id: "cs-dm-09", service: "digital-marketing", year: "2013-2015", country: "Spagna",
-    logo: "/images/logo-ailati.jpg", logoBg: "#ffffff",
+    logo: "/images/logo-ailati.webp", logoBg: "#ffffff",
     titles: {
       en: "Brand Positioning & Local Marketing for Ailati Restaurante Italiano",
       it: "Posizionamento Brand & Local Marketing per Ailati Restaurante Italiano",
@@ -80,7 +80,7 @@ export const caseStudies = [
   // FREEPUB
   {
     id: "cs-dm-10", service: "digital-marketing", year: "2015-2016", country: "Spagna",
-    logo: "/images/logo-freepub.jpg", logoBg: "#000000",
+    logo: "/images/logo-freepub.webp", logoBg: "#000000",
     titles: {
       en: "Complete Rebranding & Market Repositioning for FreePub",
       it: "Rebranding Completo & Riposizionamento di Mercato per FreePub",

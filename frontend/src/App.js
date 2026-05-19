@@ -7,7 +7,6 @@ import Services from "@/components/Services";
 import StatsStrip from "@/components/StatsStrip";
 import About from "@/components/About";
 import MethodTimeline from "@/components/MethodTimeline";
-import WorldMap from "@/components/WorldMap";
 import Reviews from "@/components/Reviews";
 import Clients from "@/components/Clients";
 import Insights from "@/components/Insights";
@@ -20,11 +19,13 @@ import CaseStudiesPreview from "@/components/CaseStudiesPreview";
 import CookieBanner from "@/components/CookieBanner";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import NotificationBell from "@/components/NotificationBell";
+import MobileStickyBar from "@/components/MobileStickyBar";
 import SEO from "@/components/SEO";
 import VideoTestimonials from "@/components/VideoTestimonials";
 import { trackPageView } from "@/lib/tracker";
 
 const ServiceDetailPage = lazy(() => import("@/pages/ServiceDetailPage"));
+const LazyWorldMap = lazy(() => import("@/components/WorldMap"));
 const BiographyPage = lazy(() => import("@/pages/BiographyPage"));
 const PartnerPage = lazy(() => import("@/pages/PartnerPage"));
 const CaseStudiesPage = lazy(() => import("@/pages/CaseStudiesPage"));
@@ -67,7 +68,7 @@ function HomePage({ locale, setLocale }) {
         <StatsStrip locale={locale} />
         <About locale={locale} />
         <MethodTimeline locale={locale} />
-        <WorldMap locale={locale} />
+        <Suspense fallback={<div className="h-[600px] bg-[#080808]" />}><LazyWorldMap locale={locale} /></Suspense>
         <CaseStudiesPreview locale={locale} />
         <VideoTestimonials locale={locale} />
         <Clients locale={locale} />
@@ -112,8 +113,9 @@ function App() {
           <Route path="/admin/analytics" element={<AdminDashboard />} />
         </Routes>
       </Suspense>
-      <WhatsAppWidget />
+      <WhatsAppWidget locale={locale} />
       <BackToTop />
+      <MobileStickyBar locale={locale} />
       <CookieBanner locale={locale} />
       <ExitIntentPopup locale={locale} />
       <NotificationBell locale={locale} />

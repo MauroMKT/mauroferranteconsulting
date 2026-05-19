@@ -13,7 +13,7 @@ const clients = [
   },
   {
     name: "ONE Development", fullName: "ONE Development — Batumi, Georgia",
-    logo: "/images/logo-one-development.jpg",
+    logo: "/images/logo-one-development.webp",
     bg: "#ffffff", slug: "one-development",
     taglineIt: "Real estate lifestyle a Batumi", taglineEn: "Lifestyle real estate in Batumi",
     taglineEs: "Real estate lifestyle en Batumi", taglineFr: "Immobilier lifestyle à Batoumi", taglineDe: "Lifestyle-Immobilien in Batumi",
